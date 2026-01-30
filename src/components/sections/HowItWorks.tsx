@@ -25,7 +25,7 @@ const HowItWorks: React.FC = () => {
 
                     {steps.map((step, index) => (
                         <div key={index} className="relative flex flex-col items-center text-center bg-white p-6">
-                            <div className="w-16 h-16 rounded-full bg-white border-4 border-gray-100 text-primary font-bold text-2xl flex items-center justify-center mb-6 shadow-sm z-10">
+                            <div className="w-16 h-16 rounded-full bg-white border-4 border-secondary text-secondary font-bold text-2xl flex items-center justify-center mb-6 shadow-sm z-10">
                                 {step.number}
                             </div>
                             <h3 className="text-xl font-bold mb-3 text-neutral-dark">{step.title}</h3>

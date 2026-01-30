@@ -11,7 +11,7 @@ interface AccordionItemProps {
 
 const AccordionItem: React.FC<AccordionItemProps> = ({ title, children, isOpen, onClick }) => {
     return (
-        <div className="border border-gray-200 rounded-lg overflow-hidden mb-4 bg-white transition-shadow hover:shadow-sm">
+        <div className="border border-secondary rounded-lg overflow-hidden mb-4 bg-white transition-shadow hover:shadow-sm">
             <button
                 className="w-full flex justify-between items-center p-5 text-left bg-white focus:outline-none"
                 onClick={onClick}

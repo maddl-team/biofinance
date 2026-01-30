@@ -8,6 +8,7 @@ export default {
       colors: {
         primary: "var(--color-primary)",
         secondary: "var(--color-secondary)",
+        'secondary-light': "var(--color-secondary-light)",
         accent: "var(--color-accent)",
         neutral: {
           bg: "var(--color-neutral-bg)",
@@ -16,7 +17,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        '7xl': '1480px',
       }
     },
   },

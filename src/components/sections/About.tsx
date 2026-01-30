@@ -1,5 +1,5 @@
 import React from 'react';
-import { BadgeCheck } from 'lucide-react';
+import { BadgeCheck, ArrowRight } from 'lucide-react';
 
 const About: React.FC = () => {
     return (
@@ -47,6 +47,16 @@ const About: React.FC = () => {
                                     e al RUI IVASS come intermediario assicurativo.
                                 </p>
                             </div>
+                        </div>
+
+                        <div className="mt-10">
+                            <a
+                                href="#chi-siamo"
+                                className="inline-flex items-center justify-center bg-secondary hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                            >
+                                Scopri di più
+                                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                            </a>
                         </div>
                     </div>
 

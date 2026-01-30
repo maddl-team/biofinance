@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+        <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-secondary">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
                         </a>
                         <a
                             href="#contatti"
-                            className="bg-accent hover:bg-amber-600 text-white px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                            className="bg-accent hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
                             Richiedi consulenza
                         </a>
@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="md:hidden bg-white border-b border-gray-100 pb-4 shadow-xl absolute w-full left-0 top-20">
+                <div className="md:hidden bg-white border-b border-secondary pb-4 shadow-xl absolute w-full left-0 top-20">
                     <div className="px-4 pt-2 pb-3 space-y-2">
                         <a
                             href="#servizi"

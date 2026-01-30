@@ -2,9 +2,23 @@ import React from 'react';
 import { ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
+    const polygon = 'polygon(100% 100%, 0% 100%, 0% 6.371%, 0% 4.064%, 0% 4.064%, 0.009% 4.048%, 0.037% 3.998%, 0.087% 3.913%, 0.165% 3.794%, 0.273% 3.639%, 0.414% 3.448%, 0.593% 3.219%, 0.813% 2.954%, 1.077% 2.65%, 1.389% 2.307%, 1.761% 1.952%, 2.203% 1.614%, 2.711% 1.297%, 3.282% 1.005%, 3.915% 0.742%, 4.606% 0.512%, 5.353% 0.319%, 6.153% 0.167%, 7.004% 0.059%, 7.903% 0.001%, 11.229% 0.331%, 18.662% 1.283%, 29.153% 2.704%, 41.65% 4.438%, 55.105% 6.33%, 68.468% 8.225%, 80.688% 9.968%, 90.717% 11.405%, 97.504% 12.381%, 100% 12.741%, 100% 100%)';
+
     return (
-        <footer className="bg-primary text-white pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <footer
+            className="relative bg-primary text-white pt-32 pb-8 overflow-hidden"
+            style={{ clipPath: polygon }}
+        >
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0" style={{ opacity: 0.03 }}>
+                <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000"
+                    alt="Biofinance Background"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-primary/40"></div>
+            </div>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
                     {/* Brand & Info */}
@@ -21,7 +35,7 @@ const Footer: React.FC = () => {
 
                     {/* Links */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-accent">Navigazione</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-white">Navigazione</h3>
                         <ul className="space-y-3 text-gray-300 text-sm">
                             <li><a href="#servizi" className="hover:text-white transition-colors">Cessione del Quinto</a></li>
                             <li><a href="#servizi" className="hover:text-white transition-colors">Prestiti Personali</a></li>
@@ -32,7 +46,7 @@ const Footer: React.FC = () => {
 
                     {/* Contatti */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-accent">Contatti</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-white">Contatti</h3>
                         <ul className="space-y-4 text-gray-300 text-sm">
                             <li className="flex items-start">
                                 <MapPin className="w-5 h-5 mr-3 text-accent shrink-0" />
@@ -51,7 +65,7 @@ const Footer: React.FC = () => {
 
                     {/* Legal / Trust */}
                     <div>
-                        <h3 className="text-lg font-semibold mb-6 text-accent">Certificazioni</h3>
+                        <h3 className="text-lg font-semibold mb-6 text-white">Certificazioni</h3>
                         <div className="space-y-4 text-gray-300 text-xs">
                             <div className="p-4 border border-gray-700 rounded-lg bg-opacity-20 bg-black">
                                 <div className="flex items-center mb-2">

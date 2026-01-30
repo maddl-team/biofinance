@@ -8,7 +8,9 @@
   /* Deep Trust Blue */
   --color-secondary: #008080;
   /* Teal/Petrol */
-  --color-accent: #F59E0B;
+  --color-secondary-light: #E0F7F7;
+  /* Light derivative of Petrol */
+  --color-accent: #008080;
   /* Soft Amber */
 
   --color-neutral-bg: #F8FAFC;

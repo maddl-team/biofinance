@@ -54,7 +54,7 @@ const ContactSection: React.FC = () => {
                     </div>
 
                     {/* Form */}
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sm:p-10">
+                    <div className="bg-white rounded-2xl shadow-xl border border-secondary p-8 sm:p-10">
                         <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
@@ -116,7 +116,7 @@ const ContactSection: React.FC = () => {
 
                             <button
                                 type="submit"
-                                className="w-full flex justify-center items-center rounded-lg bg-accent px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-amber-600 hover:shadow-xl hover:-translate-y-0.5"
+                                className="w-full flex justify-center items-center rounded-lg bg-accent px-8 py-4 text-base font-bold text-white shadow-lg transition-all hover:bg-teal-700 hover:shadow-xl hover:-translate-y-0.5"
                             >
                                 Invia Richiesta
                                 <Send className="ml-2 h-5 w-5" />
