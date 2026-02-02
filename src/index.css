@@ -4,13 +4,13 @@
 
 :root {
   /* Financial Trust Palette */
-  --color-primary: #000063;
-  /* Deep Trust Blue */
-  --color-secondary: #ce0000;
+  --color-primary: #003049;
+  /* Blu Scuro */
+  --color-secondary: #C1121F;
   /* Rosso */
-  --color-secondary-light: #fff1f1;
-  /* Light derivative of Red */
-  --color-accent: #ce0000;
+  --color-secondary-light: #FDF0D5;
+  /* Crema */
+  --color-accent: #C1121F;
   /* Rosso accents */
 
   --color-neutral-bg: #F8FAFC;

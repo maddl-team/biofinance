@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
                     <div className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
                         <h1 className="text-4xl font-extrabold tracking-tight text-primary sm:text-5xl md:text-6xl mb-6">
                             Finanziamenti su misura <br />
-                            semplici e <span className="text-[#ce0000] border-b-4 border-[#ce0000]">sicuri</span>
+                            semplici e <span className="text-[#C1121F] border-b-4 border-[#C1121F]">sicuri</span>
                         </h1>
                         <p className="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">
                             Calcola in pochi istanti la soluzione ideale per i tuoi progetti e richiedi una consulenza gratuita senza impegno.
