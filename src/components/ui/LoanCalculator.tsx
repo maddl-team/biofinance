@@ -39,7 +39,7 @@ const LoanCalculator: React.FC = () => {
                         onChange={(e) => setAmount(Number(e.target.value))}
                         className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
                         style={{
-                            background: `linear-gradient(to right, #008080 0%, #008080 ${(amount - 500) / (30000 - 500) * 100}%, #f3f4f6 ${(amount - 500) / (30000 - 500) * 100}%, #f3f4f6 100%)`
+                            background: `linear-gradient(to right, #ce0000 0%, #ce0000 ${(amount - 500) / (30000 - 500) * 100}%, #f3f4f6 ${(amount - 500) / (30000 - 500) * 100}%, #f3f4f6 100%)`
                         }}
                     />
                     <div className="flex justify-between text-sm text-gray-400 mt-3 font-medium">
@@ -67,7 +67,7 @@ const LoanCalculator: React.FC = () => {
                         onChange={(e) => setInstallments(Number(e.target.value))}
                         className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
                         style={{
-                            background: `linear-gradient(to right, #008080 0%, #008080 ${(installments - 6) / (84 - 6) * 100}%, #f3f4f6 ${(installments - 6) / (84 - 6) * 100}%, #f3f4f6 100%)`
+                            background: `linear-gradient(to right, #ce0000 0%, #ce0000 ${(installments - 6) / (84 - 6) * 100}%, #f3f4f6 ${(installments - 6) / (84 - 6) * 100}%, #f3f4f6 100%)`
                         }}
                     />
                     <div className="flex justify-between text-sm text-gray-400 mt-3 font-medium">
