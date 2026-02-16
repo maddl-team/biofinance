@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  /* Financial Trust Palette */
-  --color-primary: #003049;
-  /* Blu Scuro */
-  --color-secondary: #C1121F;
-  /* Rosso */
-  --color-secondary-light: #FDF0D5;
-  /* Crema */
-  --color-accent: #C1121F;
-  /* Rosso accents */
+  /* Bio-Wealth Palette: Navy, Emerald & Ivory */
+  --color-primary: #0F172A;
+  /* Navy Deep Blue */
+  --color-secondary: #10B981;
+  /* Lush Emerald */
+  --color-secondary-light: #F0FDF4;
+  /* Ultra Light Emerald for contrast */
+  --color-accent: #10B981;
+  /* Emerald Accents */
 
-  --color-neutral-bg: #F8FAFC;
-  /* Slate 50 */
-  --color-neutral-light: #E2E8F0;
-  /* Slate 200 */
+  --color-neutral-bg: #FFFBF0;
+  /* Warm Ivory Background */
+  --color-neutral-light: #F3F4F6;
+  /* Slate 100 for subtle borders */
   --color-neutral-dark: #334155;
   /* Slate 700 */
 }
