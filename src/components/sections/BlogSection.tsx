@@ -31,7 +31,7 @@ const BlogSection: React.FC = () => {
     ];
 
     return (
-        <section className="section-padding bg-white overflow-hidden">
+        <section id="news" className="section-padding bg-white overflow-hidden">
             {/* Header - Aligned with container */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="flex flex-col md:flex-row justify-between items-end gap-6">

@@ -6,20 +6,16 @@ const FAQ: React.FC = () => {
 
     const faqs = [
         {
-            question: "Quali sono i requisiti per richiedere la Cessione del Quinto?",
-            answer: "La Cessione del Quinto è riservata a dipendenti pubblici, statali, privati (con contratto a tempo indeterminato) e pensionati. Non è richiesta alcuna garanzia reale oltre alla busta paga o alla pensione."
+            question: "Che cos'esattamente la Cessione del Quinto?",
+            answer: "È una forma di prestito personale non finalizzato garantito dalla busta paga o dalla pensione. La rata mensile viene trattenuta direttamente dal datore di lavoro o dall'ente pensionistico e non può superare un quinto del totale netto mensile. È regolamentata per legge ed include sempre coperture assicurative obbligatorie."
         },
         {
-            question: "In quanto tempo posso ottenere la liquidità?",
-            answer: "I tempi di erogazione sono rapidi. Una volta completa la documentazione necessaria, l'istruttoria viene avviata immediatamente per garantire l'erogazione nel minor tempo possibile."
+            question: "Posso richiedere un prestito a Biofinance se sono segnalato in CRIF?",
+            answer: "Sì! La Cessione del Quinto è accessibile anche a chi ha avuto difficoltà creditizie in passato, poiché la garanzia è costituita dal tuo stipendio o pensione, non dalla tua storia creditizia passata."
         },
         {
-            question: "Posso richiedere un finanziamento se ho già altri prestiti in corso?",
-            answer: "Sì, la Cessione del Quinto e la Delegazione di Pagamento possono coesistere con altri impegni finanziari, purché si rimanga entro i limiti di sostenibilità della rata (massimo 20% dello stipendio netto per la cessione)."
-        },
-        {
-            question: "La consulenza è davvero gratuita?",
-            answer: "Assolutamente sì. La consulenza offerta da Biofinance è completamente gratuita e senza impegno. Il nostro obiettivo è trovare la soluzione migliore per te prima di procedere con qualsiasi contratto."
+            question: "Quali documenti servono per avviare una richiesta?",
+            answer: "Basta un documento d'identità valido, codice fiscale e gli ultimi due cedolini dello stipendio (o il cedolino della pensione e il modello OBIS M). Al resto della burocrazia, inclusa la richiesta del Certificato di Stipendio o della Quota Cedibile, pensiamo noi."
         }
     ];
 

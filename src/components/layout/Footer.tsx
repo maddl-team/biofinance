@@ -88,6 +88,7 @@ const Footer: React.FC = () => {
 
                 <div className="border-t border-gray-800 pt-8 mt-8 text-center text-xs text-gray-500">
                     <p className="mb-2">&copy; {new Date().getFullYear()} Biofinance S.r.l. - P.IVA 12345678901</p>
+                    <p className="mb-4">Agenzia in attività finanziaria regolarmente iscritta all’OAM e intermediario assicurativo RUI IVASS.</p>
                     <p>Messaggio pubblicitario con finalità promozionale. Per le condizioni contrattuali si rimanda ai fogli informativi disponibili in sede.</p>
                 </div>
             </div>

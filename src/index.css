@@ -13,8 +13,8 @@
   --color-accent: #10B981;
   /* Emerald Accents */
 
-  --color-neutral-bg: #FFFBF0;
-  /* Warm Ivory Background */
+  --color-neutral-bg: #f5f8fd;
+  /* Soft Light Blue Background */
   --color-neutral-light: #F3F4F6;
   /* Slate 100 for subtle borders */
   --color-neutral-dark: #334155;
@@ -36,6 +36,6 @@ h6 {
 
 @layer components {
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-14 lg:py-20;
   }
 }

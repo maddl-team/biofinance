@@ -10,9 +10,13 @@ const Navbar: React.FC = () => {
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
-                        <span className="text-2xl font-bold text-primary tracking-tight">
-                            Biofinance
-                        </span>
+                        <a href="/" className="flex items-center">
+                            <img
+                                src="/img/logo_biofinance_header.png"
+                                alt="Biofinance Logo"
+                                className="h-12 w-auto object-contain"
+                            />
+                        </a>
                     </div>
 
                     {/* Desktop Menu */}
@@ -20,20 +24,26 @@ const Navbar: React.FC = () => {
                         <a href="#servizi" className="text-neutral-dark hover:text-primary font-medium transition-colors">
                             Servizi
                         </a>
-                        <a href="#chi-siamo" className="text-neutral-dark hover:text-primary font-medium transition-colors">
-                            Chi siamo
+                        <a href="#perche-biofinance" className="text-neutral-dark hover:text-primary font-medium transition-colors">
+                            Vantaggi
                         </a>
-                        <a href="#come-funziona" className="text-neutral-dark hover:text-primary font-medium transition-colors">
-                            Come funziona
+                        <a href="#calcolatore" className="text-neutral-dark hover:text-primary font-medium transition-colors">
+                            Calcolatore
+                        </a>
+                        <a href="#recensioni" className="text-neutral-dark hover:text-primary font-medium transition-colors">
+                            Recensioni
                         </a>
                         <a href="#faq" className="text-neutral-dark hover:text-primary font-medium transition-colors">
                             FAQ
                         </a>
+                        <a href="#news" className="text-neutral-dark hover:text-primary font-medium transition-colors">
+                            News
+                        </a>
                         <a
-                            href="#contatti"
+                            href="#calcolatore"
                             className="bg-accent hover:bg-teal-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
-                            Richiedi consulenza
+                            Calcola Rata
                         </a>
                     </div>
 
@@ -61,18 +71,25 @@ const Navbar: React.FC = () => {
                             Servizi
                         </a>
                         <a
-                            href="#chi-siamo"
+                            href="#perche-biofinance"
                             className="block px-3 py-3 rounded-md text-base font-medium text-neutral-dark hover:bg-gray-50 hover:text-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
-                            Chi siamo
+                            Vantaggi
                         </a>
                         <a
-                            href="#come-funziona"
+                            href="#calcolatore"
                             className="block px-3 py-3 rounded-md text-base font-medium text-neutral-dark hover:bg-gray-50 hover:text-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
-                            Come funziona
+                            Calcolatore
+                        </a>
+                        <a
+                            href="#recensioni"
+                            className="block px-3 py-3 rounded-md text-base font-medium text-neutral-dark hover:bg-gray-50 hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Recensioni
                         </a>
                         <a
                             href="#faq"
@@ -83,11 +100,11 @@ const Navbar: React.FC = () => {
                         </a>
                         <div className="pt-4">
                             <a
-                                href="#contatti"
+                                href="#calcolatore"
                                 className="block w-full text-center bg-accent text-white px-4 py-3 rounded-lg font-bold text-lg shadow-md"
                                 onClick={() => setIsOpen(false)}
                             >
-                                Richiedi consulenza
+                                Calcola Rata
                             </a>
                         </div>
                     </div>

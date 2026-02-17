@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wallet, Landmark, BadgeEuro, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Wallet, Landmark, BadgeEuro, ArrowRight } from 'lucide-react';
 
 const Services: React.FC = () => {
     return (
@@ -12,24 +12,22 @@ const Services: React.FC = () => {
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl mb-4">
-                        I nostri servizi
+                        Qual è la tua posizione lavorativa?
                     </h2>
                     <p className="text-lg text-gray-600">
-                        Offriamo soluzioni di credito pensate per rispondere a esigenze diverse,
-                        sempre nel rispetto delle normative vigenti e con condizioni chiare fin dall’inizio.
+                        Scegli il percorso dedicato a te per scoprire le convenzioni e i tassi riservati alla tua categoria.
                     </p>
                 </div>
 
                 {/* Services Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    {/* Service 1: Cessione del quinto */}
+                    {/* Service 1: Dipendenti Privati */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
-                        {/* Image Header with Overlay Icon */}
                         <div className="relative h-48 overflow-hidden">
                             <img
                                 src="https://images.unsplash.com/photo-1556740985-ef5874bc7e5d?auto=format&fit=crop&q=80&w=800"
-                                alt="Pensionato felice"
+                                alt="Dipendenti Privati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -41,37 +39,16 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Cessione del quinto</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Dipendenti Privati</h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                La rata viene trattenuta direttamente dallo stipendio o dalla pensione e non può superare un quinto dell’importo mensile.
+                                Lavori in Luxottica, Ferrero, Barilla? Abbiamo accordi specifici per dipendenti di grandi realtà. Il TFR maturato è la tua garanzia per un prestito veloce e senza giustificativi di spesa.
                             </p>
-
-                            <div className="bg-neutral-bg rounded-lg p-4 mb-6">
-                                <h4 className="font-semibold text-xs uppercase tracking-wider mb-3 text-primary flex items-center">
-                                    <CheckCircle2 className="w-4 h-4 mr-2 text-secondary" />
-                                    Vantaggi principali
-                                </h4>
-                                <ul className="space-y-2 text-sm text-gray-600">
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Rata fissa e sostenibile
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Durata fino a 120 mesi
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Anche con altri prestiti
-                                    </li>
-                                </ul>
-                            </div>
 
                             <a
                                 href="#contatti"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
-                                Richiedi preventivo
+                                Scopri Prestiti Privati
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
@@ -79,13 +56,12 @@ const Services: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Service 2: Delegazione di pagamento */}
+                    {/* Service 2: Dipendenti Statali e Pubblici */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
-                        {/* Image Header with Overlay Icon */}
                         <div className="relative h-48 overflow-hidden">
                             <img
                                 src="https://images.unsplash.com/photo-1512403754473-27835f7b9984?auto=format&fit=crop&q=80&w=800"
-                                alt="Ristrutturazione casa"
+                                alt="Dipendenti Statali e Pubblici"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -97,37 +73,16 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Delegazione di pagamento</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Dipendenti Statali e Pubblici</h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                Consente di affiancare un ulteriore finanziamento alla cessione del quinto, aumentando l’importo complessivo disponibile.
+                                NoiPA, Scuola (MIUR), Sanità. Sfrutta la stabilità del tuo impiego statale per ottenere i tassi più bassi del mercato e dilazioni fino a 120 mesi.
                             </p>
-
-                            <div className="bg-neutral-bg rounded-lg p-4 mb-6">
-                                <h4 className="font-semibold text-xs uppercase tracking-wider mb-3 text-primary flex items-center">
-                                    <CheckCircle2 className="w-4 h-4 mr-2 text-secondary" />
-                                    Vantaggi principali
-                                </h4>
-                                <ul className="space-y-2 text-sm text-gray-600">
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Liquidità aggiuntiva
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Fino a 120 mesi
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Trattenuta in busta paga
-                                    </li>
-                                </ul>
-                            </div>
 
                             <a
                                 href="#contatti"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
-                                Richiedi informazioni
+                                Scopri Prestiti Statali
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
@@ -135,13 +90,12 @@ const Services: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Service 3: Prestiti personali */}
+                    {/* Service 3: Pensionati INPS ed Ex-INPDAP */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
-                        {/* Image Header with Overlay Icon */}
                         <div className="relative h-48 overflow-hidden">
                             <img
                                 src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800"
-                                alt="Viaggio e famiglia"
+                                alt="Pensionati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -153,37 +107,16 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Prestiti personali</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Pensionati INPS ed Ex-INPDAP</h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                Finanziamenti non finalizzati, pensati per coprire esigenze personali o familiari senza vincoli di utilizzo.
+                                Grazie alla Convenzione INPS, la rata viene trattenuta direttamente dal cedolino, con assicurazione vita sempre inclusa a tutela dei tuoi eredi. Finanziamo fino a 85 anni di età (a scadenza piano).
                             </p>
-
-                            <div className="bg-neutral-bg rounded-lg p-4 mb-6">
-                                <h4 className="font-semibold text-xs uppercase tracking-wider mb-3 text-primary flex items-center">
-                                    <CheckCircle2 className="w-4 h-4 mr-2 text-secondary" />
-                                    Vantaggi principali
-                                </h4>
-                                <ul className="space-y-2 text-sm text-gray-600">
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Nessun vincolo di spesa
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Tasso fisso
-                                    </li>
-                                    <li className="flex items-start">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 mr-2 shrink-0"></span>
-                                        Esito veloce
-                                    </li>
-                                </ul>
-                            </div>
 
                             <a
                                 href="#contatti"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
-                                Scopri di più
+                                Scopri Prestiti Pensionati
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
