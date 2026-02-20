@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import AccordionItem from '../ui/AccordionItem';
 
-const FAQ: React.FC = () => {
+interface FAQItem {
+    question: string;
+    answer: string;
+}
+
+interface FAQProps {
+    items?: FAQItem[];
+    title?: string;
+    subtitle?: string;
+}
+
+const FAQ: React.FC<FAQProps> = ({
+    items,
+    title = "Domande Frequenti",
+    subtitle = "Risposte chiare ai dubbi più comuni sui nostri prodotti finanziari."
+}) => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-    const faqs = [
+    const defaultFaqs = [
         {
             question: "Che cos'esattamente la Cessione del Quinto?",
             answer: "È una forma di prestito personale non finalizzato garantito dalla busta paga o dalla pensione. La rata mensile viene trattenuta direttamente dal datore di lavoro o dall'ente pensionistico e non può superare un quinto del totale netto mensile. È regolamentata per legge ed include sempre coperture assicurative obbligatorie."
@@ -19,20 +34,22 @@ const FAQ: React.FC = () => {
         }
     ];
 
+    const displayFaqs = items || defaultFaqs;
+
     return (
         <section id="faq" className="section-padding bg-neutral-bg">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl mb-4">
-                        Domande Frequenti
+                        {title}
                     </h2>
                     <p className="text-lg text-gray-600">
-                        Risposte chiare ai dubbi più comuni sui nostri prodotti finanziari.
+                        {subtitle}
                     </p>
                 </div>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, index) => (
+                    {displayFaqs.map((faq, index) => (
                         <AccordionItem
                             key={index}
                             title={faq.question}

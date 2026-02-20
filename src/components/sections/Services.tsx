@@ -1,5 +1,5 @@
-import React from 'react';
 import { Wallet, Landmark, BadgeEuro, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
     return (
@@ -44,15 +44,15 @@ const Services: React.FC = () => {
                                 Lavori in Luxottica, Ferrero, Barilla? Abbiamo accordi specifici per dipendenti di grandi realtà. Il TFR maturato è la tua garanzia per un prestito veloce e senza giustificativi di spesa.
                             </p>
 
-                            <a
-                                href="#contatti"
+                            <Link
+                                to="/cessione-del-quinto"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Privati
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -78,15 +78,15 @@ const Services: React.FC = () => {
                                 NoiPA, Scuola (MIUR), Sanità. Sfrutta la stabilità del tuo impiego statale per ottenere i tassi più bassi del mercato e dilazioni fino a 120 mesi.
                             </p>
 
-                            <a
-                                href="#contatti"
+                            <Link
+                                to="/cessione-del-quinto"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Statali
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -112,15 +112,15 @@ const Services: React.FC = () => {
                                 Grazie alla Convenzione INPS, la rata viene trattenuta direttamente dal cedolino, con assicurazione vita sempre inclusa a tutela dei tuoi eredi. Finanziamo fino a 85 anni di età (a scadenza piano).
                             </p>
 
-                            <a
-                                href="#contatti"
+                            <Link
+                                to="/cessione-del-quinto"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Pensionati
                                 <div className="ml-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                     <ArrowRight className="w-4 h-4" />
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
