@@ -52,25 +52,25 @@ const Navbar: React.FC = () => {
             name: 'Pensionati',
             href: '/prestiti-pensionati',
             subMenu: [
-                { name: 'Prestiti fino a 85/90 anni', href: '#' },
-                { name: 'Pensionati Ex-INPDAP', href: '#' }
+                { name: 'Prestiti fino a 85/90 anni', href: '/prestiti-pensionati-over-80' },
+                { name: 'Pensionati Ex-INPDAP', href: '/prestiti-pensionati-ex-inpdap' }
             ]
         },
         {
             name: 'Altre Soluzioni',
             href: '#',
             subMenu: [
-                { name: 'Delegazione di Pagamento (Doppio Quinto)', href: '#' },
-                { name: 'Consolidamento Debiti', href: '#' },
-                { name: 'Prestiti per Segnalati CRIF', href: '#' }
+                { name: 'Delegazione di Pagamento (Doppio Quinto)', href: '/delegazione-di-pagamento' },
+                { name: 'Consolidamento Debiti', href: '/consolidamento-debiti' },
+                { name: 'Prestiti per Segnalati CRIF', href: '/prestiti-segnalati-crif' }
             ]
         },
         {
             name: 'L\'Agenzia',
-            href: '#',
+            href: '/chi-siamo',
             subMenu: [
-                { name: 'Chi Siamo & Consulenti', href: '#' },
-                { name: 'Recensioni e Casi Studio', href: '#' },
+                { name: 'Chi Siamo & Consulenti', href: '/chi-siamo' },
+                { name: 'Recensioni e Opinioni', href: '/recensioni' },
                 { name: 'Blog & Educazione Finanziaria', href: '#' },
                 { name: 'Contatti e Sedi', href: '#' },
                 { name: 'Lavora con noi', href: '#' }
