@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
 
                         <div className="space-y-6 text-lg text-gray-600 leading-relaxed text-left mb-10">
                             <p>
-                                <span className="font-bold text-primary">Biofinance</span>. Crediamo che accedere al credito sia un diritto, non un percorso a ostacoli. Siamo un'agenzia finanziaria regolarmente iscritta all'OAM specializzata in Cessione del Quinto dello stipendio e della pensione.
+                                In <span className="font-bold text-primary">Biofinance</span> crediamo che accedere al credito sia un diritto, non un percorso a ostacoli. Siamo un'agenzia finanziaria regolarmente iscritta all'OAM specializzata in Cessione del Quinto dello stipendio e della pensione.
                             </p>
                             <p>
                                 Offriamo soluzioni di liquidità sostenibili, pensate per adattarsi al tuo status lavorativo e non il contrario. Che tu sia un dipendente pubblico, statale, privato o un pensionato, in Biofinance trovi un consulente dedicato pronto a guidarti verso la rata più leggera per te.
