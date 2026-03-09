@@ -13,32 +13,33 @@ import {
     Flame,
     Calculator
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const DipendentiStatali: React.FC = () => {
     const categories = [
         {
             icon: <Building className="w-6 h-6" />,
-            title: "Ministeri",
+            title: <span className="font-bold">Ministeri</span>,
             desc: "Giustizia, Interno, Economia, ecc."
         },
         {
             icon: <Shield className="w-6 h-6" />,
-            title: "Forze dell'Ordine",
-            desc: "Polizia, Carabinieri e Forze Armate."
+            title: <span className="font-bold">Forze Armate</span>,
+            desc: "Forze dell'Ordine e Corpi Armati."
         },
         {
             icon: <School className="w-6 h-6" />,
-            title: "Scuola",
+            title: <span className="font-bold">Scuola</span>,
             desc: "Personale Docente e ATA (MIUR)."
         },
         {
             icon: <Flame className="w-6 h-6" />,
-            title: "Soccorso",
-            desc: "Vigili del Fuoco e Protezione Civile."
+            title: <span className="font-bold">Vigili del Fuoco</span>,
+            desc: "Soccorso e Protezione Civile."
         },
         {
             icon: <FileText className="w-6 h-6" />,
-            title: "Agenzie Fiscali",
+            title: <span className="font-bold">Agenzie Fiscali</span>,
             desc: "Agenzia delle Entrate, Dogane."
         }
     ];
@@ -46,17 +47,17 @@ const DipendentiStatali: React.FC = () => {
     const benefits = [
         {
             icon: <Cpu className="w-8 h-8" />,
-            title: "Niente Carta",
+            title: <span className="font-bold">Niente Carta:</span>,
             desc: "Acquisiamo i dati stipendiali telematicamente (previo tuo consenso)."
         },
         {
             icon: <MousePointer2 className="w-8 h-8" />,
-            title: "Trattenuta Automatica",
+            title: <span className="font-bold">Trattenuta Automatica:</span>,
             desc: "La rata viene inserita direttamente nel cedolino digitale."
         },
         {
             icon: <ShieldCheck className="w-8 h-8" />,
-            title: "Credito Garantito",
+            title: <span className="font-bold">Credito Garantito:</span>,
             desc: "Grazie alla solidità dello Stato come datore di lavoro, l'assicurazione Rischio Impiego ha un costo irrisorio, lasciando più \"netto ricavo\" a te."
         }
     ];
@@ -72,7 +73,7 @@ const DipendentiStatali: React.FC = () => {
                                 Cessione del Quinto Statali: Il Privilegio della Stabilità.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Essere un dipendente statale significa servire il Paese. In cambio, il sistema finanziario riconosce alla tua categoria il miglior merito creditizio possibile. In Biofinance, i prestiti per dipendenti statali (gestiti tramite sistema NoiPA) godono di corsie preferenziali: tassi più bassi, istruttoria semplificata e accettazione quasi immediata.
+                                Essere un dipendente statale significa servire il Paese. In cambio, il sistema finanziario riconosce alla tua categoria il <span className="font-bold">miglior merito creditizio possibile</span>. In Biofinance, i prestiti per dipendenti statali (gestiti tramite sistema <span className="font-bold">NoiPA</span>) godono di corsie preferenziali: tassi più bassi, istruttoria semplificata e accettazione quasi immediata.
                             </p>
                         </div>
                         <div className="relative">
@@ -150,15 +151,15 @@ const DipendentiStatali: React.FC = () => {
                             </p>
                             <div className="space-y-6">
                                 {[
-                                    { text: "Dilazione fino a 120 mesi anche per importi elevati (fino a 75.000€).", icon: <TrendingDown className="w-5 h-5" /> },
-                                    { text: "Rinegoziazione vantaggiosa di cessioni in corso con altre finanziarie.", icon: <CheckCircle2 className="w-5 h-5" /> },
-                                    { text: "Gestione a distanza in tutta Italia con firma digitale (SPID).", icon: <Cpu className="w-5 h-5" /> }
+                                    { text: <><span className="font-bold">Dilazione fino a 120 mesi</span> anche per importi elevati (fino a 75.000€).</>, icon: <TrendingDown className="w-5 h-5" /> },
+                                    { text: <><span className="font-bold">Rinegoziazione vantaggiosa</span> di cessioni in corso con altre finanziarie.</>, icon: <CheckCircle2 className="w-5 h-5" /> },
+                                    { text: <><span className="font-bold">Gestione a distanza</span> in tutta Italia con firma digitale (SPID).</>, icon: <Cpu className="w-5 h-5" /> }
                                 ].map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-4 bg-neutral-bg p-5 rounded-2xl border border-gray-100">
                                         <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                                             {item.icon}
                                         </div>
-                                        <p className="text-primary font-bold">{item.text}</p>
+                                        <div className="text-primary font-bold">{item.text}</div>
                                     </div>
                                 ))}
                             </div>
@@ -168,10 +169,13 @@ const DipendentiStatali: React.FC = () => {
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-10 rounded-full -mr-32 -mt-32"></div>
                                 <Calculator className="w-16 h-16 text-secondary mx-auto mb-6" />
                                 <h3 className="text-3xl font-bold mb-8 text-white leading-tight">Ottieni subito la tua quotazione NoiPA</h3>
-                                <button className="w-full bg-secondary hover:bg-teal-600 text-white font-black py-6 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center justify-center group">
+                                <Link
+                                    to="/contatti"
+                                    className="w-full bg-secondary hover:bg-teal-600 text-white font-black py-6 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center justify-center group"
+                                >
                                     CALCOLA RATA STATALI (CONVENZIONE)
                                     <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

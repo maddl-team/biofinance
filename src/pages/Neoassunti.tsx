@@ -8,19 +8,20 @@ import {
     ArrowRight,
     UserCheck
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FAQ from '../components/sections/FAQ';
 
 const Neoassunti: React.FC = () => {
     const rules = [
         {
             icon: <CalendarCheck className="w-8 h-8" />,
-            title: "Superamento del Periodo di Prova",
+            title: <span className="font-bold">Superamento del Periodo di Prova:</span>,
             desc: "È fondamentale. Finché sei in prova, il contratto non è considerato definitivo."
         },
         {
             icon: <Clock className="w-8 h-8" />,
-            title: "Anzianità Minima",
-            desc: "Generalmente, le compagnie assicurative richiedono dai 3 ai 6 mesi di anzianità lavorativa presso l'attuale azienda per poter istruire la pratica."
+            title: <span className="font-bold">Anzianità Minima:</span>,
+            desc: <>Generalmente, le compagnie assicurative richiedono dai <span className="font-bold">3 ai 6 mesi</span> di anzianità lavorativa presso l'attuale azienda per poter istruire la pratica.</>
         }
     ];
 
@@ -35,7 +36,7 @@ const Neoassunti: React.FC = () => {
                                 Cessione del Quinto Neoassunti: Quando è possibile richiederla?
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                L'entusiasmo per un nuovo lavoro spesso si accompagna a nuovi progetti di vita. Ma puoi ottenere credito se sei stato assunto da poco? In Biofinance, vogliamo essere trasparenti: la Cessione del Quinto si basa sulla garanzia del TFR (Trattamento di Fine Rapporto). Se sei un neoassunto, la tua "cassaforte" (il TFR) è ancora vuota o quasi. Tuttavia, esistono finestre di opportunità che valutiamo caso per caso.
+                                L'entusiasmo per un nuovo lavoro spesso si accompagna a nuovi progetti di vita. Ma puoi ottenere credito se sei stato assunto da poco? In <span className="font-bold">Biofinance</span>, vogliamo essere trasparenti: la Cessione del Quinto si basa sulla garanzia del TFR (Trattamento di Fine Rapporto). Se sei un neoassunto, la tua "cassaforte" (il TFR) è ancora vuota o quasi. Tuttavia, esistono <span className="font-bold">finestre di opportunità</span> che valutiamo caso per caso.
                             </p>
                         </div>
                         <div className="relative">
@@ -92,7 +93,7 @@ const Neoassunti: React.FC = () => {
                                 </div>
                                 <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white leading-tight">Hai cambiato lavoro?</h2>
                                 <p className="text-xl text-white/80 leading-relaxed mb-8">
-                                    C'è un'eccezione importante. Se sei "neoassunto" presso l'azienda attuale, ma provieni da un altro impiego e hai scelto di trasferire il vecchio TFR nella nuova azienda (senza liquidarlo), quel tesoretto vale come garanzia! In questo caso, i tempi di attesa si accorciano drasticamente e potresti accedere al credito molto prima anche se ha il TFR in un fondo pensione.
+                                    C'è un'eccezione importante. Se sei "neoassunto" presso l'azienda attuale, ma provieni da un altro impiego e hai scelto di <span className="font-bold">trasferire il vecchio TFR</span> nella nuova azienda (senza liquidarlo), quel tesoretto vale come garanzia! In questo caso, i tempi di attesa si accorciano drasticamente e potresti accedere al credito molto prima. Vale anche se hai il TFR in un fondo pensione.
                                 </p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-md p-8 rounded-[2.5rem] border border-white/20">
@@ -156,31 +157,34 @@ const Neoassunti: React.FC = () => {
                         <UserCheck className="w-16 h-16 text-secondary mb-8" />
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Non hai ancora i requisiti?</h2>
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl">
-                            Non aspettare l'ultimo minuto. Inserisci i tuoi dati oggi: i nostri consulenti calcoleranno esattamente la data precisa in cui diventerai finanziabile. Ti ricontatteremo noi quel giorno con il preventivo pronto.
+                            Non aspettare l'ultimo minuto. Inserisci i tuoi dati oggi: i nostri consulenti calcoleranno esattamente <span className="font-bold">la data precisa</span> in cui diventerai finanziabile. Ti ricontatteremo noi quel giorno con il preventivo pronto.
                         </p>
-                        <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <Link
+                            to="/contatti"
+                            className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             VERIFICA LA TUA DATA DI ACCESSO
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
 
             {/* FAQ */}
             <FAQ
-                title="FAQ per Neoassunti"
+                title={<span className="font-bold">FAQ per Neoassunti</span>}
                 items={[
                     {
-                        question: "Posso fare la Cessione del Quinto con un contratto di apprendistato?",
-                        answer: "No, non è fattibile."
+                        question: <span className="font-bold">Domanda 1: Posso fare la Cessione del Quinto con un contratto di apprendistato?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> <span className="font-bold">NON E’ FATTIBILE</span>.</>
                     },
                     {
-                        question: "Ho un garante, serve a qualcosa?",
-                        answer: "Nella Cessione del Quinto il garante (inteso come persona fisica) non serve e non viene richiesto. La garanzia è solo il TFR e la busta paga. Se non hai anzianità sufficiente, il garante non può sbloccare la pratica di Cessione, ma potrebbe servire per un Prestito Personale classico."
+                        question: <span className="font-bold">Domanda 2: Ho un garante, serve a qualcosa?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> Nella Cessione del Quinto il garante (inteso come persona fisica) non serve e non viene richiesto. La garanzia è solo il TFR e la busta paga. Se non hai anzianità sufficiente, il garante non può sbloccare la pratica di Cessione, ma potrebbe servire per un Prestito Personale classico.</>
                     },
                     {
-                        question: "Se lavoro in un'agenzia interinale posso chiedere il prestito?",
-                        answer: "I contratti tramite agenzia interinale sono spesso a tempo determinato. Per la Cessione del Quinto serve un contratto a tempo indeterminato diretto con l'azienda."
+                        question: <span className="font-bold">Domanda 3: Se lavoro in un'agenzia interinale posso chiedere il prestito?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> I contratti tramite agenzia interinale sono spesso a tempo determinato. Per la Cessione del Quinto serve un contratto a tempo indeterminato diretto con l'azienda.</>
                     }
                 ]}
             />
