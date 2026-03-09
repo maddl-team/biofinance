@@ -8,8 +8,8 @@ interface FAQItem {
 
 interface FAQProps {
     items?: FAQItem[];
-    title?: string;
-    subtitle?: string;
+    title?: React.ReactNode;
+    subtitle?: React.ReactNode;
 }
 
 const FAQ: React.FC<FAQProps> = ({

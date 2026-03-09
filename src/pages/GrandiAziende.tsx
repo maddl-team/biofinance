@@ -11,6 +11,7 @@ import {
     Truck,
     Lightbulb
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FAQ from '../components/sections/FAQ';
 
 const GrandiAziende: React.FC = () => {
@@ -45,17 +46,17 @@ const GrandiAziende: React.FC = () => {
     const reasons = [
         {
             icon: <ShieldCheck className="w-8 h-8" />,
-            title: "Solidità del TFR",
+            title: <span className="font-bold">Solidità del TFR</span>,
             desc: "Le grandi aziende accantonano il TFR regolarmente o lo versano in fondi sicuri. Questo è una garanzia d'oro per le assicurazioni."
         },
         {
             icon: <Users className="w-8 h-8" />,
-            title: "Basso Turnover",
+            title: <span className="font-bold">Basso Turnover</span>,
             desc: "La stabilità lavorativa in queste aziende riduce il \"Rischio Impiego\"."
         },
         {
             icon: <Zap className="w-8 h-8" />,
-            title: "Procedure Digitalizzate",
+            title: <span className="font-bold">Procedure Digitalizzate</span>,
             desc: "Le amministrazioni HR di grandi gruppi gestiscono le notifiche di Cessione via PEC in tempi record. Meno burocrazia = Meno costi per noi = Tasso più basso per te."
         }
     ];
@@ -71,7 +72,7 @@ const GrandiAziende: React.FC = () => {
                                 Convenzioni Grandi Aziende: Il Welfare che si trasforma in Credito.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Lavorare in una grande realtà italiana non significa solo prestigio, ma anche vantaggi finanziari esclusivi. In Biofinance, classifichiamo le aziende in base a un rating di affidabilità (Coefficiente Assicurativo). Se sei dipendente di una "Top Company", il rischio per noi è bassissimo. Questo si traduce per te in Tassi TAN e TAEG ai minimi storici, spesso inferiori di 1 o 2 punti percentuali rispetto alla media di mercato.
+                                Lavorare in una grande realtà italiana non significa solo prestigio, ma anche <span className="font-bold">vantaggi finanziari esclusivi</span>. In Biofinance, classifichiamo le aziende in base a un rating di affidabilità (Coefficiente Assicurativo). Se sei dipendente di una "Top Company", il rischio per noi è bassissimo. Questo si traduce per te in <span className="font-bold">Tassi TAN e TAEG ai minimi storici</span>, spesso inferiori di 1 o 2 punti percentuali rispetto alla media di mercato.
                             </p>
                         </div>
                         <div className="relative">
@@ -155,10 +156,13 @@ const GrandiAziende: React.FC = () => {
                             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
                                 Sei un dipendente di una grande azienda? Non accontentarti di un preventivo standard. Specifica il nome della tua azienda nel modulo per sbloccare le condizioni riservate.
                             </p>
-                            <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-10 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-10 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                            >
                                 CALCOLA PREVENTIVO GRANDI AZIENDE
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -166,19 +170,19 @@ const GrandiAziende: React.FC = () => {
 
             {/* FAQ */}
             <FAQ
-                title="FAQ per Dipendenti Grandi Aziende"
+                title={<span className="font-bold">FAQ per Dipendenti Grandi Aziende</span>}
                 items={[
                     {
-                        question: "La mia azienda (SRL) ha solo 8 dipendenti, posso chiedere la Cessione?",
-                        answer: "NON SI PUO' FARE Sì, ma la valutazione è più rigorosa. Per aziende sotto i 16 dipendenti, le compagnie assicurative richiedono bilanci in positivo e un TFR accantonato sufficiente. Biofinance lavora con partner specializzati anche per le piccole realtà (SAS/SRL minori), a patto che l'azienda sia sana."
+                        question: <span className="font-bold">Domanda 1: La mia azienda (SRL) ha solo 8 dipendenti, posso chiedere la Cessione?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> <span className="font-bold">NON SI PUO’ FARE</span>.</>
                     },
                     {
-                        question: "L'azienda deve dare il consenso al prestito?",
-                        answer: "Il datore di lavoro non può rifiutare la Cessione del Quinto per legge (è un diritto del dipendente), ma deve firmare l'Atto di Benestare e impegnarsi a trattenere la rata. Nelle Grandi Aziende questa è una procedura standard gestita automaticamente dall'ufficio HR."
+                        question: <span className="font-bold">Domanda 2: L'azienda deve dare il consenso al prestito?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> Il datore di lavoro non può rifiutare la Cessione del Quinto per legge (è un diritto del dipendente), ma deve firmare l'Atto di Benestare e impegnarsi a trattenere la rata. Nelle Grandi Aziende questa è una procedura standard gestita automaticamente dall'ufficio HR.</>
                     },
                     {
-                        question: "Se ho un pignoramento in corso, posso fare la Cessione se lavoro nel privato?",
-                        answer: "Assolutamente sì. La Cessione del Quinto può coesistere con un pignoramento purché la somma delle trattenute non superi il 50% dello stipendio netto. È una soluzione spesso usata proprio per ottenere liquidità e chiudere posizioni debitorie pregresse."
+                        question: <span className="font-bold">Domanda 3: Se ho un pignoramento in corso, posso fare la Cessione se lavoro nel privato?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> Assolutamente sì. La Cessione del Quinto può coesistere con un pignoramento purché la somma delle trattenute non superi il 50% dello stipendio netto. È una soluzione spesso usata proprio per ottenere liquidità e chiudere posizioni debitorie pregresse.</>
                     }
                 ]}
             />

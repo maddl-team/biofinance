@@ -4,8 +4,10 @@ import {
     ShieldCheck,
     Layers,
     TrendingDown,
-    Brain
+    Brain,
+    ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AdvancedLoanCalculator from '../components/ui/AdvancedLoanCalculator';
 import FAQ from '../components/sections/FAQ';
 
@@ -18,10 +20,10 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h1 className="text-4xl lg:text-5xl font-extrabold text-primary mb-6 leading-tight">
-                                Calcolo Cessione del Quinto: Scopri la tua Rata in Tempo Reale.
+                                <span className="font-bold">Calcolo Cessione del Quinto: Scopri la tua Rata e il Netto Erogato in Tempo Reale.</span>
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Benvenuto nel simulatore ufficiale Biofinance. Hai un progetto da realizzare? Inserisci pochi dati essenziali per visualizzare subito un preventivo di massima.
+                                Benvenuto nel simulatore ufficiale <span className="font-bold">Biofinance</span>. Hai un progetto da realizzare? Inserisci pochi dati essenziali per visualizzare subito un preventivo di massima.
                             </p>
                             <p className="text-lg text-gray-600 mb-8">
                                 Il nostro algoritmo incrocia i tassi delle migliori convenzioni (INPS, NoiPA, Grandi Aziende) per mostrarti la soluzione più conveniente.
@@ -41,7 +43,10 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
             <section className="section-padding bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Come si calcola la Cessione del Quinto? (La Matematica Semplice)</h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4"><span className="font-bold">Come si calcola la Cessione del Quinto? (La Matematica Semplice)</span></h2>
+                        <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                            Molti siti ti danno un numero e basta. Noi vogliamo che tu capisca <span className="font-bold">perché</span> ottieni quel risultato. Il calcolo si basa su 3 fattori chiave che determinano il tuo "Montante" (totale da rimborsare) e il "Netto Ricavo" (soldi in tasca):
+                        </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -49,12 +54,12 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <Calculator className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary">La Regola del 20%</h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">La Regola del 20%:</span></h3>
                             <p className="text-gray-600 leading-relaxed">
-                                Prendi il tuo stipendio netto (o pensione) e dividilo per 5. Quella è la tua Rata Massima Sostenibile.
+                                Prendi il tuo stipendio netto (o pensione) e dividilo per 5. Quella è la tua <span className="font-bold">Rata Massima Sostenibile.</span>
                             </p>
                             <div className="bg-neutral-bg p-4 rounded-xl border-l-4 border-secondary">
-                                <p className="text-sm font-bold text-primary">Esempio: Stipendio 1.500€ {"->"} Rata max 300€.</p>
+                                <p className="text-sm font-bold text-primary"><span className="font-bold">Esempio: Stipendio € 1.500 {'->'} Rata max € 300.</span></p>
                             </div>
                         </div>
 
@@ -62,9 +67,9 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <ShieldCheck className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary">Coefficiente Assicurativo</h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">Il Coefficiente Assicurativo (Età):</span></h3>
                             <p className="text-gray-600 leading-relaxed">
-                                Più sei giovane, meno incide il costo dell'assicurazione rischio vita (obbligatoria). Questo parametro influenza il netto ricavo finale.
+                                Più sei giovane, meno incide il costo dell'assicurazione rischio vita (obbligatoria).
                             </p>
                         </div>
 
@@ -72,9 +77,9 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <Layers className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary">L'Azienda (TFR)</h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">L'Azienda (TFR):</span></h3>
                             <p className="text-gray-600 leading-relaxed">
-                                Se sei un dipendente privato, il TFR accantonato funge da garanzia, permettendoci di offrirti tassi più aggressivi rispetto alla media.
+                                Se sei un dipendente privato, il TFR accantonato in azienda funge da garanzia, permettendoci di offrirti tassi più aggressivi rispetto alla media di mercato.
                             </p>
                         </div>
                     </div>
@@ -102,16 +107,16 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                         </div>
 
                         <div className="order-1 lg:order-2">
-                            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Simulazione vs Preventivo Reale: Qual è la differenza?</h2>
-                            <p className="text-lg text-gray-600 mb-8">Spesso i software online danno risultati diversi dalla realtà. Ecco perché:</p>
+                            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6"><span className="font-bold">Simulazione vs Preventivo Reale: Qual è la differenza?</span></h2>
+                            <p className="text-lg text-gray-600 mb-8">Il calcolatore online ti offre una stima molto precisa, ma il <span className="font-bold">tocco umano di un consulente Biofinance</span> può fare la differenza tra un "buon prestito" e il "miglior prestito". Ecco perché:</p>
                             <div className="space-y-8">
                                 <div className="flex gap-4">
                                     <div className="flex-shrink-0 mt-1">
                                         <TrendingDown className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg">Convenzioni "Nascoste"</h4>
-                                        <p className="text-gray-600">Alcuni accordi specifici per Ministeri o aziende partner possono abbattere ulteriormente il TAEG rispetto al calcolatore online.</p>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Convenzioni "Nascoste":</span></h4>
+                                        <p className="text-gray-600">Alcuni accordi (es. per Ministeri specifici o aziende partner come Ferrovie o Poste) non sono pubblici nel calcolatore generico ma possono abbattere ulteriormente il TAEG.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -119,8 +124,8 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                                         <Brain className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg">Valutazione Anzianità</h4>
-                                        <p className="text-gray-600">Un'elevata anzianità di servizio permette spesso di ottenere liquidità extra che i software standard non calcolano.</p>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Valutazione Anzianità:</span></h4>
+                                        <p className="text-gray-600">Se hai molta anzianità di servizio, possiamo spingere per ottenere liquidità extra che il software standard potrebbe non calcolare.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -128,8 +133,8 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                                         <Layers className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg">Gestione Pignoramenti</h4>
-                                        <p className="text-gray-600">Un consulente può valutare rinegoziazioni o coesistenze di trattenute anche in presenza di pignoramenti.</p>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Gestione Pignoramenti:</span></h4>
+                                        <p className="text-gray-600">Se hai già un pignoramento in busta paga, il calcolatore potrebbe bloccarti. Un nostro consulente, invece, può valutare la rinegoziazione o la coesistenza delle trattenute.</p>
                                     </div>
                                 </div>
                             </div>
@@ -143,13 +148,13 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-primary rounded-[3rem] p-10 lg:p-16 text-white overflow-hidden relative">
                         <div className="max-w-3xl relative z-10">
-                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Vuoi più liquidità? Scopri la "Doppia Cessione"</h2>
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white"><span className="font-bold">Vuoi più liquidità? Scopri la "Doppia Cessione"</span></h2>
                             <p className="text-lg opacity-80 mb-10 leading-relaxed">
-                                Se il calcolo della Cessione del Quinto non soddisfa la cifra di cui hai bisogno, ricorda che i Dipendenti possono accedere alla Delegazione di Pagamento. Questo ti permette di impegnare un secondo 20% dello stipendio, portando la trattenuta massima al 40% (2/5) e raddoppiando la liquidità.
+                                Se il calcolo della Cessione del Quinto non soddisfa la cifra di cui hai bisogno, ricorda che i Dipendenti (non i pensionati) possono accedere alla <span className="font-bold">Delegazione di Pagamento.</span> Questo ti permette di impegnare un <span className="font-bold">secondo 20%</span> dello stipendio, portando la trattenuta massima al <span className="font-bold">40% (2/5)</span> e raddoppiando la liquidità ottenibile.
                             </p>
-                            <button className="bg-secondary hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-secondary/20">
-                                RICHIEDI ANALISI FATTIBILITÀ DELEGA
-                            </button>
+                            <Link to="/delegazione-di-pagamento" className="bg-secondary hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-2xl transition-all transform hover:scale-105 shadow-xl shadow-secondary/20 inline-flex items-center">
+                                RICHIEDI ANALISI FATTIBILITÀ DELEGA <ArrowRight className="ml-2 w-5 h-5" />
+                            </Link>
                         </div>
                         <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-secondary/10 to-transparent pointer-events-none"></div>
                         <Layers className="absolute -right-10 -bottom-10 w-64 h-64 text-secondary opacity-5 pointer-events-none" />
@@ -160,32 +165,35 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
             {/* Blocca il Tasso CTA */}
             <section className="section-padding bg-neutral-bg">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Blocca il Tasso Oggi</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6"><span className="font-bold">Blocca il Tasso Oggi</span></h2>
                     <p className="text-xl text-gray-600 mb-10">
                         I tassi finanziari fluttuano. Richiedendo un contatto oggi, "congeli" le condizioni attuali per la tua istruttoria gratuita.
                     </p>
-                    <button className="bg-accent hover:bg-teal-700 text-white text-xl font-bold px-12 py-6 rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1">
+                    <Link
+                        to="/chi-siamo"
+                        className="bg-accent hover:bg-teal-700 text-white text-xl font-bold px-12 py-6 rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1 inline-block"
+                    >
                         INVIA LA RICHIESTA SENZA IMPEGNO
-                    </button>
+                    </Link>
                     <p className="mt-6 text-sm text-gray-500 font-medium">Consulenza 100% Gratuita e Non Vincolante</p>
                 </div>
             </section>
 
             {/* FAQ */}
             <FAQ
-                title="Dubbi sul Calcolo?"
+                title={<span className="font-bold">Dubbi sul Calcolo?</span>}
                 items={[
                     {
-                        question: "Il calcolo online della Cessione del Quinto è vincolante?",
-                        answer: "No, la simulazione online su Biofinance è puramente indicativa e non costituisce un vincolo contrattuale. Serve per darti un'idea chiara della rata sostenibile. Il preventivo definitivo (modulo SECCI) verrà fornito gratuitamente dal consulente dopo aver verificato i documenti."
+                        question: <span className="font-bold">Domanda 1: Il calcolo online della Cessione del Quinto è vincolante?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> No, la simulazione online su Biofinance è puramente indicativa e non costituisce un vincolo contrattuale. Serve per darti un'idea chiara della rata sostenibile. Il preventivo definitivo (modulo SECCI) verrà fornito gratuitamente dal consulente dopo aver verificato i documenti.</>
                     },
                     {
-                        question: "Quanto tempo ci vuole per ricevere i soldi dopo il calcolo?",
-                        answer: "Una volta accettato il preventivo, i tempi medi di erogazione variano dai 7 ai 15 giorni lavorativi, a seconda della velocità dell'amministrazione nel rilasciare il benestare. Biofinance offre possibilità di acconto immediato in casi specifici."
+                        question: <span className="font-bold">Domanda 2: Quanto tempo ci vuole per ricevere i soldi dopo il calcolo?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> Una volta accettato il preventivo, i tempi medi di erogazione variano dai 7 ai 15 giorni lavorativi, a seconda della velocità dell'amministrazione (azienda o ente pensionistico) nel rilasciare il benestare. Biofinance offre possibilità di acconto immediato in casi specifici.</>
                     },
                     {
-                        question: "Posso chiedere la Cessione del Quinto se ho un contratto a tempo determinato?",
-                        answer: "Generalmente richiede un contratto a tempo indeterminato. Tuttavia, se il contratto determinato ha una durata residua sufficiente a coprire il piano di ammortamento (es. finanziamento di 2 anni su contratto che scade tra 3 anni), è possibile valutare la pratica."
+                        question: <span className="font-bold">Domanda 3: Posso chiedere la Cessione del Quinto se ho un contratto a tempo determinato?</span>,
+                        answer: <><span className="font-bold">Risposta:</span> Generalmente la Cessione del Quinto richiede un contratto a tempo indeterminato. Tuttavia, se il contratto determinato ha una durata residua sufficiente a coprire il piano di ammortamento (es. finanziamento di 2 anni su contratto che scade tra 3 anni), è possibile valutare la pratica.</>
                     }
                 ]}
             />

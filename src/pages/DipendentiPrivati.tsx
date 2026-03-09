@@ -21,7 +21,7 @@ const DipendentiPrivati: React.FC = () => {
                                 Cessione del Quinto Dipendenti Privati: Il Tuo Lavoro è la Tua Garanzia.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Se lavori nel settore privato (SRL, SPA o Cooperative), sai che la stabilità è un valore. In Biofinance, trasformiamo il tuo contratto a tempo indeterminato in liquidità immediata. Non serve ipotecare la casa o chiedere firme a garanti: la vera garanzia è il tuo stipendio e il TFR che hai accantonato in azienda.
+                                Se lavori nel settore privato (SRL, SPA o Cooperative), sai che la stabilità è un valore. In <span className="font-bold">Biofinance</span>, trasformiamo il tuo contratto a tempo indeterminato in liquidità immediata. Non serve ipotecare la casa o chiedere firme a garanti: la vera garanzia è il tuo stipendio e il TFR che hai accantonato in azienda.
                             </p>
                         </div>
                         <div className="relative">
@@ -49,14 +49,14 @@ const DipendentiPrivati: React.FC = () => {
                             Come funziona per il Settore Privato?
                         </h2>
                         <p className="text-lg text-gray-600">
-                            A differenza dei dipendenti statali, per i privati l'elemento chiave è il TFR (Trattamento di Fine Rapporto).
+                            A differenza dei dipendenti statali, per i privati l'elemento chiave è il <span className="font-bold">TFR (Trattamento di Fine Rapporto)</span>.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div className="bg-neutral-bg p-8 lg:p-12 rounded-[2rem] border border-gray-100">
                             <Briefcase className="w-12 h-12 text-secondary mb-6" />
-                            <h3 className="text-2xl font-bold text-primary mb-4">Il Ruolo del TFR</h3>
+                            <h3 className="text-2xl font-bold text-primary mb-4"><span className="font-bold">Il Ruolo del TFR:</span></h3>
                             <p className="text-gray-600 text-lg leading-relaxed">
                                 Funge da "cuscinetto" di garanzia per l'assicurazione. Maggiore è il TFR accantonato, più facile sarà ottenere importi elevati.
                             </p>
@@ -64,7 +64,7 @@ const DipendentiPrivati: React.FC = () => {
 
                         <div className="bg-neutral-bg p-8 lg:p-12 rounded-[2rem] border border-gray-100">
                             <TrendingUp className="w-12 h-12 text-secondary mb-6" />
-                            <h3 className="text-2xl font-bold text-primary mb-4">Valutazione Azienda</h3>
+                            <h3 className="text-2xl font-bold text-primary mb-4"><span className="font-bold">Valutazione Azienda:</span></h3>
                             <p className="text-gray-600 text-lg leading-relaxed">
                                 Non valutiamo solo te, ma anche la solidità del tuo datore di lavoro. Lavorare in un'azienda sana (con bilanci in utile e buon numero di dipendenti) ti permette di accedere ai coefficienti assicurativi migliori (Classe A o B).
                             </p>
@@ -85,10 +85,10 @@ const DipendentiPrivati: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { title: "Contratto", desc: "Tempo Indeterminato." },
-                            { title: "Anzianità", desc: "Minimo 3-6 mesi di assunzione (superamento periodo di prova)." },
-                            { title: "TFR", desc: "Una somma minima accantonata (anche in fondi pensione integrativi)." },
-                            { title: "Azienda", desc: "SRL, SPA o Cooperative con almeno 16 dipendenti." }
+                            { title: <span className="font-bold">Contratto:</span>, desc: "Tempo Indeterminato." },
+                            { title: <span className="font-bold">Anzianità:</span>, desc: "Minimo 3-6 mesi di assunzione (superamento periodo di prova)." },
+                            { title: <span className="font-bold">TFR:</span>, desc: "Una somma minima accantonata (anche in fondi pensione integrativi)." },
+                            { title: <span className="font-bold">Azienda:</span>, desc: "SRL, SPA o Cooperative con almeno 16 dipendenti." }
                         ].map((req, idx) => (
                             <div key={idx} className="bg-white/10 p-8 rounded-3xl border border-white/20">
                                 <CheckCircle2 className="w-8 h-8 text-secondary mb-4" />
@@ -111,17 +111,17 @@ const DipendentiPrivati: React.FC = () => {
                         {[
                             {
                                 icon: <Zap className="w-8 h-8" />,
-                                title: "Acconto Immediato",
+                                title: <span className="font-bold">Acconto Immediato:</span>,
                                 desc: "Possiamo erogare un acconto subito dopo la firma del contratto, prima ancora che la pratica sia conclusa."
                             },
                             {
                                 icon: <ShieldCheck className="w-8 h-8" />,
-                                title: "Nessuna Motivazione",
+                                title: <span className="font-bold">Nessuna Motivazione:</span>,
                                 desc: "Acquisto auto, ristrutturazione, viaggi o liquidità. Non ci serve sapere il perché."
                             },
                             {
                                 icon: <TrendingUp className="w-8 h-8" />,
-                                title: "Rata Costante",
+                                title: <span className="font-bold">Rata Costante:</span>,
                                 desc: "Trattenuta diretta in busta paga. Nessun rischio di ritardi."
                             }
                         ].map((benefit, idx) => (
@@ -148,9 +148,9 @@ const DipendentiPrivati: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div className="bg-white p-10 lg:p-14 rounded-[3rem] shadow-xl border border-gray-100 flex flex-col justify-between">
                             <div>
-                                <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6">Lavori in una Grande Azienda?</h3>
+                                <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6"><span className="font-bold">Lavori in una Grande Azienda? (es. Luxottica, Ferrero, FCA)</span></h3>
                                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                                    (es. Luxottica, Ferrero, FCA) Le "Top Companies" godono di tassi paragonabili a quelli statali.
+                                    Le "Top Companies" godono di tassi paragonabili a quelli statali.
                                 </p>
                             </div>
                             <Link
@@ -164,7 +164,7 @@ const DipendentiPrivati: React.FC = () => {
 
                         <div className="bg-white p-10 lg:p-14 rounded-[3rem] shadow-xl border border-gray-100 flex flex-col justify-between">
                             <div>
-                                <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6">Sei stato assunto da poco?</h3>
+                                <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6"><span className="font-bold">Sei stato assunto da poco?</span></h3>
                                 <p className="text-gray-600 text-lg mb-8 leading-relaxed">
                                     Sei un neoassunto ma hai bisogno di liquidità? Scopri le opzioni limitate ma possibili.
                                 </p>
