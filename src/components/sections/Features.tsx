@@ -5,18 +5,18 @@ const Features: React.FC = () => {
     const reasons = [
         {
             icon: UserCheck,
-            title: "Anche con Segnalazioni CRIF",
-            desc: "La garanzia è il tuo lavoro, supera le segnalazioni in banca dati."
+            title: <><span className="font-bold">Anche con Segnalazioni CRIF:</span></>,
+            desc: <>Sei stato segnalato come cattivo pagatore o hai pignoramenti in corso? La Cessione del Quinto è un tuo diritto e <span className="font-bold">supera le segnalazioni in banca dati</span>.</>
         },
         {
             icon: Sliders,
-            title: "Tasso Fisso e Rata Costante",
-            desc: "Sostenibile: mai il 20% (un quinto) del tuo stipendio o pensione netta."
+            title: <><span className="font-bold">Tasso Fisso e Rata Costante:</span></>,
+            desc: "Nessuna sorpresa. La rata non supererà mai il 20% (un quinto) del tuo stipendio o pensione netta."
         },
         {
             icon: History,
-            title: "Tutto Online o a Domicilio",
-            desc: "Siamo presenti digitalmente o fisicamente in tutta Italia."
+            title: <><span className="font-bold">Tutto Online o a Domicilio:</span></>,
+            desc: "Gestiamo la pratica a distanza con firma digitale, oppure un nostro consulente ti raggiungerà in tutta Italia."
         },
     ];
 

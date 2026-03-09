@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PromoSection: React.FC = () => {
     const polygon = 'polygon(0% 100%, 100% 100%, 100% 6.371%, 100% 4.064%, 100% 4.064%, 99.991% 4.048%, 99.963% 3.998%, 99.913% 3.913%, 99.835% 3.794%, 99.727% 3.639%, 99.586% 3.448%, 99.407% 3.219%, 99.187% 2.954%, 98.923% 2.65%, 98.611% 2.307%, 98.239% 1.952%, 97.797% 1.614%, 97.289% 1.297%, 96.718% 1.005%, 96.085% 0.742%, 95.394% 0.512%, 94.647% 0.319%, 93.847% 0.167%, 92.996% 0.059%, 92.097% 0.001%, 88.771% 0.331%, 81.338% 1.283%, 70.847% 2.704%, 58.35% 4.438%, 44.895% 6.33%, 31.532% 8.225%, 19.312% 9.968%, 9.283% 11.405%, 2.496% 12.381%, 0% 12.741%, 0% 100%)';
@@ -29,12 +30,12 @@ const PromoSection: React.FC = () => {
                             Scopri subito quanto puoi ottenere e la tua rata mensile senza impegno.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <a
-                                href="#top"
+                            <Link
+                                to="/calcolo-cessione-del-quinto"
                                 className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-primary bg-white hover:bg-teal-50 shadow-xl transition-all hover:scale-105 active:scale-95 uppercase tracking-wide"
                             >
                                 VAI AL CALCOLATORE GRATUITO
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

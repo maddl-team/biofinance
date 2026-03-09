@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 import clsx from 'clsx';
 
 interface AccordionItemProps {
-    title: string;
+    title: React.ReactNode;
     children: React.ReactNode;
     isOpen?: boolean;
     onClick?: () => void;
@@ -16,7 +16,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children, isOpen, 
                 className="w-full flex justify-between items-center p-5 text-left bg-white focus:outline-none"
                 onClick={onClick}
             >
-                <span className={clsx("font-semibold text-lg", isOpen ? "text-primary" : "text-neutral-dark")}>
+                <span className={clsx("font-bold text-lg", isOpen ? "text-primary" : "text-neutral-dark")}>
                     {title}
                 </span>
                 {isOpen ? (

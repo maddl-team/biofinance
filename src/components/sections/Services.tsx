@@ -1,3 +1,4 @@
+import React from 'react';
 import { Wallet, Landmark, BadgeEuro, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -39,13 +40,13 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Dipendenti Privati</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark"><span className="font-bold">Dipendenti Privati</span></h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                Lavori in Luxottica, Ferrero, Barilla? Abbiamo accordi specifici per dipendenti di grandi realtà. Il TFR maturato è la tua garanzia per un prestito veloce e senza giustificativi di spesa.
+                                Lavori in una SPA, SRL o in una grande azienda come <span className="font-bold">Luxottica</span>, <span className="font-bold">Ferrero</span> o <span className="font-bold">Barilla</span>? Abbiamo accordi specifici per dipendenti di grandi realtà e PMI. Il tuo TFR è la tua garanzia per un prestito veloce e senza giustificativi di spesa.
                             </p>
 
                             <Link
-                                to="/cessione-del-quinto"
+                                to="/dipendenti-privati"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Privati
@@ -73,13 +74,13 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Dipendenti Statali e Pubblici</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark"><span className="font-bold">Dipendenti Statali e Pubblici</span></h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                NoiPA, Scuola (MIUR), Sanità. Sfrutta la stabilità del tuo impiego statale per ottenere i tassi più bassi del mercato e dilazioni fino a 120 mesi.
+                                Soluzioni dedicate a dipendenti <span className="font-bold">NoiPA</span>, Ministeri, <span className="font-bold">Scuola (MIUR)</span>, Forze Armate e <span className="font-bold">Sanità</span>. Sfrutta la stabilità del tuo impiego statale per ottenere i tassi più bassi del mercato e dilazioni fino a 120 mesi.
                             </p>
 
                             <Link
-                                to="/cessione-del-quinto"
+                                to="/dipendenti-statali"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Statali
@@ -107,13 +108,13 @@ const Services: React.FC = () => {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                            <h3 className="text-xl font-bold mb-3 text-neutral-dark">Pensionati INPS ed Ex-INPDAP</h3>
+                            <h3 className="text-xl font-bold mb-3 text-neutral-dark"><span className="font-bold">Pensionati INPS ed Ex-INPDAP</span></h3>
                             <p className="text-gray-600 mb-6 text-sm flex-grow">
-                                Grazie alla Convenzione INPS, la rata viene trattenuta direttamente dal cedolino, con assicurazione vita sempre inclusa a tutela dei tuoi eredi. Finanziamo fino a 85 anni di età (a scadenza piano).
+                                Goditi la pensione senza pensieri. Grazie alla <span className="font-bold">Convenzione INPS</span>, la rata viene trattenuta direttamente dal cedolino, con assicurazione vita sempre inclusa a tutela dei tuoi eredi. Finanziamo fino a 85 anni di età (a scadenza piano).
                             </p>
 
                             <Link
-                                to="/cessione-del-quinto"
+                                to="/prestiti-pensionati"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Pensionati

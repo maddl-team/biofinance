@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import LoanCalculator from '../ui/LoanCalculator';
 
@@ -49,10 +50,9 @@ const Hero: React.FC = () => {
                             Il Tuo Prestito su Misura: <br />
                             <span className="text-[#10B981]">Cessione del Quinto</span> Semplice, Trasparente, Garantita.
                         </h1>
-
                         <div className="space-y-6 text-lg text-gray-600 leading-relaxed text-left mb-10">
                             <p>
-                                In <span className="font-bold text-primary">Biofinance</span> crediamo che accedere al credito sia un diritto, non un percorso a ostacoli. Siamo un'agenzia finanziaria regolarmente iscritta all'OAM specializzata in Cessione del Quinto dello stipendio e della pensione.
+                                In <span className="font-bold text-primary">Biofinance</span> crediamo che accedere al credito sia un diritto, non un percorso a ostacoli. Siamo un'agenzia finanziaria regolarmente iscritta all'<span className="font-bold text-primary">OAM</span> specializzata in <span className="font-bold text-primary">Cessione del Quinto dello stipendio e della pensione</span>.
                             </p>
                             <p>
                                 Offriamo soluzioni di liquidità sostenibili, pensate per adattarsi al tuo status lavorativo e non il contrario. Che tu sia un dipendente pubblico, statale, privato o un pensionato, in Biofinance trovi un consulente dedicato pronto a guidarti verso la rata più leggera per te.
@@ -68,15 +68,15 @@ const Hero: React.FC = () => {
                             {/* The widget will be injected here */}
                         </div>
 
-                        <a
-                            href="#recensioni"
+                        <Link
+                            to="/recensioni"
                             className="inline-flex items-center text-primary font-black tracking-widest text-sm uppercase group"
                         >
                             LEGGI LE RECENSIONI
                             <div className="ml-3 w-8 h-8 bg-black rounded-full flex items-center justify-center text-white transition-transform group-hover:translate-x-1">
                                 <ArrowRight className="w-4 h-4" />
                             </div>
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="relative">

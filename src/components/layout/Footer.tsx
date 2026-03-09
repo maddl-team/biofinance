@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
     const polygon = 'polygon(100% 100%, 0% 100%, 0% 6.371%, 0% 4.064%, 0% 4.064%, 0.009% 4.048%, 0.037% 3.998%, 0.087% 3.913%, 0.165% 3.794%, 0.273% 3.639%, 0.414% 3.448%, 0.593% 3.219%, 0.813% 2.954%, 1.077% 2.65%, 1.389% 2.307%, 1.761% 1.952%, 2.203% 1.614%, 2.711% 1.297%, 3.282% 1.005%, 3.915% 0.742%, 4.606% 0.512%, 5.353% 0.319%, 6.153% 0.167%, 7.004% 0.059%, 7.903% 0.001%, 11.229% 0.331%, 18.662% 1.283%, 29.153% 2.704%, 41.65% 4.438%, 55.105% 6.33%, 68.468% 8.225%, 80.688% 9.968%, 90.717% 11.405%, 97.504% 12.381%, 100% 12.741%, 100% 100%)';
@@ -37,9 +38,9 @@ const Footer: React.FC = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-6 text-white">Navigazione</h3>
                         <ul className="space-y-3 text-gray-300 text-sm">
-                            <li><a href="#servizi" className="hover:text-white transition-colors">Cessione del Quinto</a></li>
-                            <li><a href="#servizi" className="hover:text-white transition-colors">Prestiti Personali</a></li>
-                            <li><a href="#chi-siamo" className="hover:text-white transition-colors">Chi Siamo</a></li>
+                            <li><Link to="/cessione-del-quinto" className="hover:text-white transition-colors">Cessione del Quinto</Link></li>
+                            <li><Link to="/calcolo-cessione-del-quinto" className="hover:text-white transition-colors">Prestiti Personali</Link></li>
+                            <li><Link to="/chi-siamo" className="hover:text-white transition-colors">Chi Siamo</Link></li>
                             <li><a href="#contatti" className="hover:text-white transition-colors">Contattaci</a></li>
                         </ul>
                     </div>
@@ -88,7 +89,7 @@ const Footer: React.FC = () => {
 
                 <div className="border-t border-gray-800 pt-8 mt-8 text-center text-xs text-gray-500">
                     <p className="mb-2">&copy; {new Date().getFullYear()} Biofinance S.r.l. - P.IVA 12345678901</p>
-                    <p className="mb-4">Agenzia in attività finanziaria regolarmente iscritta all’OAM e intermediario assicurativo RUI IVASS.</p>
+                    <p className="mb-4">Agenzia in attività finanziaria regolarmente iscritta all’<span className="font-bold">OAM</span> e intermediario assicurativo RUI <span className="font-bold">IVASS</span>.</p>
                     <p>Messaggio pubblicitario con finalità promozionale. Per le condizioni contrattuali si rimanda ai fogli informativi disponibili in sede.</p>
                 </div>
             </div>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import AccordionItem from '../ui/AccordionItem';
 
 interface FAQItem {
-    question: string;
-    answer: string;
+    question: React.ReactNode;
+    answer: React.ReactNode;
 }
 
 interface FAQProps {
@@ -19,18 +19,18 @@ const FAQ: React.FC<FAQProps> = ({
 }) => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-    const defaultFaqs = [
+    const defaultFaqs: FAQItem[] = [
         {
-            question: "Che cos'esattamente la Cessione del Quinto?",
-            answer: "È una forma di prestito personale non finalizzato garantito dalla busta paga o dalla pensione. La rata mensile viene trattenuta direttamente dal datore di lavoro o dall'ente pensionistico e non può superare un quinto del totale netto mensile. È regolamentata per legge ed include sempre coperture assicurative obbligatorie."
+            question: "Che cos'è esattamente la Cessione del Quinto?",
+            answer: "La Cessione del Quinto è una forma di prestito personale non finalizzato garantito dalla busta paga o dalla pensione. La rata mensile viene trattenuta direttamente dal datore di lavoro o dall'ente pensionistico e non può mai superare il 20% (un quinto) dell'importo netto mensile percepito. È regolamentata per legge ed include sempre coperture assicurative obbligatorie."
         },
         {
             question: "Posso richiedere un prestito a Biofinance se sono segnalato in CRIF?",
-            answer: "Sì! La Cessione del Quinto è accessibile anche a chi ha avuto difficoltà creditizie in passato, poiché la garanzia è costituita dal tuo stipendio o pensione, non dalla tua storia creditizia passata."
+            answer: "Assolutamente sì. La Cessione del Quinto è l'unica forma di prestito accessibile anche a chi ha avuto disguidi finanziari in passato, segnalazioni come cattivo pagatore o pignoramenti in corso. La garanzia è costituita dal tuo stipendio o pensione, non dalla tua storia creditizia passata."
         },
         {
             question: "Quali documenti servono per avviare una richiesta?",
-            answer: "Basta un documento d'identità valido, codice fiscale e gli ultimi due cedolini dello stipendio (o il cedolino della pensione e il modello OBIS M). Al resto della burocrazia, inclusa la richiesta del Certificato di Stipendio o della Quota Cedibile, pensiamo noi."
+            answer: "Per un preventivo immediato con Biofinance bastano pochi documenti: documento d'identità valido, codice fiscale e gli ultimi due cedolini dello stipendio (o il cedolino della pensione e il modello OBIS M). Al resto della burocrazia, inclusa la richiesta del Certificato di Stipendio o della Quota Cedibile, pensiamo noi."
         }
     ];
 
@@ -56,7 +56,7 @@ const FAQ: React.FC<FAQProps> = ({
                             isOpen={openIndex === index}
                             onClick={() => setOpenIndex(index === openIndex ? null : index)}
                         >
-                            <p>{faq.answer}</p>
+                            <div>{faq.answer}</div>
                         </AccordionItem>
                     ))}
                 </div>
