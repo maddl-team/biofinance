@@ -13,45 +13,46 @@ import {
     Navigation,
     Calculator
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ForzeArmate: React.FC = () => {
     const categories = [
         {
             icon: <Navigation className="w-8 h-8" />,
-            title: "Esercito Italiano, Marina Militare, Aeronautica",
+            title: <span className="font-bold">Esercito Italiano, Marina Militare, Aeronautica.</span>,
         },
         {
             icon: <Shield className="w-8 h-8" />,
-            title: "Arma dei Carabinieri",
+            title: <span className="font-bold">Arma dei Carabinieri.</span>,
         },
         {
             icon: <Users className="w-8 h-8" />,
-            title: "Polizia di Stato e Penitenziaria",
+            title: <span className="font-bold">Polizia di Stato e Penitenziaria.</span>,
         },
         {
             icon: <ShieldCheck className="w-8 h-8" />,
-            title: "Guardia di Finanza",
+            title: <span className="font-bold">Guardia di Finanza.</span>,
         },
         {
             icon: <Flame className="w-8 h-8" />,
-            title: "Vigili del Fuoco",
+            title: <span className="font-bold">Vigili del Fuoco.</span>,
         }
     ];
 
     const operativeAdvantages = [
         {
             icon: <MapPin className="w-8 h-8" />,
-            title: "Nessuna limitazione per i Trasferimenti",
+            title: <span className="font-bold">Nessuna limitazione per i Trasferimenti:</span>,
             desc: "Se vieni trasferito in un'altra caserma o regione, la Cessione del Quinto ti segue automaticamente. Non devi chiudere o rifare nulla."
         },
         {
             icon: <Globe className="w-8 h-8" />,
-            title: "Missioni all'Estero",
+            title: <span className="font-bold">Missioni all'Estero:</span>,
             desc: "Anche se sei impegnato in missioni internazionali, la gestione amministrativa rimane centralizzata in Italia (CNA Esercito o NoiPA), garantendo continuità nei pagamenti."
         },
         {
             icon: <Zap className="w-8 h-8" />,
-            title: "Valutazione Indennità Operative",
+            title: <span className="font-bold">Valutazione Indennità Operative:</span>,
             desc: "Nel calcolo della quota cedibile, cerchiamo di valorizzare tutte le voci fisse e continuative del tuo cedolino per massimizzare l'importo erogabile."
         }
     ];
@@ -67,7 +68,7 @@ const ForzeArmate: React.FC = () => {
                                 Cessione del Quinto Forze Armate: Al fianco di chi ci protegge.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La divisa che indossi è sinonimo di affidabilità. Per questo, Biofinance riserva ai membri delle Forze Armate e dell'Ordine condizioni finanziarie d'eccellenza. Sappiamo che la tua vita lavorativa ha esigenze specifiche: trasferimenti, missioni all'estero, avanzamenti di grado. La nostra Cessione del Quinto è flessibile e ti segue ovunque, gestita direttamente tramite il portale NoiPA.
+                                La divisa che indossi è sinonimo di affidabilità. Per questo, <span className="font-bold">Biofinance</span> riserva ai membri delle Forze Armate e dell'Ordine condizioni finanziarie d'eccellenza. Sappiamo che la tua vita lavorativa ha esigenze specifiche: trasferimenti, missioni all'estero, avanzamenti di grado. La nostra Cessione del Quinto è flessibile e ti segue ovunque, gestita direttamente tramite il portale <span className="font-bold">NoiPA</span>.
                             </p>
                         </div>
                         <div className="relative">
@@ -142,7 +143,7 @@ const ForzeArmate: React.FC = () => {
                                     <ShieldCheck className="w-16 h-16 text-secondary mb-8" />
                                     <h3 className="text-3xl font-bold mb-6 text-white">Tassi Agevolati e Convenzioni</h3>
                                     <p className="text-xl text-white/80 leading-relaxed mb-8">
-                                        Grazie alla stabilità del tuo impiego statale, il rischio credito è prossimo allo zero. Questo ci permette di applicare tassi TAN e TAEG ai minimi di mercato, spesso inferiori a quelli proposti dalle banche generaliste. Inoltre, l'assicurazione "Rischio Vita e Impiego" (obbligatoria) ha costi estremamente ridotti per la tua categoria.
+                                        Grazie alla stabilità del tuo impiego statale, il rischio credito è prossimo allo zero. Questo ci permette di applicare <span className="font-bold">tassi TAN e TAEG ai minimi di mercato</span>, spesso inferiori a quelli proposti dalle banche generaliste. Inoltre, l'assicurazione "Rischio Vita e Impiego" (obbligatoria) ha costi estremamente ridotti per la tua categoria.
                                     </p>
                                     <div className="inline-flex items-center gap-2 text-secondary font-black tracking-widest uppercase text-sm">
                                         <TrendingDown className="w-5 h-5" />
@@ -179,10 +180,13 @@ const ForzeArmate: React.FC = () => {
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl">
                             Scopri subito le condizioni esclusive riservate alla tua divisa nel portale NoiPA.
                         </p>
-                        <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <Link
+                            to="/contatti"
+                            className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             RICHIEDI PREVENTIVO FORZE ARMATE
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

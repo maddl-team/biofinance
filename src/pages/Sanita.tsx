@@ -13,21 +13,22 @@ import {
     FileText
 } from 'lucide-react';
 import FAQ from '../components/sections/FAQ';
+import { Link } from 'react-router-dom';
 
 const Sanita: React.FC = () => {
     const categories = [
         {
             icon: <Activity className="w-8 h-8" />,
-            title: "Infermieri e Caposala"
+            title: <span className="font-bold">Infermieri</span>,
         },
         {
             icon: <Users className="w-8 h-8" />,
-            title: "OSS e OSA",
+            title: <span className="font-bold">OSS</span>,
             desc: "Operatori Socio Sanitari e Operatori Socio Assistenziali."
         },
         {
             icon: <Stethoscope className="w-8 h-8" />,
-            title: "Medici Ospedalieri"
+            title: <span className="font-bold">Medici</span>,
         },
         {
             icon: <UserCheck className="w-8 h-8" />,
@@ -38,17 +39,17 @@ const Sanita: React.FC = () => {
     const benefits = [
         {
             icon: <MessageCircle className="w-8 h-8" />,
-            title: "Tutto via WhatsApp/Mail",
+            title: <span className="font-bold">Tutto via WhatsApp/Mail:</span>,
             desc: "Sappiamo che hai poco tempo libero. Gestiamo tutto digitalmente, non devi recarti in filiale."
         },
         {
             icon: <Smartphone className="w-8 h-8" />,
-            title: "Firma Digitale",
+            title: <span className="font-bold">Firma Digitale:</span>,
             desc: "Firmi il contratto comodamente dal tuo smartphone durante una pausa o da casa."
         },
         {
             icon: <PiggyBank className="w-8 h-8" />,
-            title: "Acconto Immediato",
+            title: <span className="font-bold">Acconto Immediato:</span>,
             desc: "Disponibile su richiesta per urgenze, per garantirti liquidità nel minor tempo possibile."
         }
     ];
@@ -64,7 +65,7 @@ const Sanita: React.FC = () => {
                                 Prestiti Personale Sanitario: Diamo Credito al tuo Impegno.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, Biofinance analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua "Quota Cedibile" includendo tutte le indennità fisse previste dal CCNL Sanità.
+                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, <span className="font-bold">Biofinance</span> analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua "<span className="font-bold">Quota Cedibile</span>" includendo tutte le indennità fisse previste dal CCNL Sanità.
                             </p>
                         </div>
                         <div className="relative">
@@ -113,7 +114,7 @@ const Sanita: React.FC = () => {
                         <div className="lg:w-1/2">
                             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 leading-tight">Come calcoliamo il tuo Quinto?</h2>
                             <p className="text-xl text-gray-600 leading-relaxed">
-                                La particolarità del comparto Sanità è la presenza di Indennità Specifiche (rischio radiologico, terapia intensiva, ecc.). Biofinance lavora per includere nel calcolo della rata sostenibile tutte le voci che hanno carattere di fissità e continuità, permettendoti di ottenere un importo più alto rispetto a un calcolo standard.
+                                La particolarità del comparto Sanità è la presenza di <span className="font-bold">Indennità Specifiche</span> (rischio radiologico, terapia intensiva, ecc.). Biofinance lavora per includere nel calcolo della rata sostenibile tutte le voci che hanno carattere di fissità e continuità, permettendoti di ottenere un importo più alto rispetto a un calcolo standard.
                             </p>
                         </div>
                         <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -164,10 +165,13 @@ const Sanita: React.FC = () => {
                             <p className="text-xl text-white/80 mb-10">
                                 Noi proteggiamo i tuoi progetti con le migliori soluzioni di credito.
                             </p>
-                            <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                            >
                                 PREVENTIVO DEDICATO SANITÀ
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -178,16 +182,16 @@ const Sanita: React.FC = () => {
                 title="Domande Frequenti per Professionisti Sanitari"
                 items={[
                     {
-                        question: "Sono un Carabiniere, se vado in pensione la cessione continua?",
+                        question: <><span className="font-bold">Domanda 1:</span> Sono un Carabiniere, se vado in pensione la cessione continua?</>,
                         answer: "Sì, la Cessione del Quinto è un prestito che \"trasla\". Se vai in pensione durante il piano di ammortamento, la rata viene trattenuta automaticamente dall'INPS sulla tua pensione, senza costi aggiuntivi o necessità di estinguere il debito anticipatamente."
                     },
                     {
-                        question: "Le indennità di turno notturno rientrano nel calcolo?",
-                        answer: "Dipende dalla loro continuità. Se sono occasionali no, ma se sono strutturali e previste dal contratto come voce fissa ricorrente, Biofinance farà il possibile per farle rientrare nel montante stipendiale utile, aumentando così la liquidità che puoi ottenere."
+                        question: <><span className="font-bold">Domanda 2:</span> Le indennità di turno notturno rientrano nel calcolo?</>,
+                        answer: <>Dipende dalla loro continuità. Se sono occasionali no, ma se sono strutturali e previste dal contratto come voce fissa ricorrente, Biofinance farà il possibile per farle rientrare nel montante stipendiale utile, aumentando così la liquidità che puoi ottenere. Le <span className="font-bold">indennità di turno notturno</span> possono fare la differenza.</>
                     },
                     {
-                        question: "Ho un contratto a tempo determinato in ASL (Emergenza), posso chiedere il prestito?",
-                        answer: "Per la Cessione del Quinto serve solitamente il tempo indeterminato. Tuttavia, se il tuo contratto ha una durata residua certa (es. 36 mesi), possiamo valutare un finanziamento che si estingua entro la scadenza del contratto lavorativo."
+                        question: <><span className="font-bold">Domanda 3:</span> Ho un contratto a tempo determinato in ASL (Emergenza), posso chiedere il prestito?</>,
+                        answer: <>Per la Cessione del Quinto serve solitamente il tempo indeterminato. Tuttavia, se il tuo contratto ha una durata residua certa (es. 36 mesi), possiamo valutare un finanziamento che si estingua entro la scadenza del <span className="font-bold">contratto a tempo determinato</span> lavorativo.</>
                     }
                 ]}
             />

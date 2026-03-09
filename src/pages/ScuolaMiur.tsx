@@ -10,22 +10,23 @@ import {
     PiggyBank
 } from 'lucide-react';
 import FAQ from '../components/sections/FAQ';
+import { Link } from 'react-router-dom';
 
 const ScuolaMiur: React.FC = () => {
     const targetCategories = [
         {
             icon: <GraduationCap className="w-8 h-8" />,
-            title: "Docenti di Ruolo",
+            title: <span className="font-bold">Docenti di Ruolo</span>,
             desc: "Scuole dell'infanzia, primarie, secondarie e Università."
         },
         {
             icon: <Users className="w-8 h-8" />,
-            title: "Personale ATA",
+            title: <span className="font-bold">Personale ATA</span>,
             desc: "Assistenti amministrativi e collaboratori scolastici."
         },
         {
             icon: <UserCheck className="w-8 h-8" />,
-            title: "DSGA e Dirigenti",
+            title: <span className="font-bold">DSGA e Dirigenti Scolastici</span>,
             desc: "Dirigenti Scolastici e Direttori dei Servizi Generali e Amministrativi."
         }
     ];
@@ -33,12 +34,12 @@ const ScuolaMiur: React.FC = () => {
     const advantages = [
         {
             icon: <PlusCircle className="w-8 h-8" />,
-            title: "Compatibilità con \"Piccoli Prestiti\"",
+            title: <span className="font-bold">Compatibilità con "Piccoli Prestiti":</span>,
             desc: "Se hai già un \"Piccolo Prestito NoiPA\" in corso, puoi spesso affiancare una Cessione del Quinto Biofinance per ottenere liquidità maggiore (consolidamento debiti)."
         },
         {
             icon: <ShieldCheck className="w-8 h-8" />,
-            title: "Valutazione anche per Neo-Immessi",
+            title: <span className="font-bold">Valutazione anche per Neo-Immessi:</span>,
             desc: "Hai appena superato l'anno di prova? Sei immediatamente finanziabile."
         }
     ];
@@ -54,7 +55,7 @@ const ScuolaMiur: React.FC = () => {
                                 Prestiti Mondo Scuola: Soluzioni per Docenti e Personale ATA.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La scuola è il motore del futuro. Che tu sia un Insegnante di ruolo o un collaboratore scolastico (ATA), Biofinance conosce le specificità del tuo contratto. Sappiamo che la tua busta paga può variare, che esiste la "Ricostruzione di Carriera" e che le esigenze di liquidità non seguono il calendario scolastico.
+                                La scuola è il motore del futuro. Che tu sia un <span className="font-bold">Insegnante</span> di ruolo o un collaboratore scolastico (<span className="font-bold">ATA</span>), Biofinance conosce le specificità del tuo contratto. Sappiamo che la tua busta paga può variare, che esiste la "Ricostruzione di Carriera" e che le esigenze di liquidità non seguono il calendario scolastico.
                             </p>
                         </div>
                         <div className="relative">
@@ -134,7 +135,7 @@ const ScuolaMiur: React.FC = () => {
                             </div>
                             <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-white">E se sono un Supplente?</h2>
                             <p className="text-xl text-white/80 leading-relaxed">
-                                Per i supplenti annuali (contratto al 30 giugno o 31 agosto), la Cessione del Quinto classica a 10 anni non è praticabile. Tuttavia, è possibile valutare prestiti di durata pari alla durata residua del contratto, oppure preparare la pratica affinché, al momento del passaggio di ruolo, tu sia il primo a ricevere la liquidità.
+                                Per i <span className="font-bold">supplenti annuali</span> (contratto al 30 giugno o 31 agosto), la Cessione del Quinto classica a 10 anni non è praticabile. Tuttavia, è possibile valutare prestiti di durata pari alla durata residua del contratto, oppure preparare la pratica affinché, al momento del passaggio di ruolo, tu sia il primo a ricevere la liquidità.
                             </p>
                         </div>
                     </div>
@@ -150,10 +151,13 @@ const ScuolaMiur: React.FC = () => {
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl">
                             Inserisci l'importo netto del tuo cedolino NoiPA (escluse voci variabili come FIS o attività aggiuntive).
                         </p>
-                        <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <Link
+                            to="/contatti"
+                            className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             PREVENTIVO RAPIDO DOCENTI & ATA
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -163,16 +167,16 @@ const ScuolaMiur: React.FC = () => {
                 title="FAQ per Personale Scuola"
                 items={[
                     {
-                        question: "La Cessione del Quinto blocca la Carta del Docente?",
+                        question: <><span className="font-bold">Domanda 1:</span> La Cessione del Quinto blocca la Carta del Docente?</>,
                         answer: "Assolutamente no. La Carta del Docente è un bonus per la formazione e non ha alcun legame con la tua busta paga o con i prestiti personali. Sono due canali completamente separati."
                     },
                     {
-                        question: "Cosa succede durante i mesi estivi se sono ATA?",
+                        question: <><span className="font-bold">Domanda 2:</span> Cosa succede durante i mesi estivi se sono ATA?</>,
                         answer: "Se sei di ruolo, lo stipendio (e la trattenuta della rata) continua regolarmente anche in estate. Se hai un contratto che sospende lo stipendio, la Cessione del Quinto non può essere attivata per durate superiori al contratto stesso."
                     },
                     {
-                        question: "Ho fatto la \"Ricostruzione di Carriera\", influisce sul prestito?",
-                        answer: "Sì, positivamente! La ricostruzione di carriera spesso aumenta lo stipendio base e gli scatti di anzianità. Un importo netto più alto significa una quota cedibile più alta, permettendoti di ottenere più liquidità o di abbassare l'incidenza della rata."
+                        question: <><span className="font-bold">Domanda 3:</span> Ho fatto la "Ricostruzione di Carriera", influisce sul prestito?</>,
+                        answer: <>Sì, positivamente! La <span className="font-bold">Ricostruzione di Carriera</span> spesso aumenta lo stipendio base e gli scatti di anzianità. Un importo netto più alto significa una quota cedibile più alta, permettendoti di ottenere più liquidità o di abbassare l'incidenza della rata.</>
                     }
                 ]}
             />

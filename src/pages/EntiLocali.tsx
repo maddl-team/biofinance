@@ -10,20 +10,21 @@ import {
     PieChart,
     Wallet
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const EntiLocali: React.FC = () => {
     const targets = [
         {
             icon: <Building2 className="w-8 h-8" />,
-            title: "Dipendenti di Comuni e Città Metropolitane"
+            title: <><span className="font-bold">Comuni</span> e Città Metropolitane</>
         },
         {
             icon: <Landmark className="w-8 h-8" />,
-            title: "Dipendenti delle Regioni e Province"
+            title: <><span className="font-bold">Regioni</span> e Province</>
         },
         {
             icon: <University className="w-8 h-8" />,
-            title: "Personale delle Camere di Commercio"
+            title: <><span className="font-bold">Camere di Commercio</span></>
         },
         {
             icon: <Building className="w-8 h-8" />,
@@ -39,12 +40,12 @@ const EntiLocali: React.FC = () => {
         },
         {
             icon: <PieChart className="w-8 h-8" />,
-            title: "Delega di Pagamento",
+            title: <span className="font-bold">Delega di Pagamento</span>,
             desc: "Molti Enti Locali accettano la 'seconda trattenuta'. Se hai bisogno di più liquidità, puoi impegnare fino al 40% dello stipendio."
         },
         {
             icon: <Clock className="w-8 h-8" />,
-            title: "Tassi Bloccati",
+            title: <span className="font-bold">Tassi Bloccati</span>,
             desc: "Anche se l'istruttoria richiede tempo per la burocrazia locale, il tasso preventivato rimane bloccato per tutta la durata della pratica."
         }
     ];
@@ -60,7 +61,7 @@ const EntiLocali: React.FC = () => {
                                 Cessione del Quinto Enti Locali: Il Credito per la Pubblica Amministrazione.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Lavorare per un Ente Locale (Comune, Provincia, Regione) offre una solidità che Biofinance premia con prodotti finanziari dedicati. A differenza dei dipendenti statali centrali, la tua busta paga è gestita da amministrazioni territoriali: noi abbiamo l'esperienza per dialogare velocemente con gli uffici ragioneria di ogni singolo Comune italiano, piccolo o grande che sia.
+                                Lavorare per un Ente Locale (Comune, Provincia, Regione) offre una solidità che <span className="font-bold">Biofinance</span> premia con prodotti finanziari dedicati. A differenza dei dipendenti statali centrali, la tua busta paga è gestita da amministrazioni territoriali: noi abbiamo l'esperienza per dialogare velocemente con gli uffici ragioneria di ogni singolo Comune italiano, piccolo o grande che sia.
                             </p>
                         </div>
                         <div className="relative">
@@ -133,10 +134,13 @@ const EntiLocali: React.FC = () => {
                             <p className="text-xl text-white/80 mb-10 max-w-2xl">
                                 Scopri le condizioni competitive riservate ai dipendenti della Pubblica Amministrazione locale.
                             </p>
-                            <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                            >
                                 CALCOLA RATA ENTI LOCALI
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
