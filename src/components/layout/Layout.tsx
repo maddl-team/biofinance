@@ -1,5 +1,7 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
+import TransparentInformation from './TransparentInformation';
+import TransparencyLinks from './TransparencyLinks';
 import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {
@@ -16,6 +18,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <main className="flex-grow">
                 {children}
             </main>
+            <TransparentInformation />
+            <TransparencyLinks />
             <Footer />
         </div>
     );
