@@ -27,7 +27,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1556740985-ef5874bc7e5d?auto=format&fit=crop&q=80&w=800"
+                                src="/img/dipendenti-privati.jpg"
                                 alt="Dipendenti Privati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
@@ -61,7 +61,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1512403754473-27835f7b9984?auto=format&fit=crop&q=80&w=800"
+                                src="/img/dipendenti-statali.jpg"
                                 alt="Dipendenti Statali e Pubblici"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
@@ -95,7 +95,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800"
+                                src="/img/prestiti-pensionati.jpg"
                                 alt="Pensionati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />

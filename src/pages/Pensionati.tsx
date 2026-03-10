@@ -96,7 +96,7 @@ const Pensionati: React.FC = () => {
                         </div>
                         <div className="lg:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-2xl relative">
                             <img
-                                src="https://images.unsplash.com/photo-1491433594433-8598aaec52a2?auto=format&fit=crop&q=80&w=1200"
+                                src="/img/pensionati-eredi.jpg"
                                 alt="Sicurezza per la famiglia"
                                 className="w-full h-full object-cover"
                             />

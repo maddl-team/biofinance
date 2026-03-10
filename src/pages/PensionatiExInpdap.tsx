@@ -107,7 +107,7 @@ const PensionatiExInpdap: React.FC = () => {
                         </div>
                         <div className="lg:w-1/2 rounded-[3.5rem] overflow-hidden shadow-2xl relative aspect-square lg:aspect-video">
                             <img
-                                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200"
+                                src="/img/procedura-telematica.jpg"
                                 alt="Ufficio Digitale Biofinance"
                                 className="w-full h-full object-cover"
                             />

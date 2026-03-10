@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
                                 <div className={`absolute bottom-0 left-0 right-0 h-1 bg-secondary transition-all duration-300 transform origin-left ${isLinkActive(link.href, link.subMenu) ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
 
                                 {/* Dropdown Menu */}
-                                <div className={`absolute left-0 top-full w-64 bg-white shadow-2xl rounded-b-xl border border-gray-100 py-3 transition-all duration-200 ${activeDropdown === link.name ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                                <div className={`absolute top-full w-64 bg-white shadow-2xl rounded-b-xl border border-gray-100 py-3 transition-all duration-200 ${link.name === "L'Agenzia" ? 'right-0' : 'left-0'} ${activeDropdown === link.name ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                                     {link.subMenu.map((sub) => (
                                         sub.href.startsWith('/') ? (
                                             <Link

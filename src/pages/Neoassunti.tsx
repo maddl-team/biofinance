@@ -117,7 +117,7 @@ const Neoassunti: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1">
                             <img
-                                src="https://images.unsplash.com/photo-1554224155-1696413575b8?auto=format&fit=crop&q=80&w=1200"
+                                src="/img/calcolo-tfr.jpg"
                                 alt="Calcolo TFR"
                                 className="rounded-[3rem] shadow-2xl h-[400px] w-full object-cover"
                             />
