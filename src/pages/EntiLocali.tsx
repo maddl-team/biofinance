@@ -130,7 +130,7 @@ const EntiLocali: React.FC = () => {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-10 rounded-full -mt-20 -mr-20"></div>
                         <div className="relative z-10 flex flex-col items-center">
                             <Wallet className="w-16 h-16 text-secondary mb-8" />
-                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">Ottieni Liquidità per i tuoi progetti</h2>
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight text-white">Ottieni Liquidità per i tuoi progetti</h2>
                             <p className="text-xl text-white/80 mb-10 max-w-2xl">
                                 Scopri le condizioni competitive riservate ai dipendenti della Pubblica Amministrazione locale.
                             </p>

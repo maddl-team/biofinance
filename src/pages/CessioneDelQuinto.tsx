@@ -181,7 +181,7 @@ const CessioneDelQuinto: React.FC = () => {
                         </div>
                         <div className="bg-primary rounded-3xl p-10 text-white relative overflow-hidden">
                             <div className="relative z-10">
-                                <h3 className="text-3xl font-bold mb-6 italic">Perché scegliere Biofinance?</h3>
+                                <h3 className="text-3xl font-bold mb-6 italic text-white">Perché scegliere Biofinance?</h3>
                                 <p className="text-lg opacity-90 mb-8 leading-relaxed">
                                     "Amiamo definire la Cessione del Quinto come lo strumento più democratico del mercato finanziario. Non giudichiamo il tuo passato, ma investiamo nel tuo presente e nel tuo futuro lavorativo."
                                 </p>

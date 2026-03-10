@@ -161,7 +161,7 @@ const Sanita: React.FC = () => {
                         <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
                         <div className="relative z-10">
                             <HeartPulse className="w-16 h-16 text-secondary mb-8 mx-auto" />
-                            <h2 className="text-3xl lg:text-4xl font-bold mb-6">Il tuo lavoro è proteggere la vita.</h2>
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Il tuo lavoro è proteggere la vita.</h2>
                             <p className="text-xl text-white/80 mb-10">
                                 Noi proteggiamo i tuoi progetti con le migliori soluzioni di credito.
                             </p>

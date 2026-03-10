@@ -87,7 +87,7 @@ const DelegazionePagamento: React.FC = () => {
                             <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-white/20">
                                 <Users2 className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-4">Esclusiva Dipendenti</h3>
+                            <h3 className="text-2xl font-bold mb-4 text-white">Esclusiva Dipendenti</h3>
                             <p className="text-white/80 leading-relaxed italic">
                                 Purtroppo, i pensionati non possono accedere alla Delega (per legge INPS accetta solo una trattenuta).
                             </p>
