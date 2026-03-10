@@ -13,6 +13,14 @@ const Navbar: React.FC = () => {
         setActiveDropdown(null);
     }, [location]);
 
+    const isLinkActive = (href: string, subMenu?: { href: string }[]) => {
+        if (href !== '#' && location.pathname === href) return true;
+        if (subMenu) {
+            return subMenu.some(sub => sub.href !== '#' && location.pathname === sub.href);
+        }
+        return false;
+    };
+
     const navLinks = [
         {
             name: 'Cessione del Quinto',
@@ -94,11 +102,11 @@ const Navbar: React.FC = () => {
                     </div>
 
                     {/* Desktop Menu */}
-                    <div className="hidden xl:flex space-x-1 items-center">
+                    <div className="hidden xl:flex space-x-1 self-stretch">
                         {navLinks.map((link) => (
                             <div
                                 key={link.name}
-                                className="relative group"
+                                className="relative group flex items-center h-full"
                                 onMouseEnter={() => setActiveDropdown(link.name)}
                                 onMouseLeave={() => setActiveDropdown(null)}
                             >
@@ -106,26 +114,29 @@ const Navbar: React.FC = () => {
                                     {link.href !== '#' ? (
                                         <Link
                                             to={link.href}
-                                            className="px-3 py-2 text-neutral-dark hover:text-primary font-bold text-sm transition-colors whitespace-nowrap"
+                                            className="px-3 py-2 font-bold text-sm text-neutral-dark hover:text-primary transition-all whitespace-nowrap"
                                         >
                                             {link.name}
                                         </Link>
                                     ) : (
-                                        <button className="px-3 py-2 text-neutral-dark hover:text-primary font-bold text-sm transition-colors whitespace-nowrap">
+                                        <button className="px-3 py-2 font-bold text-sm text-neutral-dark hover:text-primary transition-all whitespace-nowrap">
                                             {link.name}
                                         </button>
                                     )}
-                                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180 text-secondary' : 'text-gray-400'}`} />
                                 </div>
 
+                                {/* Active Line Indicator - Aligned to bottom of header */}
+                                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-secondary transition-all duration-300 transform origin-left ${isLinkActive(link.href, link.subMenu) ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
+
                                 {/* Dropdown Menu */}
-                                <div className={`absolute left-0 mt-0 w-64 bg-white shadow-2xl rounded-xl border border-gray-100 py-3 transition-all duration-200 ${activeDropdown === link.name ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                                <div className={`absolute left-0 top-full w-64 bg-white shadow-2xl rounded-b-xl border border-gray-100 py-3 transition-all duration-200 ${activeDropdown === link.name ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                                     {link.subMenu.map((sub) => (
                                         sub.href.startsWith('/') ? (
                                             <Link
                                                 key={sub.name}
                                                 to={sub.href}
-                                                className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-secondary-light hover:text-primary transition-colors font-semibold"
+                                                className={`block px-5 py-2.5 text-sm transition-colors font-semibold ${location.pathname === sub.href ? 'bg-secondary-light text-secondary border-l-4 border-secondary' : 'text-gray-700 hover:bg-secondary-light hover:text-primary'}`}
                                             >
                                                 {sub.name}
                                             </Link>
@@ -166,7 +177,7 @@ const Navbar: React.FC = () => {
                                     {link.href !== '#' ? (
                                         <Link
                                             to={link.href}
-                                            className="flex-1 text-left px-3 py-4 text-base font-bold text-neutral-dark hover:bg-gray-50 rounded-lg transition-colors"
+                                            className={`flex-1 text-left px-3 py-4 text-base font-bold rounded-lg transition-colors ${isLinkActive(link.href, link.subMenu) ? 'bg-secondary-light/50 text-neutral-dark' : 'text-neutral-dark hover:bg-gray-50'}`}
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {link.name}
@@ -194,7 +205,7 @@ const Navbar: React.FC = () => {
                                                 <Link
                                                     key={sub.name}
                                                     to={sub.href}
-                                                    className="block px-4 py-3 text-sm font-semibold text-gray-600 hover:text-primary"
+                                                    className={`block px-4 py-3 text-sm font-semibold transition-colors ${location.pathname === sub.href ? 'text-secondary bg-white rounded-lg shadow-sm border-l-4 border-secondary' : 'text-gray-600 hover:text-primary'}`}
                                                     onClick={() => setIsOpen(false)}
                                                 >
                                                     {sub.name}
