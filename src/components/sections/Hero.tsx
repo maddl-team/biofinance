@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
                 >
                     <path
                         d="M0 0 H1440 V550 C1000 580 500 680 250 680 C100 680 0 630 0 500 V0Z"
-                        fill="var(--color-secondary-light)"
+                        fill="var(--color-neutral-bg)"
                     />
                 </svg>
             </div>
@@ -90,4 +90,3 @@ const Hero: React.FC = () => {
 
 
 export default Hero;
-
