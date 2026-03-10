@@ -42,15 +42,11 @@ const Pensionati: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1581578731548-c64695ce6958?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/prestiti-pensionati.jpg"
                                     alt="Pensionati Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white text-right">
-                                    <h3 className="text-2xl font-bold mb-2">Tranquillità e Progetti</h3>
-                                    <p className="text-lg italic text-white/90">La tua pensione vale di più con Biofinance.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

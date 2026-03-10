@@ -34,15 +34,11 @@ const ChiSiamo: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/chi-siamo.jpg"
                                     alt="Il Team Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <h3 className="text-2xl font-bold mb-2">Trasparenza ed Etica</h3>
-                                    <p className="text-lg italic text-white/90">Il tuo futuro finanziario in mani sicure.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

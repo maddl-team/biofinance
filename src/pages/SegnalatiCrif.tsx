@@ -30,15 +30,11 @@ const SegnalatiCrif: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1554224155-1696413575b8?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/prestiti-segnalati-crif.jpg"
                                     alt="Segnalati CRIF Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <h3 className="text-2xl font-bold mb-2">Seconda Opportunità</h3>
-                                    <p className="text-lg italic text-white/90">La tua busta paga è la tua garanzia.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -93,7 +93,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                         <div className="relative order-2 lg:order-1">
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/calcolo-cessione-del-quinto.jpg"
                                     alt="Fiducia e Familiarità Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

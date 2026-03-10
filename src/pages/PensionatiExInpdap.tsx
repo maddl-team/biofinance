@@ -46,15 +46,11 @@ const PensionatiExInpdap: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1544333346-646706e23730?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/prestiti-pensionati-ex-inpdap.jpg"
                                     alt="Pensionati Ex-INPDAP Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <h3 className="text-2xl font-bold mb-2">Ex Dipendenti Pubblici</h3>
-                                    <p className="text-lg italic text-white/90">Condizioni esclusive per chi ha servito il Paese.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

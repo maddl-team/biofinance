@@ -78,14 +78,11 @@ const GrandiAziende: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/prestiti-grandi-aziende.jpg"
                                     alt="Grandi Aziende"
                                     className="w-full h-[450px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <p className="text-2xl font-bold italic">Condizioni Prime per Top Companies</p>
-                                </div>
                             </div>
                         </div>
                     </div>

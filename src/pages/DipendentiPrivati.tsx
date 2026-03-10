@@ -27,14 +27,11 @@ const DipendentiPrivati: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/dipendenti-privati.jpg"
                                     alt="Lavoro e stabilità"
                                     className="w-full h-[400px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-8 left-8 right-8 text-white">
-                                    <p className="text-xl font-bold">La tua stabilità diventa liquidità.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -34,15 +34,11 @@ const RinnovoCessione: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1573163281534-dd021d7c6a1b?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/rinnovo-cessione-del-quinto.jpg"
                                     alt="Consulenza Biofinance Rinnovo"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <h3 className="text-2xl font-bold mb-2 text-white">Liquidità immediata</h3>
-                                    <p className="text-lg italic">Ottieni nuova liquidità rinegoziando il tuo prestito esistente.</p>
-                                </div>
                             </div>
                         </div>
                     </div>

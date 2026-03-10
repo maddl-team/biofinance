@@ -21,21 +21,29 @@ const CessioneDelQuinto: React.FC = () => {
             {/* Page Header / Hero */}
             <section className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 bg-secondary-light overflow-hidden isolate">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="max-w-3xl">
-                        <h1 className="text-4xl lg:text-5xl font-extrabold text-primary mb-6 leading-tight">
-                            Cessione del Quinto: Il Prestito Garantito, Sostenibile e Unico per Diritto.
-                        </h1>
-                        <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                            La Cessione del Quinto non è un semplice prestito personale, ma un diritto del lavoratore e del pensionato sancito dalla legge italiana (DPR 180/1950). In <span className="font-bold">Biofinance</span>, trasformiamo questo diritto in liquidità immediata, trasparente e sicura.
-                        </p>
-                        <p className="text-lg text-gray-600">
-                            A differenza dei finanziamenti bancari classici, qui la tua garanzia non è il tuo passato creditizio, ma la tua busta paga o la tua pensione.
-                        </p>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h1 className="text-4xl lg:text-5xl font-extrabold text-primary mb-6 leading-tight">
+                                Cessione del Quinto: Il Prestito Garantito, Sostenibile e Unico per Diritto.
+                            </h1>
+                            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+                                La Cessione del Quinto non è un semplice prestito personale, ma un diritto del lavoratore e del pensionato sancito dalla legge italiana (DPR 180/1950). In <span className="font-bold">Biofinance</span>, trasformiamo questo diritto in liquidità immediata, trasparente e sicura.
+                            </p>
+                            <p className="text-lg text-gray-600">
+                                A differenza dei finanziamenti bancari classici, qui la tua garanzia non è il tuo passato creditizio, ma la tua busta paga o la tua pensione.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
+                                <img
+                                    src="/img/cessione-del-quinto.jpg"
+                                    alt="Cessione del Quinto"
+                                    className="w-full h-[400px] object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                {/* Decorative background element */}
-                <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-10 pointer-events-none">
-                    <img src="/img/logo_biofinance_header.png" alt="" className="w-[600px] h-auto" />
                 </div>
             </section>
 

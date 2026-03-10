@@ -70,15 +70,11 @@ const Sanita: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1576091160550-217359f4ecf8?auto=format&fit=crop&q=80&w=1200"
+                                    src="/img/prestiti-sanita.jpg"
                                     alt="Sanità Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                                <div className="absolute bottom-10 left-10 right-10 text-white text-right">
-                                    <h3 className="text-2xl font-bold mb-2">Dedicato agli Eroi della Sanità</h3>
-                                    <p className="text-lg italic text-white/90">Valutiamo la tua professionalità, non solo il base.</p>
-                                </div>
                             </div>
                         </div>
                     </div>
