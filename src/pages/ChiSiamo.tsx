@@ -7,8 +7,10 @@ import {
     Star,
     Award,
     BadgeCheck,
-    Users2
+    Users2,
+    ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ChiSiamo: React.FC = () => {
     return (
@@ -26,7 +28,7 @@ const ChiSiamo: React.FC = () => {
                                 Biofinance: Persone, prima che Numeri.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                In un mondo di algoritmi e call center anonimi, Biofinance ci mette la faccia. Siamo un'Agenzia in Attività Finanziaria regolarmente iscritta all'OAM (Organismo Agenti e Mediatori) al n. [XXXXX]. Operiamo nel rispetto rigoroso delle normative Banca d'Italia e IVASS, con un approccio etico al credito.
+                                In un mondo di algoritmi e call center anonimi, Biofinance ci mette la faccia. Siamo un'Agenzia in Attività Finanziaria regolarmente iscritta all'<span className="font-bold">OAM (Organismo Agenti e Mediatori) al n. XXXXX</span>. Operiamo nel rispetto rigoroso delle normative Banca d'Italia e IVASS, con un approccio etico al credito.
                             </p>
                         </div>
                         <div className="relative">
@@ -68,7 +70,7 @@ const ChiSiamo: React.FC = () => {
                         <div className="order-1 lg:order-2">
                             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 lowercase first-letter:uppercase">La Nostra Missione</h2>
                             <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                                Non vendiamo "prodotti", offriamo sostenibilità. Un prestito è utile solo se migliora la vita di chi lo richiede, non se la complica.
+                                Non vendiamo "prodotti", offriamo <span className="font-bold">sostenibilità</span>. Un prestito è utile solo se migliora la vita di chi lo richiede, non se la complica.
                             </p>
                             <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-secondary pl-6">
                                 Per questo, i nostri consulenti sono formati per dirti anche "No" se un'operazione rischia di sovraindebitarti.
@@ -84,7 +86,7 @@ const ChiSiamo: React.FC = () => {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Il Team Consulenti</h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto font-medium italic">
-                            Ogni pratica ha un Consulente Dedicato dall'inizio alla fine. Avrai il suo numero diretto e WhatsApp. Niente attese ai centralini.
+                            Ogni pratica ha un <span className="font-bold">Consulente Dedicato</span> dall'inizio alla fine. Avrai il suo numero diretto e WhatsApp. Niente attese ai centralini.
                         </p>
                     </div>
 
@@ -184,10 +186,13 @@ const ChiSiamo: React.FC = () => {
                     <p className="text-xl text-gray-600 mb-10 leading-relaxed">
                         Scegli la trasparenza e l'etica di una consulenza reale. Nessun algoritmo può sostituire il valore di una persona al tuo fianco.
                     </p>
-                    <button className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn">
+                    <Link
+                        to="/contatti"
+                        className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                    >
                         PARLA CON UN CONSULENTE
-                        <Phone className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                    </button>
+                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
+                    </Link>
                 </div>
             </section>
         </div>

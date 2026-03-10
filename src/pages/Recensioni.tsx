@@ -9,6 +9,7 @@ import {
     Heart,
     ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Recensioni: React.FC = () => {
     const widgetRef = React.useRef<HTMLDivElement>(null);
@@ -50,7 +51,7 @@ const Recensioni: React.FC = () => {
                                 La parola ai nostri Clienti.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Possiamo dirti che siamo bravi, ma preferiamo che siano i nostri clienti a confermarlo. La trasparenza è totale: raccogliamo feedback certificati tramite piattaforme indipendenti come Trustindex e Google Reviews.
+                                Possiamo dirti che siamo bravi, ma preferiamo che siano i nostri clienti a confermarlo. La trasparenza è totale: raccogliamo feedback certificati tramite piattaforme indipendenti come <span className="font-bold">Trustindex</span> e <span className="font-bold">Google Reviews</span>.
                             </p>
                         </div>
                         <div className="relative">
@@ -105,8 +106,7 @@ const Recensioni: React.FC = () => {
                                     <ShieldCheck className="w-7 h-7" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-primary">Luigi</h3>
-                                    <p className="text-sm text-secondary font-bold uppercase tracking-widest">Carabiniere</p>
+                                    <h3 className="text-xl font-bold text-primary"><span className="font-bold">Il caso di Luigi (Carabiniere):</span></h3>
                                 </div>
                             </div>
                             <p className="text-gray-700 leading-relaxed italic mb-8 flex-grow">
@@ -126,8 +126,7 @@ const Recensioni: React.FC = () => {
                                     <Heart className="w-7 h-7" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-white">Maria</h3>
-                                    <p className="text-sm text-secondary font-bold uppercase tracking-widest">Pensionata INPS</p>
+                                    <h3 className="text-xl font-bold text-white"><span className="font-bold">Il caso di Maria (Pensionata INPS):</span></h3>
                                 </div>
                             </div>
                             <p className="text-white/80 leading-relaxed italic mb-8 flex-grow relative z-10">
@@ -146,8 +145,7 @@ const Recensioni: React.FC = () => {
                                     <Building2 className="w-7 h-7" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-primary">Luca</h3>
-                                    <p className="text-sm text-secondary font-bold uppercase tracking-widest">Dipendente “AZIENDA X”</p>
+                                    <h3 className="text-xl font-bold text-primary"><span className="font-bold">Il caso di Luca (Dipendente “AZIENDA X”):</span></h3>
                                 </div>
                             </div>
                             <p className="text-gray-700 leading-relaxed italic mb-8 flex-grow">
@@ -194,10 +192,13 @@ const Recensioni: React.FC = () => {
                             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
                                 Il tuo parere ci aiuta a migliorare. Dopo l'erogazione, riceverai un link per valutare il nostro operato. Puntiamo all'eccellenza, sempre.
                             </p>
-                            <button className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/40 uppercase tracking-widest text-sm inline-flex items-center group/btn">
-                                LASCIA UN FEEDBACK
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/40 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                            >
+                                RIPARTI CON BIOFINANCE (Preventivo Anonimo)
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

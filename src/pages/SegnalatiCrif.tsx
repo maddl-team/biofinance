@@ -6,6 +6,7 @@ import {
     Activity,
     ClipboardCheck
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const SegnalatiCrif: React.FC = () => {
     return (
@@ -23,7 +24,7 @@ const SegnalatiCrif: React.FC = () => {
                                 Segnalato in CRIF? Per noi non sei un "Cattivo Pagatore".
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Nella vita può capitare di saltare una rata o avere un disguido finanziario. Per le banche tradizionali diventi "invisibile" o "non bancabile". Per Biofinance, sei un lavoratore o un pensionato con dei diritti. La Cessione del Quinto è l'unica forma di prestito garantita per legge accessibile anche a chi ha segnalazioni negative in banche dati (CRIF, CTC, Experian) o protesti.
+                                Nella vita può capitare di saltare una rata o avere un disguido finanziario. Per le banche tradizionali diventi "invisibile" o "non bancabile". Per <span className="font-bold">Biofinance</span>, sei un lavoratore o un pensionato con dei diritti. La Cessione del Quinto è <span className="font-bold">l'unica forma di prestito garantita per legge</span> accessibile anche a chi ha segnalazioni negative in banche dati (CRIF, CTC, Experian) o protesti.
                             </p>
                         </div>
                         <div className="relative">
@@ -54,7 +55,7 @@ const SegnalatiCrif: React.FC = () => {
                                 <ClipboardCheck className="w-6 h-6" />
                             </div>
                             <p className="text-xl text-gray-700 leading-relaxed">
-                                Il motivo è tecnico: la garanzia del prestito non è la tua affidabilità passata, ma la tua busta paga presente. L'assicurazione copre il rischio di perdita del lavoro o premorienza, non il rischio che tu non paghi le rate (perché le paga il tuo datore di lavoro!). Quindi, anche se hai avuto problemi con un mutuo o un prestito precedente, la tua richiesta viene valutata positivamente.
+                                Il motivo è tecnico: la garanzia del prestito non è la tua affidabilità passata, ma la tua <span className="font-bold">busta paga presente</span>. L'assicurazione copre il rischio di perdita del lavoro o premorienza, non il rischio che tu non paghi le rate (perché le paga il tuo datore di lavoro!). Quindi, anche se hai avuto problemi con un mutuo o un prestito precedente, la tua richiesta viene valutata positivamente.
                             </p>
                         </div>
                     </div>
@@ -77,7 +78,7 @@ const SegnalatiCrif: React.FC = () => {
                             <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-8 group-hover:bg-secondary group-hover:text-white transition-colors">
                                 <Activity className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary mb-6">Coesistenza</h3>
+                            <h3 className="text-2xl font-bold text-primary mb-6"><span className="font-bold">Coesistenza:</span></h3>
                             <p className="text-lg text-gray-600 leading-relaxed">
                                 Se il pignoramento è piccolo, la Cessione del Quinto può affiancarsi (rispettando il limite del 50% dello stipendio impegnato).
                             </p>
@@ -89,7 +90,7 @@ const SegnalatiCrif: React.FC = () => {
                             <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center text-secondary mb-8 border border-white/20 group-hover:bg-white group-hover:text-primary transition-colors">
                                 <Scale className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6 text-white">Estinzione (Saldo e Stralcio)</h3>
+                            <h3 className="text-2xl font-bold mb-6 text-white"><span className="font-bold">Estinzione (Saldo e Stralcio):</span></h3>
                             <p className="text-lg text-white/80 leading-relaxed">
                                 Usiamo la Cessione del Quinto per saldare il debito che ha causato il pignoramento, cancellando la trattenuta giudiziaria e sostituendola con la rata volontaria (spesso più bassa).
                             </p>
@@ -111,10 +112,13 @@ const SegnalatiCrif: React.FC = () => {
                             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
                                 Richiedi un preventivo anonimo e discreto oggi stesso. Valutiamo ogni situazione con cura e competenza.
                             </p>
-                            <button className="bg-primary hover:bg-primary-light text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn border-2 border-primary-light">
+                            <Link
+                                to="/contatti"
+                                className="bg-primary hover:bg-primary-light text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn border-2 border-primary-light"
+                            >
                                 PREVENTIVO ANONIMO
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

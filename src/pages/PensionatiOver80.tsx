@@ -8,6 +8,7 @@ import {
     AlertCircle,
     HandHeart
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PensionatiOver80: React.FC = () => {
     const sections = [
@@ -19,7 +20,7 @@ const PensionatiOver80: React.FC = () => {
         {
             icon: <HandHeart className="w-8 h-8 text-secondary" />,
             title: "Assicurazione Vita: La tua tranquillità",
-            content: "Il timore più grande è lasciare un debito ai propri cari. Con la Cessione del Quinto questo rischio è azzerato. La polizza Rischio Vita è obbligatoria e inclusa nel TAEG. In caso di premorienza, il debito residuo viene estinto dalla compagnia assicurativa. Né il coniuge, né i figli dovranno versare un euro. È una garanzia di serenità totale."
+            content: <>Il timore più grande è lasciare un debito ai propri cari. Con la Cessione del Quinto questo rischio è azzerato. La polizza <span className="font-bold">Rischio Vita è obbligatoria e inclusa nel TAEG</span>. In caso di premorienza, il debito residuo viene estinto dalla compagnia assicurativa. Né il coniuge, né i figli dovranno versare un euro. È una garanzia di serenità totale.</>
         }
     ];
 
@@ -34,7 +35,7 @@ const PensionatiOver80: React.FC = () => {
                                 Cessione del Quinto Senior: L'Età è solo un numero.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Molti istituti chiudono le porte dopo i 75 anni. Biofinance le apre. Crediamo che i progetti non abbiano scadenza. Grazie a convenzioni assicurative speciali, finanziamo pensionati che desiderano liquidità per aiutare figli, nipoti o semplicemente per godersi la vita, estendendo il piano di ammortamento fino al compimento del 88esimo anno di età.
+                                Molti istituti chiudono le porte dopo i 75 anni. <span className="font-bold">Biofinance</span> le apre. Crediamo che i progetti non abbiano scadenza. Grazie a convenzioni assicurative speciali, finanziamo pensionati che desiderano liquidità per aiutare figli, nipoti o semplicemente per godersi la vita, estendendo il piano di ammortamento fino al compimento del <span className="font-bold">88esimo anno di età</span>.
                             </p>
                         </div>
                         <div className="relative">
@@ -85,7 +86,7 @@ const PensionatiOver80: React.FC = () => {
                                 </div>
                                 <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 leading-tight">Serve la visita medica?</h2>
                                 <p className="text-xl text-gray-600 leading-relaxed mb-6">
-                                    Per importi standard (fino a certe soglie di capitale, solitamente 50.000€), non è richiesta alcuna visita medica (viene richiesta esclusivamente per i pensionati invalidi), ma basta una semplice autocertificazione di buona salute (Rapporto di Visita Semplificato).
+                                    Per importi standard (fino a certe soglie di capitale, solitamente 50.000€), <span className="font-bold">non è richiesta alcuna visita medica</span>, ma basta una semplice autocertificazione di buona salute (Rapporto di Visita Semplificato). VIENE RICHIESTO PER I PENSIONATI INVALIDI.
                                 </p>
                                 <div className="flex items-start gap-4 p-6 bg-primary/5 rounded-2xl border border-primary/10">
                                     <AlertCircle className="w-6 h-6 text-primary shrink-0 mt-1" />
@@ -115,10 +116,13 @@ const PensionatiOver80: React.FC = () => {
                             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
                                 Realizza i tuoi sogni o aiuta chi ami. Verifichiamo insieme la fattibilità in tempo reale.
                             </p>
-                            <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                            >
                                 VERIFICA FATTIBILITÀ OVER 80
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

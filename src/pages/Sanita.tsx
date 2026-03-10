@@ -19,20 +19,19 @@ const Sanita: React.FC = () => {
     const categories = [
         {
             icon: <Activity className="w-8 h-8" />,
-            title: <span className="font-bold">Infermieri</span>,
+            title: <><span className="font-bold">Infermieri</span> e Caposala.</>,
         },
         {
             icon: <Users className="w-8 h-8" />,
-            title: <span className="font-bold">OSS</span>,
-            desc: "Operatori Socio Sanitari e Operatori Socio Assistenziali."
+            title: <><span className="font-bold">OSS</span> (Operatori Socio Sanitari) e OSA.</>,
         },
         {
             icon: <Stethoscope className="w-8 h-8" />,
-            title: <span className="font-bold">Medici</span>,
+            title: <><span className="font-bold">Medici</span> Ospedalieri.</>,
         },
         {
             icon: <UserCheck className="w-8 h-8" />,
-            title: "Personale Tecnico e Amministrativo ASL"
+            title: "Personale Tecnico e Amministrativo ASL."
         }
     ];
 
@@ -65,7 +64,7 @@ const Sanita: React.FC = () => {
                                 Prestiti Personale Sanitario: Diamo Credito al tuo Impegno.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, <span className="font-bold">Biofinance</span> analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua "<span className="font-bold">Quota Cedibile</span>" includendo tutte le indennità fisse previste dal CCNL Sanità.
+                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, <span className="font-bold">Biofinance</span> analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua <span className="font-bold">"Quota Cedibile"</span> includendo tutte le indennità fisse previste dal CCNL Sanità.
                             </p>
                         </div>
                         <div className="relative">
@@ -90,7 +89,8 @@ const Sanita: React.FC = () => {
             <section className="section-padding bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Questa soluzione è ottimizzata per:</h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Dedicato agli Eroi della Sanità</h2>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Questa soluzione è ottimizzata per:</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -100,7 +100,6 @@ const Sanita: React.FC = () => {
                                     {cat.icon}
                                 </div>
                                 <h3 className="text-lg font-bold text-primary leading-tight mb-2">{cat.title}</h3>
-                                {cat.desc && <p className="text-sm text-gray-500 leading-tight">{cat.desc}</p>}
                             </div>
                         ))}
                     </div>
@@ -138,6 +137,7 @@ const Sanita: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Velocità e Zero Pensieri</h2>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">Sappiamo che hai poco tempo libero.</p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -187,11 +187,11 @@ const Sanita: React.FC = () => {
                     },
                     {
                         question: <><span className="font-bold">Domanda 2:</span> Le indennità di turno notturno rientrano nel calcolo?</>,
-                        answer: <>Dipende dalla loro continuità. Se sono occasionali no, ma se sono strutturali e previste dal contratto come voce fissa ricorrente, Biofinance farà il possibile per farle rientrare nel montante stipendiale utile, aumentando così la liquidità che puoi ottenere. Le <span className="font-bold">indennità di turno notturno</span> possono fare la differenza.</>
+                        answer: "Dipende dalla loro continuità. Se sono occasionali no, ma se sono strutturali e previste dal contratto come voce fissa ricorrente, Biofinance farà il possibile per farle rientrare nel montante stipendiale utile, aumentando così la liquidità che puoi ottenere."
                     },
                     {
                         question: <><span className="font-bold">Domanda 3:</span> Ho un contratto a tempo determinato in ASL (Emergenza), posso chiedere il prestito?</>,
-                        answer: <>Per la Cessione del Quinto serve solitamente il tempo indeterminato. Tuttavia, se il tuo contratto ha una durata residua certa (es. 36 mesi), possiamo valutare un finanziamento che si estingua entro la scadenza del <span className="font-bold">contratto a tempo determinato</span> lavorativo.</>
+                        answer: "Per la Cessione del Quinto serve solitamente il tempo indeterminato. Tuttavia, se il tuo contratto ha una durata residua certa (es. 36 mesi), possiamo valutare un finanziamento che si estingua entro la scadenza del contratto lavorativo."
                     }
                 ]}
             />

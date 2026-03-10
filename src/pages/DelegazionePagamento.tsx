@@ -9,6 +9,7 @@ import {
     Users2,
     CopyPlus
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const DelegazionePagamento: React.FC = () => {
     return (
@@ -26,7 +27,7 @@ const DelegazionePagamento: React.FC = () => {
                                 Delegazione di Pagamento: Quando il Quinto non basta.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Hai già una Cessione del Quinto in corso ma ti serve nuova liquidità? Non devi per forza rinnovare quella esistente (magari non puoi ancora farlo per i termini di legge). La soluzione è la Delegazione di Pagamento, conosciuta come "Doppio Quinto". È un secondo prestito che si affianca al primo, portando la trattenuta totale massima al 40% del tuo stipendio netto.
+                                Hai già una Cessione del Quinto in corso ma ti serve nuova liquidità? Non devi per forza rinnovare quella esistente (magari non puoi ancora farlo per i termini di legge). La soluzione è la <span className="font-bold">Delegazione di Pagamento</span>, conosciuta come "Doppio Quinto". È un secondo prestito che si affianca al primo, portando la trattenuta totale massima al <span className="font-bold">40% del tuo stipendio netto</span>.
                             </p>
                         </div>
                         <div className="relative">
@@ -142,10 +143,13 @@ const DelegazionePagamento: React.FC = () => {
                             <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
                                 Verifichiamo subito se la tua azienda o ente accetta la delegazione di pagamento.
                             </p>
-                            <button className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                            >
                                 VERIFICA FATTIBILITÀ DELEGA
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -9,17 +9,18 @@ import {
     Calendar,
     CheckCircle2
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Pensionati: React.FC = () => {
     const convenzioneFeatures = [
         {
             icon: <TrendingDown className="w-8 h-8" />,
-            title: "Tassi Bassi",
+            title: <span className="font-bold">Tassi Bassi:</span>,
             desc: "L'INPS impone dei tetti massimi ai tassi di interesse (TAEG) che gli istituti finanziari possono applicare. Con Biofinance, sei sempre al di sotto di queste soglie."
         },
         {
             icon: <Zap className="w-8 h-8" />,
-            title: "Quota Cedibile Telematica",
+            title: <span className="font-bold">Quota Cedibile Telematica:</span>,
             desc: "Non devi andare allo sportello INPS a fare la fila. Scarichiamo noi la tua \"Quota Cedibile\" in tempo reale per dirti subito quanto puoi ottenere."
         }
     ];
@@ -35,7 +36,7 @@ const Pensionati: React.FC = () => {
                                 Cessione del Quinto Pensionati: Goditi la Pensione con Liquidità Extra.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La pensione è un traguardo, ma spesso è anche il momento per realizzare progetti rimandati o aiutare figli e nipoti. Biofinance è un istituto accreditato per operare in Convenzione INPS. Cosa significa? Tassi calmierati, procedure telematiche dirette con l'ente e tutela totale del pensionato.
+                                La pensione è un traguardo, ma spesso è anche il momento per realizzare progetti rimandati o aiutare figli e nipoti. <span className="font-bold">Biofinance</span> è un istituto accreditato per operare in <span className="font-bold">Convenzione INPS</span>. Cosa significa? Tassi calmierati, procedure telematiche dirette con l'ente e tutela totale del pensionato.
                             </p>
                         </div>
                         <div className="relative">
@@ -90,7 +91,7 @@ const Pensionati: React.FC = () => {
                             <ShieldCheck className="w-16 h-16 text-secondary mb-8" />
                             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 leading-tight">Sicurezza per te e per i tuoi eredi</h2>
                             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                Molti pensionati temono di lasciare debiti. Con la Cessione del Quinto Biofinance questo è impossibile. Ogni prestito include obbligatoriamente una Polizza Rischio Vita.
+                                Molti pensionati temono di lasciare debiti. Con la Cessione del Quinto Biofinance questo è impossibile. Ogni prestito include obbligatoriamente una <span className="font-bold">Polizza Rischio Vita</span>.
                             </p>
                             <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 flex items-start gap-4">
                                 <Heart className="w-8 h-8 text-secondary shrink-0" />
@@ -122,7 +123,7 @@ const Pensionati: React.FC = () => {
                                 </div>
                                 <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-white">Fino a che età posso richiedere il prestito?</h2>
                                 <p className="text-xl text-white/80 leading-relaxed">
-                                    Finanziamo piani che terminano entro il compimento degli 85 anni di età (e in alcuni casi valutiamo fino ai 90 anni).
+                                    Finanziamo piani che terminano entro il compimento degli <span className="font-bold">85 anni di età</span> (e in alcuni casi valutiamo fino ai 90 anni).
                                 </p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/20">
@@ -148,10 +149,13 @@ const Pensionati: React.FC = () => {
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl">
                             Scopri subito l'importo massimo che puoi ottenere grazie alla nostra convenzione INPS telematica.
                         </p>
-                        <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <Link
+                            to="/contatti"
+                            className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             VERIFICA LA TUA QUOTA CEDIBILE INPS
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

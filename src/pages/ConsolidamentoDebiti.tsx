@@ -8,6 +8,7 @@ import {
     BrainCircuit,
     HeartPulse
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ConsolidamentoDebiti: React.FC = () => {
     return (
@@ -25,7 +26,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                 Consolidamento Debiti: Riprendi il controllo del tuo stipendio.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Mutuo auto, carta di credito, prestito per i mobili, piccolo prestito personale... A fine mese, la somma delle rate soffoca il tuo stipendio. Il Consolidamento Debiti tramite Cessione del Quinto è la strategia per uscire da questa spirale. L'obiettivo non è fare "nuovi debiti", ma ristrutturare quelli esistenti.
+                                Mutuo auto, carta di credito, prestito per i mobili, piccolo prestito personale... A fine mese, la somma delle rate soffoca il tuo stipendio. Il <span className="font-bold">Consolidamento Debiti tramite Cessione del Quinto</span> è la strategia per uscire da questa spirale. L'obiettivo non è fare "nuovi debiti", ma ristrutturare quelli esistenti.
                             </p>
                         </div>
                         <div className="relative">
@@ -64,7 +65,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                             <div className="w-2 h-2 rounded-full bg-secondary"></div>
                                         </div>
                                         <p className="text-lg text-gray-700">
-                                            <strong>Estinguere</strong> tutti i piccoli finanziamenti in corso (facciamo noi i bonifici alle altre finanziarie).
+                                            <span className="font-bold">Estinguere</span> tutti i piccoli finanziamenti in corso (facciamo noi i bonifici alle altre finanziarie).
                                         </p>
                                     </li>
                                     <li className="flex items-start gap-4">
@@ -72,7 +73,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                             <div className="w-2 h-2 rounded-full bg-secondary"></div>
                                         </div>
                                         <p className="text-lg text-gray-700">
-                                            <strong>Erogare liquidità extra</strong> a te (la differenza).
+                                            <span className="font-bold">Erogare liquidità extra</span> a te (la differenza).
                                         </p>
                                     </li>
                                 </ul>
@@ -80,7 +81,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                 <div className="mt-12 p-8 bg-white rounded-3xl border border-secondary/20 shadow-sm inline-block">
                                     <div className="flex items-center gap-4 text-primary font-bold text-xl">
                                         <Coins className="w-8 h-8 text-secondary" />
-                                        <span>Invece di 4 rate da 100€ (Totale 400€) avrai <span className="text-secondary font-black">1 sola rata da 250€</span>.</span>
+                                        <span>Invece di 4 rate da 100€ (Totale 400€) avrai <span className="text-secondary font-black">1 sola rata</span> da 250€.</span>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +110,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                 <BrainCircuit className="w-8 h-8" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-primary mb-4">Stop ai ritardi</h3>
+                                <h3 className="text-2xl font-bold text-primary mb-4"><span className="font-bold">Stop ai ritardi:</span></h3>
                                 <p className="text-lg text-gray-600 leading-relaxed">
                                     Essendo trattenuta alla fonte, non rischierai mai più di dimenticare un bollettino e finire segnalato in CRIF.
                                 </p>
@@ -122,7 +123,7 @@ const ConsolidamentoDebiti: React.FC = () => {
                                 <TrendingDown className="w-8 h-8" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold text-primary mb-4">Tasso più basso</h3>
+                                <h3 className="text-2xl font-bold text-primary mb-4"><span className="font-bold">Tasso più basso:</span></h3>
                                 <p className="text-lg text-gray-600 leading-relaxed">
                                     Spesso i "piccoli prestiti" hanno tassi (TAEG) altissimi (oltre il 12-14%). La Cessione del Quinto ha tassi mediamente molto più bassi. Consolidando, risparmi sugli interessi.
                                 </p>
@@ -143,10 +144,13 @@ const ConsolidamentoDebiti: React.FC = () => {
                             <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
                                 Analizziamo gratuitamente la tua situazione debitoria e troviamo la soluzione di consolidamento più vantaggiosa.
                             </p>
-                            <button className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn">
+                            <Link
+                                to="/contatti"
+                                className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
+                            >
                                 RICHIEDI ANALISI CONSOLIDAMENTO
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -9,17 +9,18 @@ import {
     CheckCircle2,
     Calendar
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PensionatiExInpdap: React.FC = () => {
     const differences = [
         {
             icon: <TrendingDown className="w-8 h-8 text-secondary" />,
-            title: "Tassi di Interesse più bassi",
+            title: <span className="font-bold">Tassi di Interesse più bassi</span>,
             desc: "Rispetto alla media dei pensionati privati, grazie alla solidità del tuo ente previdenziale."
         },
         {
             icon: <ShieldCheck className="w-8 h-8 text-secondary" />,
-            title: "Costi Assicurativi Ridotti",
+            title: <span className="font-bold">Costi Assicurativi Ridotti:</span>,
             desc: "L'aspettativa di vita statistica e la stabilità del reddito permettono premi assicurativi più leggeri."
         }
     ];
@@ -39,7 +40,7 @@ const PensionatiExInpdap: React.FC = () => {
                                 Cessione del Quinto Ex-INPDAP: Il Valore del Servizio Pubblico.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Sei andato in pensione dopo una carriera nello Stato o negli Enti Locali? La tua pensione rientra nella Gestione Pubblica (ex INPDAP), oggi accorpata all'INPS ma distinta per trattamenti e vantaggi. Biofinance applica condizioni di favore a questa categoria "Premium", riconoscendo la solidità del tuo ente previdenziale.
+                                Sei andato in pensione dopo una carriera nello Stato o negli Enti Locali? La tua pensione rientra nella <span className="font-bold">Gestione Pubblica (ex INPDAP)</span>, oggi accorpata all'INPS ma distinta per trattamenti e vantaggi. Biofinance applica condizioni di favore a questa categoria "Premium", riconoscendo la solidità del tuo ente previdenziale.
                             </p>
                         </div>
                         <div className="relative">
@@ -66,7 +67,7 @@ const PensionatiExInpdap: React.FC = () => {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-6">Differenza tra Pensionati INPS e Ex-INPDAP</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Anche se il cedolino arriva dall'INPS, il tuo status di "ex dipendente pubblico" ti garantisce accesso a prodotti finanziari con coefficienti di rischio inferiori. Questo si traduce in:
+                            Anche se il cedolino arriva dall'INPS, il tuo status di "ex dipendente pubblico" ti garantisce accesso a prodotti finanziari con <span className="font-bold">coefficienti di rischio inferiori</span>. Questo si traduce in:
                         </p>
                     </div>
 
@@ -97,7 +98,7 @@ const PensionatiExInpdap: React.FC = () => {
                             </div>
                             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 leading-tight">Procedura Telematica "GDP"</h2>
                             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                Utilizziamo il canale telematico INPS GDP (Gestione Dipendenti Pubblici). Non serve che tu vada a recuperare il modello OBIS M o la Quota Cedibile cartacea.
+                                Utilizziamo il canale telematico <span className="font-bold">INPS GDP (Gestione Dipendenti Pubblici)</span>. Non serve che tu vada a recuperare il modello OBIS M o la Quota Cedibile cartacea.
                             </p>
                             <div className="bg-primary/5 p-8 rounded-3xl border border-primary/10 flex items-start gap-4 mb-8">
                                 <CheckCircle2 className="w-6 h-6 text-secondary shrink-0 mt-1" />
@@ -129,10 +130,13 @@ const PensionatiExInpdap: React.FC = () => {
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
                             Sfrutta i vantaggi della Gestione Pubblica. Calcoliamo il tuo preventivo Ex-INPDAP in pochi minuti.
                         </p>
-                        <button className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <Link
+                            to="/contatti"
+                            className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             CALCOLA PREVENTIVO EX-INPDAP
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
