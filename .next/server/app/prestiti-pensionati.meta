@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/prestiti-pensionati/layout,_N_T_/prestiti-pensionati/page,_N_T_/prestiti-pensionati"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/prestiti-pensionati/__PAGE__",
+    "/prestiti-pensionati",
+    "/_index",
+    "/_head"
+  ]
+}

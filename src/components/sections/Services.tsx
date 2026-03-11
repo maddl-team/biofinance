@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wallet, Landmark, BadgeEuro, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Services: React.FC = () => {
     return (
@@ -46,7 +46,7 @@ const Services: React.FC = () => {
                             </p>
 
                             <Link
-                                to="/dipendenti-privati"
+                                href="/dipendenti-privati"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Privati
@@ -80,7 +80,7 @@ const Services: React.FC = () => {
                             </p>
 
                             <Link
-                                to="/dipendenti-statali"
+                                href="/dipendenti-statali"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Statali
@@ -114,7 +114,7 @@ const Services: React.FC = () => {
                             </p>
 
                             <Link
-                                to="/prestiti-pensionati"
+                                href="/prestiti-pensionati"
                                 className="inline-flex items-center text-secondary font-black tracking-widest text-xs uppercase group mt-auto"
                             >
                                 Scopri Prestiti Pensionati

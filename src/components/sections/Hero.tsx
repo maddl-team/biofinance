@@ -1,30 +1,12 @@
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import LoanCalculator from '../ui/LoanCalculator';
+import TrustindexWidget from '../widgets/TrustindexWidget';
 
 const Hero: React.FC = () => {
-    const heroWidgetRef = React.useRef<HTMLDivElement>(null);
-
-    React.useEffect(() => {
-        if (!heroWidgetRef.current) return;
-        if (heroWidgetRef.current.getAttribute('data-loaded') === 'true') return;
-
-        const script = document.createElement('script');
-        script.src = 'https://cdn.trustindex.io/loader.js?2ec9b5b65d870171b31667f710e';
-        script.async = true;
-        script.defer = true;
-
-        heroWidgetRef.current.appendChild(script);
-        heroWidgetRef.current.setAttribute('data-loaded', 'true');
-
-        return () => {
-            if (heroWidgetRef.current) {
-                heroWidgetRef.current.removeAttribute('data-loaded');
-            }
-        };
-    }, []);
-
     return (
         <section className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 overflow-hidden isolate">
             {/* ... SVG content ... */}
@@ -60,16 +42,14 @@ const Hero: React.FC = () => {
                         </div>
 
                         {/* Dynamic Trustindex Widget for Hero */}
-                        <div
+                        <TrustindexWidget
+                            scriptSrc="https://cdn.trustindex.io/loader.js?2ec9b5b65d870171b31667f710e"
+                            containerId="hero-trustindex-widget"
                             className="min-h-[80px] w-full max-w-sm mb-6"
-                            id="hero-trustindex-widget"
-                            ref={heroWidgetRef}
-                        >
-                            {/* The widget will be injected here */}
-                        </div>
+                        />
 
                         <Link
-                            to="/recensioni"
+                            href="/recensioni"
                             className="inline-flex items-center text-primary font-black tracking-widest text-sm uppercase group"
                         >
                             LEGGI LE RECENSIONI

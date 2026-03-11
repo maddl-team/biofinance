@@ -1,22 +1,25 @@
+"use client";
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const location = useLocation();
+    const pathname = usePathname();
 
     // Close mobile menu on route change
     useEffect(() => {
         setIsOpen(false);
         setActiveDropdown(null);
-    }, [location]);
+    }, [pathname]);
 
     const isLinkActive = (href: string, subMenu?: { href: string }[]) => {
-        if (href !== '#' && location.pathname === href) return true;
+        if (href !== '#' && pathname === href) return true;
         if (subMenu) {
-            return subMenu.some(sub => sub.href !== '#' && location.pathname === sub.href);
+            return subMenu.some(sub => sub.href !== '#' && pathname === sub.href);
         }
         return false;
     };
@@ -92,7 +95,7 @@ const Navbar: React.FC = () => {
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link to="/" className="flex items-center">
+                        <Link href="/" className="flex items-center">
                             <img
                                 src="/img/logo_biofinance_header.png"
                                 alt="Biofinance Logo"
@@ -113,7 +116,7 @@ const Navbar: React.FC = () => {
                                 <div className="flex items-center">
                                     {link.href !== '#' ? (
                                         <Link
-                                            to={link.href}
+                                            href={link.href}
                                             className="px-3 py-2 font-bold text-sm text-neutral-dark hover:text-primary transition-all whitespace-nowrap"
                                         >
                                             {link.name}
@@ -135,8 +138,8 @@ const Navbar: React.FC = () => {
                                         sub.href.startsWith('/') ? (
                                             <Link
                                                 key={sub.name}
-                                                to={sub.href}
-                                                className={`block px-5 py-2.5 text-sm transition-colors font-semibold ${location.pathname === sub.href ? 'bg-secondary-light text-secondary border-l-4 border-secondary' : 'text-gray-700 hover:bg-secondary-light hover:text-primary'}`}
+                                                href={sub.href}
+                                                className={`block px-5 py-2.5 text-sm transition-colors font-semibold ${pathname === sub.href ? 'bg-secondary-light text-secondary border-l-4 border-secondary' : 'text-gray-700 hover:bg-secondary-light hover:text-primary'}`}
                                             >
                                                 {sub.name}
                                             </Link>
@@ -176,7 +179,7 @@ const Navbar: React.FC = () => {
                                 <div className="flex items-center justify-between w-full">
                                     {link.href !== '#' ? (
                                         <Link
-                                            to={link.href}
+                                            href={link.href}
                                             className={`flex-1 text-left px-3 py-4 text-base font-bold rounded-lg transition-colors ${isLinkActive(link.href, link.subMenu) ? 'bg-secondary-light/50 text-neutral-dark' : 'text-neutral-dark hover:bg-gray-50'}`}
                                             onClick={() => setIsOpen(false)}
                                         >
@@ -202,12 +205,12 @@ const Navbar: React.FC = () => {
                                     <div className="bg-neutral-bg rounded-xl mb-2 px-2 py-2 space-y-1 ml-3">
                                         {link.subMenu.map((sub) => (
                                             sub.href.startsWith('/') ? (
-                                                <Link
-                                                    key={sub.name}
-                                                    to={sub.href}
-                                                    className={`block px-4 py-3 text-sm font-semibold transition-colors ${location.pathname === sub.href ? 'text-secondary bg-white rounded-lg shadow-sm border-l-4 border-secondary' : 'text-gray-600 hover:text-primary'}`}
-                                                    onClick={() => setIsOpen(false)}
-                                                >
+                                            <Link
+                                                key={sub.name}
+                                                href={sub.href}
+                                                className={`block px-4 py-3 text-sm font-semibold transition-colors ${pathname === sub.href ? 'text-secondary bg-white rounded-lg shadow-sm border-l-4 border-secondary' : 'text-gray-600 hover:text-primary'}`}
+                                                onClick={() => setIsOpen(false)}
+                                            >
                                                     {sub.name}
                                                 </Link>
                                             ) : (
