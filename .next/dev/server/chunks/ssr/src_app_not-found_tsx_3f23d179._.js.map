@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/micheleabis/Documents/biofinance/src/app/not-found.tsx"],"sourcesContent":["export default function NotFound() {\n  return (\n    <main style={{ padding: \"2rem\", fontFamily: \"system-ui\" }}>\n      <h1>Pagina non trovata</h1>\n      <p>La risorsa richiesta non esiste.</p>\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAK,OAAO;YAAE,SAAS;YAAQ,YAAY;QAAY;;0BACtD,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
-}
