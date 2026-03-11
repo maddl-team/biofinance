@@ -1,14 +1,19 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/anticipo-tfs/page": "app/anticipo-tfs/page.js",
   "/calcolo-cessione-del-quinto/page": "app/calcolo-cessione-del-quinto/page.js",
   "/cessione-del-quinto/page": "app/cessione-del-quinto/page.js",
   "/chi-siamo/page": "app/chi-siamo/page.js",
+  "/contatti/page": "app/contatti/page.js",
   "/dipendenti-privati/page": "app/dipendenti-privati/page.js",
   "/dipendenti-statali/page": "app/dipendenti-statali/page.js",
+  "/enti-locali-sanita/page": "app/enti-locali-sanita/page.js",
   "/page": "app/page.js",
   "/prestiti-forze-armate/page": "app/prestiti-forze-armate/page.js",
   "/prestiti-grandi-aziende/page": "app/prestiti-grandi-aziende/page.js",
+  "/prestiti-municipalizzate/page": "app/prestiti-municipalizzate/page.js",
   "/prestiti-neoassunti/page": "app/prestiti-neoassunti/page.js",
   "/prestiti-scuola-miur/page": "app/prestiti-scuola-miur/page.js",
-  "/rinnovo-cessione-del-quinto/page": "app/rinnovo-cessione-del-quinto/page.js"
+  "/rinnovo-cessione-del-quinto/page": "app/rinnovo-cessione-del-quinto/page.js",
+  "/soluzioni-liquidita/page": "app/soluzioni-liquidita/page.js"
 }

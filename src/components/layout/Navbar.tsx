@@ -47,16 +47,16 @@ const Navbar: React.FC = () => {
             subMenu: [
                 { name: 'Scuola e MIUR', href: '/prestiti-scuola-miur' },
                 { name: 'Forze Armate e Carabinieri', href: '/prestiti-forze-armate' },
-                { name: 'Anticipo TFS', href: '#' }
+                { name: 'Anticipo TFS', href: '/anticipo-tfs' }
             ]
         },
         {
             name: 'Enti Locali e Sanità',
-            href: '#',
+            href: '/enti-locali-sanita',
             subMenu: [
                 { name: 'Dipendenti Comunali e Regionali', href: '/prestiti-enti-locali' },
                 { name: 'Infermieri e Personale Sanitario', href: '/prestiti-sanita' },
-                { name: 'Aziende Municipalizzate', href: '#' }
+                { name: 'Dipendenti Municipalizzate', href: '/prestiti-municipalizzate' }
             ]
         },
         {
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
         },
         {
             name: 'Altre Soluzioni',
-            href: '#',
+            href: '/soluzioni-liquidita',
             subMenu: [
                 { name: 'Delegazione di Pagamento (Doppio Quinto)', href: '/delegazione-di-pagamento' },
                 { name: 'Consolidamento Debiti', href: '/consolidamento-debiti' },
@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
                 { name: 'Chi Siamo & Consulenti', href: '/chi-siamo' },
                 { name: 'Recensioni e Opinioni', href: '/recensioni' },
                 { name: 'Blog & Educazione Finanziaria', href: '#' },
-                { name: 'Contatti e Sedi', href: '#' },
+                { name: 'Contatti e Sedi', href: '/contatti' },
                 { name: 'Lavora con noi', href: '#' }
             ]
         }
@@ -205,12 +205,12 @@ const Navbar: React.FC = () => {
                                     <div className="bg-neutral-bg rounded-xl mb-2 px-2 py-2 space-y-1 ml-3">
                                         {link.subMenu.map((sub) => (
                                             sub.href.startsWith('/') ? (
-                                            <Link
-                                                key={sub.name}
-                                                href={sub.href}
-                                                className={`block px-4 py-3 text-sm font-semibold transition-colors ${pathname === sub.href ? 'text-secondary bg-white rounded-lg shadow-sm border-l-4 border-secondary' : 'text-gray-600 hover:text-primary'}`}
-                                                onClick={() => setIsOpen(false)}
-                                            >
+                                                <Link
+                                                    key={sub.name}
+                                                    href={sub.href}
+                                                    className={`block px-4 py-3 text-sm font-semibold transition-colors ${pathname === sub.href ? 'text-secondary bg-white rounded-lg shadow-sm border-l-4 border-secondary' : 'text-gray-600 hover:text-primary'}`}
+                                                    onClick={() => setIsOpen(false)}
+                                                >
                                                     {sub.name}
                                                 </Link>
                                             ) : (

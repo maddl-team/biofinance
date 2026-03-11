@@ -36,6 +36,15 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 }
 
 
+// Validate ../../../src/app/anticipo-tfs/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/anticipo-tfs">> = Specific
+  const handler = {} as typeof import("../../../src/app/anticipo-tfs/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/calcolo-cessione-del-quinto/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/calcolo-cessione-del-quinto">> = Specific
@@ -72,6 +81,15 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
   type __Unused = __Check
 }
 
+// Validate ../../../src/app/contatti/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/contatti">> = Specific
+  const handler = {} as typeof import("../../../src/app/contatti/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../src/app/delegazione-di-pagamento/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/delegazione-di-pagamento">> = Specific
@@ -94,6 +112,15 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 {
   type __IsExpected<Specific extends AppPageConfig<"/dipendenti-statali">> = Specific
   const handler = {} as typeof import("../../../src/app/dipendenti-statali/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/enti-locali-sanita/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/enti-locali-sanita">> = Specific
+  const handler = {} as typeof import("../../../src/app/enti-locali-sanita/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -130,6 +157,15 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 {
   type __IsExpected<Specific extends AppPageConfig<"/prestiti-grandi-aziende">> = Specific
   const handler = {} as typeof import("../../../src/app/prestiti-grandi-aziende/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/prestiti-municipalizzate/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/prestiti-municipalizzate">> = Specific
+  const handler = {} as typeof import("../../../src/app/prestiti-municipalizzate/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
@@ -211,6 +247,15 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 {
   type __IsExpected<Specific extends AppPageConfig<"/rinnovo-cessione-del-quinto">> = Specific
   const handler = {} as typeof import("../../../src/app/rinnovo-cessione-del-quinto/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../src/app/soluzioni-liquidita/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/soluzioni-liquidita">> = Specific
+  const handler = {} as typeof import("../../../src/app/soluzioni-liquidita/page.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check
