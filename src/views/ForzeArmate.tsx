@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     ShieldCheck,
     Users,
@@ -68,14 +69,17 @@ const ForzeArmate: React.FC = () => {
                                 Cessione del Quinto Forze Armate: Al fianco di chi ci protegge.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La divisa che indossi è sinonimo di affidabilità. Per questo, <span className="font-bold">Biofinance</span> riserva ai membri delle Forze Armate e dell'Ordine condizioni finanziarie d'eccellenza. Sappiamo che la tua vita lavorativa ha esigenze specifiche: trasferimenti, missioni all'estero, avanzamenti di grado. La nostra Cessione del Quinto è flessibile e ti segue ovunque, gestita direttamente tramite il portale <span className="font-bold">NoiPA</span>.
+                                La divisa che indossi è sinonimo di affidabilità. Per questo, <span className="font-bold">Biofinance</span> riserva ai membri delle Forze Armate e dell'Ordine condizioni finanziarie d'eccellenza. Sappiamo che la tua vita lavorativa ha esigenze specifiche: trasferimenti, missioni all'estero, avanzamenti di grado. La nostra <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> è flessibile e ti segue ovunque, gestita direttamente tramite il portale <span className="font-bold">NoiPA</span>. Scopri anche le soluzioni per i <Link href="/dipendenti-statali" className="underline">dipendenti statali</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-forze-armate.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Forze Armate Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

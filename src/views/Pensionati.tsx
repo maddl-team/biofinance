@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Heart,
     ShieldCheck,
@@ -36,14 +37,17 @@ const Pensionati: React.FC = () => {
                                 Cessione del Quinto Pensionati: Goditi la Pensione con Liquidità Extra.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La pensione è un traguardo, ma spesso è anche il momento per realizzare progetti rimandati o aiutare figli e nipoti. <span className="font-bold">Biofinance</span> è un istituto accreditato per operare in <span className="font-bold">Convenzione INPS</span>. Cosa significa? Tassi calmierati, procedure telematiche dirette con l'ente e tutela totale del pensionato.
+                                La pensione è un traguardo, ma spesso è anche il momento per realizzare progetti rimandati o aiutare figli e nipoti. <span className="font-bold">Biofinance</span> è un istituto accreditato per operare in <span className="font-bold">Convenzione INPS</span>. Cosa significa? Tassi calmierati, procedure telematiche dirette con l'ente e tutela totale del pensionato. Per esigenze specifiche, consulta le soluzioni per <Link href="/prestiti-pensionati-over-80" className="underline">pensionati over 80</Link> o <Link href="/prestiti-pensionati-ex-inpdap" className="underline">pensionati ex-INPDAP</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-pensionati.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Pensionati Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

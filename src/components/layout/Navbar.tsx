@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center">
                             <img
-                                src="/img/logo_biofinance_header.png"
+                                src="/img/logo_biofinance_header.png" width="500" height="181"
                                 alt="Biofinance Logo"
                                 className="h-12 w-auto object-contain"
                             />

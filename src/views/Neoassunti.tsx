@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Clock,
     CalendarCheck,
@@ -36,14 +37,17 @@ const Neoassunti: React.FC = () => {
                                 Cessione del Quinto Neoassunti: Quando è possibile richiederla?
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                L'entusiasmo per un nuovo lavoro spesso si accompagna a nuovi progetti di vita. Ma puoi ottenere credito se sei stato assunto da poco? In <span className="font-bold">Biofinance</span>, vogliamo essere trasparenti: la Cessione del Quinto si basa sulla garanzia del TFR (Trattamento di Fine Rapporto). Se sei un neoassunto, la tua "cassaforte" (il TFR) è ancora vuota o quasi. Tuttavia, esistono <span className="font-bold">finestre di opportunità</span> che valutiamo caso per caso.
+                                L'entusiasmo per un nuovo lavoro spesso si accompagna a nuovi progetti di vita. Ma puoi ottenere credito se sei stato assunto da poco? In <span className="font-bold">Biofinance</span>, vogliamo essere trasparenti: la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> si basa sulla garanzia del TFR (Trattamento di Fine Rapporto). Se sei un neoassunto, la tua "cassaforte" (il TFR) è ancora vuota o quasi. Tuttavia, esistono <span className="font-bold">finestre di opportunità</span> che valutiamo caso per caso. Scopri anche le soluzioni per i <Link href="/dipendenti-privati" className="underline">dipendenti privati</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-neoassunti.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Neoassunti Biofinance"
+                                    priority
                                     className="w-full h-[450px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

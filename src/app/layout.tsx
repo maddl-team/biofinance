@@ -6,8 +6,10 @@ import Footer from "../components/layout/Footer";
 import TransparentInformation from "../components/layout/TransparentInformation";
 import TransparencyLinks from "../components/layout/TransparencyLinks";
 import ScrollToTop from "../components/ui/ScrollToTop";
+import FinancialServiceJsonLd from "../components/seo/FinancialServiceJsonLd";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://biofinance.it"),
   title: {
     default: "Biofinance",
     template: "%s | Biofinance",
@@ -17,7 +19,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "it_IT",
+    url: "https://biofinance.it",
     siteName: "Biofinance",
+    title: "Biofinance",
+    description:
+      "Agenzia in Attività Finanziaria specializzata in Cessione del Quinto e Prestiti Personali. Soluzioni su misura, trasparenti e sicure per dipendenti e pensionati.",
     images: [
       {
         url: "/img/logo_biofinance_header.png",
@@ -26,6 +32,17 @@ export const metadata: Metadata = {
         alt: "Biofinance",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Biofinance",
+    description:
+      "Agenzia in Attività Finanziaria specializzata in Cessione del Quinto e Prestiti Personali. Soluzioni su misura, trasparenti e sicure per dipendenti e pensionati.",
+    images: ["/img/logo_biofinance_header.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -37,6 +54,30 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Biofinance",
+              url: "https://biofinance.it",
+              logo: "https://biofinance.it/img/logo_biofinance_header.png",
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Biofinance",
+              url: "https://biofinance.it",
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+        <FinancialServiceJsonLd />
         <AppShell>
           <ScrollToTop />
           <Navbar />

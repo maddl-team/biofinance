@@ -34,7 +34,7 @@ const ChiSiamo: React.FC = () => {
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/chi-siamo.jpg"
+                                    src="/img/chi-siamo.jpg" width="1352" height="1000"
                                     alt="Il Team Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

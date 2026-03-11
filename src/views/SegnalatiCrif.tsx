@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     ArrowRight,
     ShieldCheck,
@@ -24,14 +25,17 @@ const SegnalatiCrif: React.FC = () => {
                                 Segnalato in CRIF? Per noi non sei un "Cattivo Pagatore".
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Nella vita può capitare di saltare una rata o avere un disguido finanziario. Per le banche tradizionali diventi "invisibile" o "non bancabile". Per <span className="font-bold">Biofinance</span>, sei un lavoratore o un pensionato con dei diritti. La Cessione del Quinto è <span className="font-bold">l'unica forma di prestito garantita per legge</span> accessibile anche a chi ha segnalazioni negative in banche dati (CRIF, CTC, Experian) o protesti.
+                                Nella vita può capitare di saltare una rata o avere un disguido finanziario. Per le banche tradizionali diventi "invisibile" o "non bancabile". Per <span className="font-bold">Biofinance</span>, sei un lavoratore o un pensionato con dei diritti. La <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> è <span className="font-bold">l'unica forma di prestito garantita per legge</span> accessibile anche a chi ha segnalazioni negative in banche dati (CRIF, CTC, Experian) o protesti. Scopri tutte le <Link href="/soluzioni-liquidita" className="underline">soluzioni di liquidità</Link> disponibili.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-segnalati-crif.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Segnalati CRIF Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

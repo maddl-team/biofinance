@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Calculator,
     ShieldCheck,
@@ -92,9 +93,12 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative order-2 lg:order-1">
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/calcolo-cessione-del-quinto.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Fiducia e Familiarità Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>

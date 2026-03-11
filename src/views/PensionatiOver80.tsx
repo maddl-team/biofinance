@@ -35,13 +35,13 @@ const PensionatiOver80: React.FC = () => {
                                 Cessione del Quinto Senior: L'Età è solo un numero.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Molti istituti chiudono le porte dopo i 75 anni. <span className="font-bold">Biofinance</span> le apre. Crediamo che i progetti non abbiano scadenza. Grazie a convenzioni assicurative speciali, finanziamo pensionati che desiderano liquidità per aiutare figli, nipoti o semplicemente per godersi la vita, estendendo il piano di ammortamento fino al compimento del <span className="font-bold">88esimo anno di età</span>.
+                                Molti istituti chiudono le porte dopo i 75 anni. <span className="font-bold">Biofinance</span> le apre. Crediamo che i progetti non abbiano scadenza. Grazie a convenzioni assicurative speciali, finanziamo pensionati che desiderano liquidità per aiutare figli, nipoti o semplicemente per godersi la vita, estendendo il piano di ammortamento fino al compimento del <span className="font-bold">88esimo anno di età</span>. Approfondisci la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina hub <Link href="/prestiti-pensionati" className="underline">Prestiti Pensionati</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/prestiti-pensionati-over-80.jpg"
+                                    src="/img/prestiti-pensionati-over-80.jpg" width="1352" height="1000"
                                     alt="Pensionati Senior Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

@@ -26,13 +26,13 @@ const ConsolidamentoDebiti: React.FC = () => {
                                 Consolidamento Debiti: Riprendi il controllo del tuo stipendio.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Mutuo auto, carta di credito, prestito per i mobili, piccolo prestito personale... A fine mese, la somma delle rate soffoca il tuo stipendio. Il <span className="font-bold">Consolidamento Debiti tramite Cessione del Quinto</span> è la strategia per uscire da questa spirale. L'obiettivo non è fare "nuovi debiti", ma ristrutturare quelli esistenti.
+                                Mutuo auto, carta di credito, prestito per i mobili, piccolo prestito personale... A fine mese, la somma delle rate soffoca il tuo stipendio. Il <span className="font-bold">Consolidamento Debiti tramite Cessione del Quinto</span> è la strategia per uscire da questa spirale. L'obiettivo non è fare "nuovi debiti", ma ristrutturare quelli esistenti. Scopri tutte le <Link href="/soluzioni-liquidita" className="underline">soluzioni di liquidità</Link> disponibili.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/consolidamento-debiti.jpg"
+                                    src="/img/consolidamento-debiti.jpg" width="1352" height="1000"
                                     alt="Consolidamento Debiti Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

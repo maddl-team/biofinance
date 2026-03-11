@@ -1,7 +1,5 @@
-"use client";
-
-import React, { useState } from 'react';
-import AccordionItem from '../ui/AccordionItem';
+import React from 'react';
+import { HelpCircle } from 'lucide-react';
 
 interface FAQItem {
     question: React.ReactNode;
@@ -14,13 +12,28 @@ interface FAQProps {
     subtitle?: React.ReactNode;
 }
 
+const extractText = (node: React.ReactNode): string => {
+    if (node === null || node === undefined || typeof node === "boolean") {
+        return "";
+    }
+    if (typeof node === "string" || typeof node === "number") {
+        return String(node);
+    }
+    if (Array.isArray(node)) {
+        return node.map(extractText).join(" ");
+    }
+    if (React.isValidElement(node)) {
+        const element = node as React.ReactElement<{ children?: React.ReactNode }>;
+        return extractText(element.props.children);
+    }
+    return "";
+};
+
 const FAQ: React.FC<FAQProps> = ({
     items,
     title = "Domande Frequenti",
     subtitle = "Risposte chiare ai dubbi più comuni sui nostri prodotti finanziari."
 }) => {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
     const defaultFaqs: FAQItem[] = [
         {
             question: "Che cos'è esattamente la Cessione del Quinto?",
@@ -37,29 +50,53 @@ const FAQ: React.FC<FAQProps> = ({
     ];
 
     const displayFaqs = items || defaultFaqs;
+    const faqSchemaItems = displayFaqs
+        .map((faq) => ({
+            question: extractText(faq.question).trim(),
+            answer: extractText(faq.answer).trim(),
+        }))
+        .filter((faq) => faq.question && faq.answer);
 
     return (
-        <section id="faq" className="section-padding bg-neutral-bg">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl mb-4">
+        <section id="faq" className="section-padding bg-white">
+            {faqSchemaItems.length > 0 && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            mainEntity: faqSchemaItems.map((faq) => ({
+                                "@type": "Question",
+                                name: faq.question,
+                                acceptedAnswer: {
+                                    "@type": "Answer",
+                                    text: faq.answer,
+                                },
+                            })),
+                        }).replace(/</g, "\\u003c"),
+                    }}
+                />
+            )}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
+                        <HelpCircle className="w-10 h-10 text-secondary" />
                         {title}
                     </h2>
-                    <p className="text-lg text-gray-600">
-                        {subtitle}
-                    </p>
+                    {subtitle && (
+                        <p className="text-lg text-gray-600">
+                            {subtitle}
+                        </p>
+                    )}
                 </div>
 
-                <div className="space-y-4">
+                <div className="max-w-4xl mx-auto space-y-6">
                     {displayFaqs.map((faq, index) => (
-                        <AccordionItem
-                            key={index}
-                            title={faq.question}
-                            isOpen={openIndex === index}
-                            onClick={() => setOpenIndex(index === openIndex ? null : index)}
-                        >
-                            <div>{faq.answer}</div>
-                        </AccordionItem>
+                        <div key={index} className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
+                            <h4 className="text-lg font-bold text-primary mb-4">{faq.question}</h4>
+                            <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                        </div>
                     ))}
                 </div>
             </div>

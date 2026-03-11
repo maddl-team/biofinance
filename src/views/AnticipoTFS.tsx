@@ -14,6 +14,7 @@ import {
     Calculator
 } from 'lucide-react';
 import Link from 'next/link';
+import FAQ from '../components/sections/FAQ';
 
 const AnticipoTFS: React.FC = () => {
     const benefits = [
@@ -66,7 +67,7 @@ const AnticipoTFS: React.FC = () => {
                                 Anticipo TFS: Il Tuo Trattamento di Fine Servizio, Senza Attese.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Hai dedicato una vita intera al servizio dello Stato o della Pubblica Amministrazione. Ora che sei in pensione, il tuo Trattamento di Fine Servizio (TFS) è un diritto acquisito. Purtroppo, i tempi di erogazione dell'INPS possono richiedere anni. In Biofinance, offriamo un prodotto specifico per statali in pensione o cessati dal servizio: l'Anticipo TFS. Ti permettiamo di ottenere subito la tua liquidità, senza dover rimandare i tuoi progetti.
+                                Hai dedicato una vita intera al servizio dello Stato o della Pubblica Amministrazione. Ora che sei in pensione, il tuo Trattamento di Fine Servizio (TFS) è un diritto acquisito. Purtroppo, i tempi di erogazione dell'INPS possono richiedere anni. In Biofinance, offriamo un prodotto specifico per statali in pensione o cessati dal servizio: l'Anticipo TFS. Ti permettiamo di ottenere subito la tua liquidità, senza dover rimandare i tuoi progetti. Scopri anche la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina dedicata ai <Link href="/dipendenti-statali" className="underline">dipendenti statali</Link>.
                             </p>
                         </div>
                         <div className="relative">
@@ -128,7 +129,7 @@ const AnticipoTFS: React.FC = () => {
                         <div className="order-2 lg:order-1">
                             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000"
+                                    src="/img/anticipo-tfs.jpg" width="1352" height="1000"
                                     alt="Processo Anticipo TFS Biofinance"
                                     className="w-full h-[450px] object-cover"
                                 />
@@ -156,24 +157,11 @@ const AnticipoTFS: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="section-padding bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-                            <HelpCircle className="w-10 h-10 text-secondary" />
-                            FAQ
-                        </h2>
-                    </div>
-                    <div className="max-w-4xl mx-auto space-y-6">
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
-                                <h4 className="text-lg font-bold text-primary mb-4">{faq.q}</h4>
-                                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FAQ
+                title="FAQ"
+                subtitle={null}
+                items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
+            />
 
             {/* Testimonial */}
             <section className="section-padding bg-primary relative overflow-hidden">

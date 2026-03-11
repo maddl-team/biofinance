@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     ShieldCheck,
     Cpu,
@@ -25,11 +26,13 @@ const DipendentiStatali: React.FC = () => {
         {
             icon: <Shield className="w-6 h-6" />,
             title: <span className="font-bold">Forze Armate</span>,
+            href: "/prestiti-forze-armate",
             desc: "Forze dell'Ordine e Corpi Armati."
         },
         {
             icon: <School className="w-6 h-6" />,
             title: <span className="font-bold">Scuola</span>,
+            href: "/prestiti-scuola-miur",
             desc: "Personale Docente e ATA (MIUR)."
         },
         {
@@ -78,9 +81,12 @@ const DipendentiStatali: React.FC = () => {
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/dipendenti-statali.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Dipendenti Statali Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
@@ -128,7 +134,15 @@ const DipendentiStatali: React.FC = () => {
                                 <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary mx-auto mb-4">
                                     {cat.icon}
                                 </div>
-                                <h4 className="text-lg font-bold text-primary mb-1">{cat.title}</h4>
+                                <h4 className="text-lg font-bold text-primary mb-1">
+                                    {cat.href ? (
+                                        <Link href={cat.href} className="hover:underline">
+                                            {cat.title}
+                                        </Link>
+                                    ) : (
+                                        cat.title
+                                    )}
+                                </h4>
                                 <p className="text-sm text-gray-500">{cat.desc}</p>
                             </div>
                         ))}

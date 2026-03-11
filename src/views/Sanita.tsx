@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Activity,
     Users,
@@ -64,14 +65,17 @@ const Sanita: React.FC = () => {
                                 Prestiti Personale Sanitario: Diamo Credito al tuo Impegno.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, <span className="font-bold">Biofinance</span> analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua <span className="font-bold">"Quota Cedibile"</span> includendo tutte le indennità fisse previste dal CCNL Sanità.
+                                Sappiamo che il lavoro in ospedale o in ASL non conosce orari. Turni di notte, reperibilità, festivi: la tua busta paga è complessa e ricca di voci variabili. Mentre molte banche guardano solo lo stipendio base, <span className="font-bold">Biofinance</span> analizza la tua retribuzione globale. Il nostro obiettivo? Massimizzare la tua <span className="font-bold">"Quota Cedibile"</span> includendo tutte le indennità fisse previste dal CCNL Sanità. Approfondisci la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina hub <Link href="/enti-locali-sanita" className="underline">Enti Locali e Sanità</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-sanita.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Sanità Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

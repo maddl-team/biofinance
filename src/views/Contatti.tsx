@@ -15,6 +15,7 @@ import {
     CheckCircle2,
     Send
 } from 'lucide-react';
+import FAQ from '../components/sections/FAQ';
 
 const Contatti: React.FC = () => {
     const contactMethods = [
@@ -193,24 +194,11 @@ const Contatti: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="section-padding bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3 tracking-tight">
-                            <HelpCircle className="w-10 h-10 text-secondary" />
-                            FAQ
-                        </h2>
-                    </div>
-                    <div className="max-w-4xl mx-auto space-y-6">
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
-                                <h4 className="text-lg font-bold text-primary mb-4">{faq.q}</h4>
-                                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FAQ
+                title="FAQ"
+                subtitle={null}
+                items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
+            />
 
             {/* Testimonial */}
             <section className="section-padding bg-primary relative overflow-hidden isolate">

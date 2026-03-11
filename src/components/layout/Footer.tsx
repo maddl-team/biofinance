@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0" style={{ opacity: 0.03 }}>
                 <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000"
+                    src="/img/bg-footer.jpg" width="1600" height="900"
                     alt="Biofinance Background"
                     className="w-full h-full object-cover"
                 />

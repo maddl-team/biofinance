@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Building2,
     Clock,
@@ -61,14 +62,17 @@ const EntiLocali: React.FC = () => {
                                 Cessione del Quinto Enti Locali: Il Credito per la Pubblica Amministrazione.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Lavorare per un Ente Locale (Comune, Provincia, Regione) offre una solidità che <span className="font-bold">Biofinance</span> premia con prodotti finanziari dedicati. A differenza dei dipendenti statali centrali, la tua busta paga è gestita da amministrazioni territoriali: noi abbiamo l'esperienza per dialogare velocemente con gli uffici ragioneria di ogni singolo Comune italiano, piccolo o grande che sia.
+                                Lavorare per un Ente Locale (Comune, Provincia, Regione) offre una solidità che <span className="font-bold">Biofinance</span> premia con prodotti finanziari dedicati. A differenza dei dipendenti statali centrali, la tua busta paga è gestita da amministrazioni territoriali: noi abbiamo l'esperienza per dialogare velocemente con gli uffici ragioneria di ogni singolo Comune italiano, piccolo o grande che sia. Scopri la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina hub <Link href="/enti-locali-sanita" className="underline">Enti Locali e Sanità</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-enti-locali.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Enti Locali Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

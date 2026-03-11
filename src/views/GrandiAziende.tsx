@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Building2,
     Zap,
@@ -72,14 +73,17 @@ const GrandiAziende: React.FC = () => {
                                 Convenzioni Grandi Aziende: Il Welfare che si trasforma in Credito.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Lavorare in una grande realtà italiana non significa solo prestigio, ma anche <span className="font-bold">vantaggi finanziari esclusivi</span>. In Biofinance, classifichiamo le aziende in base a un rating di affidabilità (Coefficiente Assicurativo). Se sei dipendente di una "Top Company", il rischio per noi è bassissimo. Questo si traduce per te in <span className="font-bold">Tassi TAN e TAEG ai minimi storici</span>, spesso inferiori di 1 o 2 punti percentuali rispetto alla media di mercato.
+                                Lavorare in una grande realtà italiana non significa solo prestigio, ma anche <span className="font-bold">vantaggi finanziari esclusivi</span>. In Biofinance, classifichiamo le aziende in base a un rating di affidabilità (Coefficiente Assicurativo). Se sei dipendente di una "Top Company", il rischio per noi è bassissimo. Questo si traduce per te in <span className="font-bold">Tassi TAN e TAEG ai minimi storici</span>, spesso inferiori di 1 o 2 punti percentuali rispetto alla media di mercato. Approfondisci anche la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina dedicata ai <Link href="/dipendenti-privati" className="underline">dipendenti privati</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-grandi-aziende.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Grandi Aziende"
+                                    priority
                                     className="w-full h-[450px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

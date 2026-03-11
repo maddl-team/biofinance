@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     Users,
     PlusCircle,
@@ -55,14 +56,17 @@ const ScuolaMiur: React.FC = () => {
                                 Prestiti Mondo Scuola: Soluzioni per Docenti e Personale ATA.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                La scuola è il motore del futuro. Che tu sia un <span className="font-bold">Insegnante</span> di ruolo o un collaboratore scolastico (<span className="font-bold">ATA</span>), Biofinance conosce le specificità del tuo contratto. Sappiamo che la tua busta paga può variare, che esiste la "Ricostruzione di Carriera" e che le esigenze di liquidità non seguono il calendario scolastico.
+                                La scuola è il motore del futuro. Che tu sia un <span className="font-bold">Insegnante</span> di ruolo o un collaboratore scolastico (<span className="font-bold">ATA</span>), Biofinance conosce le specificità del tuo contratto. Sappiamo che la tua busta paga può variare, che esiste la "Ricostruzione di Carriera" e che le esigenze di liquidità non seguono il calendario scolastico. Approfondisci la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina dedicata ai <Link href="/dipendenti-statali" className="underline">dipendenti statali</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/prestiti-scuola-miur.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Scuola e MIUR Biofinance"
+                                    priority
                                     className="w-full h-[500px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

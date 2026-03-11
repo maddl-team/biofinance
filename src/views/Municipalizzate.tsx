@@ -16,6 +16,7 @@ import {
     Calculator
 } from 'lucide-react';
 import Link from 'next/link';
+import FAQ from '../components/sections/FAQ';
 
 const Municipalizzate: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
@@ -68,7 +69,7 @@ const Municipalizzate: React.FC = () => {
                                 Cessione del Quinto per Dipendenti di Aziende Municipalizzate.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Le aziende municipalizzate rappresentano la spina dorsale dei servizi pubblici locali. Se sei un dipendente di realtà come Autolinee Toscane, Alia, o altre aziende di servizi (trasporti, rifiuti, idrico), la tua stabilità lavorativa è una garanzia preziosa. In Biofinance trasformiamo questa stabilità in liquidità immediata attraverso la Cessione del Quinto, con condizioni paragonabili a quelle dei dipendenti pubblici.
+                                Le aziende municipalizzate rappresentano la spina dorsale dei servizi pubblici locali. Se sei un dipendente di realtà come Autolinee Toscane, Alia, o altre aziende di servizi (trasporti, rifiuti, idrico), la tua stabilità lavorativa è una garanzia preziosa. In Biofinance trasformiamo questa stabilità in liquidità immediata attraverso la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link>, con condizioni paragonabili a quelle dei dipendenti pubblici. Scopri anche la pagina hub <Link href="/enti-locali-sanita" className="underline">Enti Locali e Sanità</Link>.
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
@@ -158,7 +159,7 @@ const Municipalizzate: React.FC = () => {
                         <div className="lg:w-1/2 relative">
                             <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1000"
+                                    src="/img/municipalizzate.jpg" width="1352" height="1000"
                                     alt="Lavoratori Municipalizzate Biofinance"
                                     className="w-full h-[400px] object-cover"
                                 />
@@ -175,24 +176,11 @@ const Municipalizzate: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="section-padding bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-                            <HelpCircle className="w-10 h-10 text-secondary" />
-                            FAQ
-                        </h2>
-                    </div>
-                    <div className="max-w-4xl mx-auto space-y-6">
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
-                                <h4 className="text-lg font-bold text-primary mb-4">{faq.q}</h4>
-                                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FAQ
+                title="FAQ"
+                subtitle={null}
+                items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
+            />
 
             {/* Testimonial */}
             <section className="section-padding bg-primary relative overflow-hidden">

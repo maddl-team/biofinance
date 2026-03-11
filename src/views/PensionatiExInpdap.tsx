@@ -40,13 +40,13 @@ const PensionatiExInpdap: React.FC = () => {
                                 Cessione del Quinto Ex-INPDAP: Il Valore del Servizio Pubblico.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Sei andato in pensione dopo una carriera nello Stato o negli Enti Locali? La tua pensione rientra nella <span className="font-bold">Gestione Pubblica (ex INPDAP)</span>, oggi accorpata all'INPS ma distinta per trattamenti e vantaggi. Biofinance applica condizioni di favore a questa categoria "Premium", riconoscendo la solidità del tuo ente previdenziale.
+                                Sei andato in pensione dopo una carriera nello Stato o negli Enti Locali? La tua pensione rientra nella <span className="font-bold">Gestione Pubblica (ex INPDAP)</span>, oggi accorpata all'INPS ma distinta per trattamenti e vantaggi. Biofinance applica condizioni di favore a questa categoria "Premium", riconoscendo la solidità del tuo ente previdenziale. Approfondisci la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina hub <Link href="/prestiti-pensionati" className="underline">Prestiti Pensionati</Link>.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/prestiti-pensionati-ex-inpdap.jpg"
+                                    src="/img/prestiti-pensionati-ex-inpdap.jpg" width="1352" height="1000"
                                     alt="Pensionati Ex-INPDAP Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

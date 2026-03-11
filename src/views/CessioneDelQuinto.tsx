@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
     CheckCircle2,
     ArrowRight,
@@ -35,9 +36,12 @@ const CessioneDelQuinto: React.FC = () => {
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
+                                <Image
                                     src="/img/cessione-del-quinto.jpg"
+                                    width={1352}
+                                    height={1000}
                                     alt="Cessione del Quinto"
+                                    priority
                                     className="w-full h-[400px] object-cover"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>

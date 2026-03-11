@@ -27,13 +27,13 @@ const DelegazionePagamento: React.FC = () => {
                                 Delegazione di Pagamento: Quando il Quinto non basta.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Hai già una Cessione del Quinto in corso ma ti serve nuova liquidità? Non devi per forza rinnovare quella esistente (magari non puoi ancora farlo per i termini di legge). La soluzione è la <span className="font-bold">Delegazione di Pagamento</span>, conosciuta come "Doppio Quinto". È un secondo prestito che si affianca al primo, portando la trattenuta totale massima al <span className="font-bold">40% del tuo stipendio netto</span>.
+                                Hai già una Cessione del Quinto in corso ma ti serve nuova liquidità? Non devi per forza rinnovare quella esistente (magari non puoi ancora farlo per i termini di legge). La soluzione è la <span className="font-bold">Delegazione di Pagamento</span>, conosciuta come "Doppio Quinto". È un secondo prestito che si affianca al primo, portando la trattenuta totale massima al <span className="font-bold">40% del tuo stipendio netto</span>. Scopri tutte le <Link href="/soluzioni-liquidita" className="underline">soluzioni di liquidità</Link> disponibili.
                             </p>
                         </div>
                         <div className="relative">
                             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/delegazione-di-pagamento.jpg"
+                                    src="/img/delegazione-di-pagamento.jpg" width="1352" height="1000"
                                     alt="Delegazione di Pagamento Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />

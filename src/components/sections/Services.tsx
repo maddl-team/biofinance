@@ -27,7 +27,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="/img/dipendenti-privati.jpg"
+                                src="/img/dipendenti-privati.jpg" width="1352" height="1000"
                                 alt="Dipendenti Privati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
@@ -61,7 +61,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="/img/dipendenti-statali.jpg"
+                                src="/img/dipendenti-statali.jpg" width="1352" height="1000"
                                 alt="Dipendenti Statali e Pubblici"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />
@@ -95,7 +95,7 @@ const Services: React.FC = () => {
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
                             <img
-                                src="/img/prestiti-pensionati.jpg"
+                                src="/img/prestiti-pensionati.jpg" width="1352" height="1000"
                                 alt="Pensionati"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             />

@@ -16,6 +16,7 @@ import {
     Activity
 } from 'lucide-react';
 import Link from 'next/link';
+import FAQ from '../components/sections/FAQ';
 
 const EntiLocaliSanitaHub: React.FC = () => {
     const targetCategories = [
@@ -75,7 +76,7 @@ const EntiLocaliSanitaHub: React.FC = () => {
                                 Prestiti per Enti Locali e Sanità: Credito Su Misura per il Territorio.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                Lavorare per un'amministrazione locale o nel comparto sanitario territoriale significa essere il motore della propria comunità. In Biofinance, abbiamo creato una divisione dedicata esclusivamente ai dipendenti di Enti Locali e Sanità. Sappiamo come dialogare con i vostri enti per garantirvi un accesso al credito fluido, veloce e senza intoppi burocratici.
+                                Lavorare per un'amministrazione locale o nel comparto sanitario territoriale significa essere il motore della propria comunità (incluse le <Link href="/prestiti-municipalizzate" className="underline">aziende municipalizzate</Link>). In Biofinance, abbiamo creato una divisione dedicata esclusivamente ai dipendenti di Enti Locali e Sanità. Sappiamo come dialogare con i vostri enti per garantirvi un accesso al credito fluido, veloce e senza intoppi burocratici.
                             </p>
                         </div>
                         <div className="relative">
@@ -135,7 +136,7 @@ const EntiLocaliSanitaHub: React.FC = () => {
                         <div className="order-2 lg:order-1">
                             <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/img/enti-locali-sanita.jpg"
+                                    src="/img/prestiti-enti-locali.jpg" width="1352" height="1000"
                                     alt="Gestione Diretta Biofinance"
                                     className="w-full h-[500px] object-cover"
                                 />
@@ -166,24 +167,11 @@ const EntiLocaliSanitaHub: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="section-padding bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 flex items-center justify-center gap-3">
-                            <HelpCircle className="w-10 h-10 text-secondary" />
-                            FAQ
-                        </h2>
-                    </div>
-                    <div className="max-w-4xl mx-auto space-y-6">
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
-                                <h4 className="text-lg font-bold text-primary mb-4">{faq.q}</h4>
-                                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FAQ
+                title="FAQ"
+                subtitle={null}
+                items={faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
+            />
 
             {/* Testimonial */}
             <section className="section-padding bg-primary relative overflow-hidden">
