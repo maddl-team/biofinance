@@ -16,6 +16,7 @@ import {
     Activity
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
 
 const EntiLocaliSanitaHub: React.FC = () => {
@@ -146,11 +147,13 @@ const EntiLocaliSanitaHub: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1">
-                            <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl">
-                                <img
-                                    src="/img/prestiti-enti-locali.jpg" width="1352" height="1000"
+                            <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl h-[500px]">
+                                <Image
+                                    src="/img/prestiti-enti-locali.jpg"
                                     alt="Gestione Diretta Biofinance"
-                                    className="w-full h-[500px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PromoSection: React.FC = () => {
     const polygon = 'polygon(0% 100%, 100% 100%, 100% 6.371%, 100% 4.064%, 100% 4.064%, 99.991% 4.048%, 99.963% 3.998%, 99.913% 3.913%, 99.835% 3.794%, 99.727% 3.639%, 99.586% 3.448%, 99.407% 3.219%, 99.187% 2.954%, 98.923% 2.65%, 98.611% 2.307%, 98.239% 1.952%, 97.797% 1.614%, 97.289% 1.297%, 96.718% 1.005%, 96.085% 0.742%, 95.394% 0.512%, 94.647% 0.319%, 93.847% 0.167%, 92.996% 0.059%, 92.097% 0.001%, 88.771% 0.331%, 81.338% 1.283%, 70.847% 2.704%, 58.35% 4.438%, 44.895% 6.33%, 31.532% 8.225%, 19.312% 9.968%, 9.283% 11.405%, 2.496% 12.381%, 0% 12.741%, 0% 100%)';
@@ -12,10 +13,12 @@ const PromoSection: React.FC = () => {
             >
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
-                    <img
-                        src="/img/bg-promo.jpg" width="1600" height="900"
+                    <Image
+                        src="/img/bg-promo.jpg"
                         alt="Successo finanziario"
-                        className="w-full h-full object-cover opacity-40"
+                        fill
+                        className="object-cover opacity-40"
+                        sizes="100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
                 </div>

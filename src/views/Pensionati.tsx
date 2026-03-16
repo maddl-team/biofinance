@@ -98,11 +98,13 @@ const Pensionati: React.FC = () => {
                                 <p className="text-gray-700 italic">"In caso di premorienza, il debito residuo viene saldato dall'assicurazione. Nessun onere ricadrà sui tuoi eredi."</p>
                             </div>
                         </div>
-                        <div className="lg:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-2xl relative">
-                            <img
+                        <div className="lg:w-1/2 h-[350px] lg:h-auto lg:aspect-video rounded-3xl overflow-hidden shadow-2xl relative">
+                            <Image
                                 src="/img/pensionati-eredi.jpg"
                                 alt="Sicurezza per la famiglia"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-primary/20"></div>
                         </div>

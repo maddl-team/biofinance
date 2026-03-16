@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import {
     Target,
     Star,
@@ -92,11 +93,13 @@ const LavoraConNoi: React.FC = () => {
                             </button>
                         </div>
                         <div className="relative">
-                            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
-                                <img
+                            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white h-[500px]">
+                                <Image
                                     src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000"
                                     alt="Team Biofinance"
-                                    className="w-full h-[500px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
                             </div>

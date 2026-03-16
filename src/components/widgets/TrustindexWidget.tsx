@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Script from "next/script";
 
 interface TrustindexWidgetProps {
   scriptSrc: string;
@@ -13,28 +14,57 @@ const TrustindexWidget: React.FC<TrustindexWidgetProps> = ({
   containerId,
   className,
 }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    if (!ref.current) return;
-    if (ref.current.getAttribute("data-loaded") === "true") return;
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Load slightly before it enters the viewport
+    );
 
-    const script = document.createElement("script");
-    script.src = scriptSrc;
-    script.async = true;
-    script.defer = true;
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
-    ref.current.appendChild(script);
-    ref.current.setAttribute("data-loaded", "true");
+    return () => observer.disconnect();
+  }, []);
 
-    return () => {
-      if (ref.current) {
-        ref.current.removeAttribute("data-loaded");
-      }
-    };
-  }, [scriptSrc]);
+  return (
+    <div
+      ref={containerRef}
+      className={`relative ${className}`}
+      style={{ minHeight: "80px" }} // Reserved space to prevent CLS
+    >
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-50 animate-pulse rounded-lg flex items-center justify-center">
+          <div className="flex gap-1">
+            {[...Array(5)].map((_, i) => (
+              <div key={i} className="w-4 h-4 bg-gray-200 rounded-full" />
+            ))}
+          </div>
+        </div>
+      )}
 
-  return <div id={containerId} className={className} ref={ref} />;
+      {isInView && (
+        <>
+          <div id={containerId} />
+          <Script
+            id={`trustindex-script-${containerId}`}
+            src={scriptSrc}
+            strategy="lazyOnload"
+            onLoad={() => setIsLoaded(true)}
+          />
+        </>
+      )}
+    </div>
+  );
 };
 
 export default TrustindexWidget;

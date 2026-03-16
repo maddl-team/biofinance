@@ -11,6 +11,7 @@ import {
     ArrowRight
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ChiSiamo: React.FC = () => {
     return (
@@ -32,11 +33,14 @@ const ChiSiamo: React.FC = () => {
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
-                                    src="/img/chi-siamo.jpg" width="1352" height="1000"
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px]">
+                                <Image
+                                    src="/img/chi-siamo.jpg"
                                     alt="Il Team Biofinance"
-                                    className="w-full h-[500px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                             </div>
@@ -87,11 +91,13 @@ const ChiSiamo: React.FC = () => {
                     </div>
 
                     <div className="relative max-w-5xl mx-auto mt-12 group">
-                        <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white group-hover:shadow-secondary/20 transition-all duration-500">
-                            <img
+                        <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white group-hover:shadow-secondary/20 transition-all duration-500 min-h-[400px]">
+                            <Image
                                 src="/img/team_biofinance.jpg"
                                 alt="Il Team Biofinance"
-                                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                fill
+                                className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                sizes="(max-width: 1024px) 100vw, 1024px"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
                         </div>

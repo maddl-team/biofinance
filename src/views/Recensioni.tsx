@@ -12,6 +12,7 @@ import {
     ArrowRight
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustindexWidget from '../components/widgets/TrustindexWidget';
 
 const Recensioni: React.FC = () => {
@@ -39,8 +40,14 @@ const Recensioni: React.FC = () => {
                                 <div className="flex items-center gap-4 mb-8">
                                     <div className="flex -space-x-4">
                                         {[1, 2, 3, 4].map((i) => (
-                                            <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                                                <img src={`https://i.pravatar.cc/150?u=${i + 10}`} alt="avatar" />
+                                            <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden relative">
+                                                <Image
+                                                    src={`https://i.pravatar.cc/150?u=${i + 10}`}
+                                                    alt="avatar"
+                                                    fill
+                                                    className="object-cover"
+                                                    sizes="48px"
+                                                />
                                             </div>
                                         ))}
                                     </div>

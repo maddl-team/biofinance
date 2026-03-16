@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const BlogSection: React.FC = () => {
@@ -62,10 +63,12 @@ const BlogSection: React.FC = () => {
                             className="w-[280px] sm:w-[350px] flex-shrink-0 snap-start group cursor-pointer"
                         >
                             <div className="aspect-square mb-6 overflow-hidden bg-gray-100 relative">
-                                <img
+                                <Image
                                     src={article.image}
                                     alt={article.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    sizes="(max-width: 640px) 280px, 350px"
                                 />
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors"></div>
                             </div>

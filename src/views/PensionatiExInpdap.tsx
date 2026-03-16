@@ -10,6 +10,7 @@ import {
     Calendar
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PensionatiExInpdap: React.FC = () => {
     const differences = [
@@ -44,11 +45,13 @@ const PensionatiExInpdap: React.FC = () => {
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
-                                    src="/img/prestiti-pensionati-ex-inpdap.jpg" width="1352" height="1000"
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px]">
+                                <Image
+                                    src="/img/prestiti-pensionati-ex-inpdap.jpg"
                                     alt="Pensionati Ex-INPDAP Biofinance"
-                                    className="w-full h-[500px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                             </div>
@@ -105,11 +108,13 @@ const PensionatiExInpdap: React.FC = () => {
                                 <span>Tempi medi di erogazione: 10-15 giorni.</span>
                             </div>
                         </div>
-                        <div className="lg:w-1/2 rounded-[3.5rem] overflow-hidden shadow-2xl relative aspect-square lg:aspect-video">
-                            <img
+                        <div className="lg:w-1/2 rounded-[3.5rem] overflow-hidden shadow-2xl relative h-[500px]">
+                            <Image
                                 src="/img/procedura-telematica.jpg"
                                 alt="Ufficio Digitale Biofinance"
-                                className="w-full h-full object-cover"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-primary/20"></div>
                         </div>

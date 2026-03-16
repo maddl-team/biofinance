@@ -120,11 +120,15 @@ const Neoassunti: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="order-2 lg:order-1">
-                            <img
-                                src="/img/calcolo-tfr.jpg"
-                                alt="Calcolo TFR"
-                                className="rounded-[3rem] shadow-2xl h-[400px] w-full object-cover"
-                            />
+                            <div className="relative h-[400px] w-full rounded-[3rem] overflow-hidden shadow-2xl">
+                                <Image
+                                    src="/img/calcolo-tfr.jpg"
+                                    alt="Calcolo TFR"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
+                            </div>
                         </div>
                         <div className="order-1 lg:order-2">
                             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">Quanto posso ottenere?</h2>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wallet, Landmark, BadgeEuro, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Services: React.FC = () => {
     return (
@@ -26,10 +27,12 @@ const Services: React.FC = () => {
                     {/* Service 1: Dipendenti Privati */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
-                            <img
-                                src="/img/dipendenti-privati.jpg" width="1352" height="1000"
+                            <Image
+                                src="/img/dipendenti-privati.jpg"
                                 alt="Dipendenti Privati"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div className="absolute bottom-4 left-6">
@@ -60,10 +63,12 @@ const Services: React.FC = () => {
                     {/* Service 2: Dipendenti Statali e Pubblici */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
-                            <img
-                                src="/img/dipendenti-statali.jpg" width="1352" height="1000"
+                            <Image
+                                src="/img/dipendenti-statali.jpg"
                                 alt="Dipendenti Statali e Pubblici"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div className="absolute bottom-4 left-6">
@@ -94,10 +99,12 @@ const Services: React.FC = () => {
                     {/* Service 3: Pensionati INPS ed Ex-INPDAP */}
                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group overflow-hidden">
                         <div className="relative h-48 overflow-hidden">
-                            <img
-                                src="/img/prestiti-pensionati.jpg" width="1352" height="1000"
+                            <Image
+                                src="/img/prestiti-pensionati.jpg"
                                 alt="Pensionati"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                sizes="(max-width: 1024px) 100vw, 33vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div className="absolute bottom-4 left-6">

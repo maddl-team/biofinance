@@ -17,6 +17,7 @@ import {
     Calculator
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
 
 const Municipalizzate: React.FC = () => {
@@ -191,11 +192,13 @@ const Municipalizzate: React.FC = () => {
                             </div>
                         </div>
                         <div className="lg:w-1/2 relative">
-                            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
-                                <img
-                                    src="/img/municipalizzate.jpg" width="1352" height="1000"
+                            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl h-[400px]">
+                                <Image
+                                    src="/img/municipalizzate.jpg"
                                     alt="Lavoratori Municipalizzate Biofinance"
-                                    className="w-full h-[400px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
                             </div>

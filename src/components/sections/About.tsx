@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { BadgeCheck, ArrowRight } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -10,10 +11,12 @@ const About: React.FC = () => {
                     {/* Image/Visual */}
                     <div className="relative order-2 lg:order-1">
                         <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-gray-100 relative z-10">
-                            <img
+                            <Image
                                 src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000"
                                 alt="Team Biofinance al lavoro"
-                                className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                                fill
+                                className="object-cover hover:scale-105 transition-transform duration-700"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-primary/10"></div>
                         </div>

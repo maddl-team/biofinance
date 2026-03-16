@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
     const polygon = 'polygon(100% 100%, 0% 100%, 0% 6.371%, 0% 4.064%, 0% 4.064%, 0.009% 4.048%, 0.037% 3.998%, 0.087% 3.913%, 0.165% 3.794%, 0.273% 3.639%, 0.414% 3.448%, 0.593% 3.219%, 0.813% 2.954%, 1.077% 2.65%, 1.389% 2.307%, 1.761% 1.952%, 2.203% 1.614%, 2.711% 1.297%, 3.282% 1.005%, 3.915% 0.742%, 4.606% 0.512%, 5.353% 0.319%, 6.153% 0.167%, 7.004% 0.059%, 7.903% 0.001%, 11.229% 0.331%, 18.662% 1.283%, 29.153% 2.704%, 41.65% 4.438%, 55.105% 6.33%, 68.468% 8.225%, 80.688% 9.968%, 90.717% 11.405%, 97.504% 12.381%, 100% 12.741%, 100% 100%)';
@@ -11,10 +12,12 @@ const Footer: React.FC = () => {
         >
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0" style={{ opacity: 0.03 }}>
-                <img
-                    src="/img/bg-footer.jpg" width="1600" height="900"
+                <Image
+                    src="/img/bg-footer.jpg"
                     alt="Biofinance Background"
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-primary/40"></div>
             </div>
@@ -23,10 +26,12 @@ const Footer: React.FC = () => {
 
                     {/* Colonna 1 — Brand */}
                     <div>
-                        <div className="mb-6">
-                            <img
+                        <div className="mb-6 text-white">
+                            <Image
                                 src="/img/logo_biofinance_header.png"
                                 alt="Biofinance Logo"
+                                width={180}
+                                height={64}
                                 className="h-10 w-auto brightness-0 invert"
                             />
                         </div>
@@ -37,9 +42,11 @@ const Footer: React.FC = () => {
 
                         {/* OAM Section inside Column 1 */}
                         <div className="flex flex-col items-start pt-4 border-t border-gray-800">
-                            <img
+                            <Image
                                 src="/img/logo-OAM.png"
                                 alt="Logo OAM"
+                                width={120}
+                                height={48}
                                 className="h-12 w-auto mb-2"
                             />
                             <p className="text-gray-400 text-xs text-left">

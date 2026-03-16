@@ -9,6 +9,7 @@ import {
     HandHeart
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PensionatiOver80: React.FC = () => {
     const sections = [
@@ -39,11 +40,13 @@ const PensionatiOver80: React.FC = () => {
                             </p>
                         </div>
                         <div className="relative">
-                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                                <img
-                                    src="/img/prestiti-pensionati-over-80.jpg" width="1352" height="1000"
+                            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl h-[500px]">
+                                <Image
+                                    src="/img/prestiti-pensionati-over-80.jpg"
                                     alt="Pensionati Senior Biofinance"
-                                    className="w-full h-[500px] object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
                             </div>

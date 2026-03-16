@@ -53,6 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
+      <head>
+        <link rel="preconnect" href="https://cdn.trustindex.io" />
+      </head>
       <body>
         <script
           type="application/ld+json"

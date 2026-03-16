@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
@@ -96,10 +97,13 @@ const Navbar: React.FC = () => {
                     {/* Logo */}
                     <div className="flex-shrink-0 flex items-center">
                         <Link href="/" className="flex items-center">
-                            <img
-                                src="/img/logo_biofinance_header.png" width="500" height="181"
+                            <Image
+                                src="/img/logo_biofinance_header.png"
                                 alt="Biofinance Logo"
+                                width={200}
+                                height={72}
                                 className="h-12 w-auto object-contain"
+                                priority
                             />
                         </Link>
                     </div>
