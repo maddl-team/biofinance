@@ -94,24 +94,53 @@ const SoluzioniLiquidita: React.FC = () => {
                                     <p className="text-gray-500 text-sm">Nessun impegno, massima discrezione</p>
                                 </div>
                                 <form className="space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <input type="text" placeholder="Nome" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                        <input type="tel" placeholder="Telefono" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                            <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                            <input type="text" placeholder="Cognome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
                                     </div>
-                                    <input type="email" placeholder="Email" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <select className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full text-gray-500">
-                                        <option value="">Di cosa hai bisogno?</option>
-                                        <option value="liquidita">Ho bisogno di più liquidità</option>
-                                        <option value="consolidamento">Voglio unire le mie rate</option>
-                                        <option value="crif">Ho segnalazioni CRIF</option>
-                                    </select>
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                            <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                            <input type="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                        <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Di cosa hai bisogno?</label>
+                                        <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-500">
+                                            <option value="">Di cosa hai bisogno?</option>
+                                            <option value="liquidita">Ho bisogno di più liquidità</option>
+                                            <option value="consolidamento">Voglio unire le mie rate</option>
+                                            <option value="crif">Ho segnalazioni CRIF</option>
+                                        </select>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="privacy-liquidita"
+                                            required
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                        />
+                                        <label htmlFor="privacy-liquidita" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                        </label>
+                                    </div>
+                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
                                         RICHIEDI ANALISI GRATUITA
                                     </button>
-                                    <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
-                                        <Shield className="w-3 h-3" />
-                                        I tuoi dati sono protetti e trattati secondo GDPR.
-                                    </p>
                                 </form>
                             </div>
                         </div>

@@ -86,16 +86,28 @@ const EntiLocaliSanitaHub: React.FC = () => {
                                     <p className="text-gray-500 text-sm italic">Preventivo rapido e gratuito</p>
                                 </div>
                                 <form className="space-y-4">
-                                    <input type="text" placeholder="Nome" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <input type="tel" placeholder="Telefono" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <input type="email" placeholder="Email" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <select className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full text-gray-500">
+                                    <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    <input type="date" placeholder="Data di nascita" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-500">
                                         <option value="">Seleziona il tuo comparto</option>
                                         <option value="sanita">Sanità/Ospedali</option>
                                         <option value="comune">Comune/Provincia</option>
                                         <option value="regione">Regione</option>
                                     </select>
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="privacy-enti-locali"
+                                            required
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                        />
+                                        <label htmlFor="privacy-enti-locali" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                        </label>
+                                    </div>
+                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
                                         SCOPRI LA RATA PER IL TUO ENTE
                                     </button>
                                 </form>

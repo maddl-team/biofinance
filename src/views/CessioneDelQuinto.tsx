@@ -66,7 +66,7 @@ const CessioneDelQuinto: React.FC = () => {
                             <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary mb-6">
                                 <Percent className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Rata Fissa e Sostenibile:</span></h3>
+                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Rata Fissa e Sostenibile</span></h3>
                             <p className="text-gray-600">
                                 La rata mensile non può mai superare il <span className="font-bold">20% (un quinto)</span> del tuo stipendio netto o della tua pensione netta. Questo ti garantisce di avere sempre a disposizione il restante 80% per le tue spese quotidiane.
                             </p>
@@ -75,7 +75,7 @@ const CessioneDelQuinto: React.FC = () => {
                             <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary mb-6">
                                 <Wallet className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Prelievo alla Fonte:</span></h3>
+                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Prelievo alla Fonte</span></h3>
                             <p className="text-gray-600">
                                 Non devi preoccuparti di bollettini o scadenze. La rata viene trattenuta direttamente dal tuo datore di lavoro o dall'ente pensionistico e versata all'istituto finanziario.
                             </p>
@@ -84,7 +84,7 @@ const CessioneDelQuinto: React.FC = () => {
                             <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary mb-6">
                                 <Calendar className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Durata Flessibile:</span></h3>
+                            <h3 className="text-xl font-bold text-primary mb-4"><span className="font-bold">Durata Flessibile</span></h3>
                             <p className="text-gray-600">
                                 Puoi scegliere piani di ammortamento da <span className="font-bold">24 a 120 mesi (10 anni)</span>. Adattiamo il piano alle tue esigenze di liquidità e sostenibilità mensile.
                             </p>
@@ -157,7 +157,7 @@ const CessioneDelQuinto: React.FC = () => {
                                         <CheckCircle2 className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Accessibile ai "Cattivi Pagatori":</span></h4>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Accessibile ai "Cattivi Pagatori"</span></h4>
                                         <p className="text-gray-600">Se sei segnalato in CRIF o hai avuto disguidi finanziari, questo è l'unico prestito che puoi ottenere legalmente. La garanzia è il tuo stipendio, non la tua storia.</p>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@ const CessioneDelQuinto: React.FC = () => {
                                         <CheckCircle2 className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Nessun Giustificativo di Spesa:</span></h4>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Nessun Giustificativo di Spesa</span></h4>
                                         <p className="text-gray-600">Vuoi ristrutturare casa, comprare un'auto o aiutare un figlio? Non devi dirci il motivo. La liquidità è libera.</p>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ const CessioneDelQuinto: React.FC = () => {
                                         <ShieldCheck className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Assicurazione Inclusa per Legge:</span></h4>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Assicurazione Inclusa per Legge</span></h4>
                                         <p className="text-gray-600">Ogni contratto include obbligatoriamente polizze Rischio Vita e Rischio Impiego. Sei tutelato tu, ed è tutelata la tua famiglia.</p>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@ const CessioneDelQuinto: React.FC = () => {
                                         <PlusCircle className="w-6 h-6 text-secondary" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Possibilità di Rinnovo:</span></h4>
+                                        <h4 className="font-bold text-primary text-lg"><span className="font-bold">Possibilità di Rinnovo</span></h4>
                                         <p className="text-gray-600">Hai già una Cessione in corso? Se hai pagato il 40% del piano, puoi rinegoziarla per ottenere nuova liquidità.</p>
                                         <Link href="/rinnovo-cessione-del-quinto" className="text-secondary font-bold text-sm mt-2 inline-block shadow-none hover:underline">Scopri come funziona il Rinnovo →</Link>
                                     </div>
@@ -198,7 +198,15 @@ const CessioneDelQuinto: React.FC = () => {
                                     "Amiamo definire la Cessione del Quinto come lo strumento più democratico del mercato finanziario. Non giudichiamo il tuo passato, ma investiamo nel tuo presente e nel tuo futuro lavorativo."
                                 </p>
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-secondary"></div>
+                                    <div className="w-12 h-12 rounded-full bg-secondary overflow-hidden flex items-center justify-center">
+                                        <Image
+                                            src="/img/logo_biofinance_team.png"
+                                            width={48}
+                                            height={48}
+                                            alt="Logo Team Biofinance"
+                                            className="w-full h-full object-contain"
+                                        />
+                                    </div>
                                     <div>
                                         <p className="font-bold">Il Team Biofinance</p>
                                         <p className="text-sm opacity-70">Esperti in Credito Sostenibile</p>
@@ -225,7 +233,7 @@ const CessioneDelQuinto: React.FC = () => {
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-center py-4 border-b border-gray-100 text-sm">
                                         <span className="text-gray-600 font-bold">Età:</span>
-                                        <span className="text-primary">Da 18 a 85 anni (a fine piano ammortamento).</span>
+                                        <span className="text-primary">Da 18 a 87 anni (a fine piano ammortamento).</span>
                                     </div>
                                     <div className="flex justify-between items-center py-4 border-b border-gray-100 text-sm">
                                         <span className="text-gray-600 font-bold">Contratto:</span>

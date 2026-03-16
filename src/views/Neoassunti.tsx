@@ -161,7 +161,7 @@ const Neoassunti: React.FC = () => {
                             Non aspettare l'ultimo minuto. Inserisci i tuoi dati oggi: i nostri consulenti calcoleranno esattamente <span className="font-bold">la data precisa</span> in cui diventerai finanziabile. Ti ricontatteremo noi quel giorno con il preventivo pronto.
                         </p>
                         <Link
-                            href="/contatti"
+                            href="/calcolo-cessione-del-quinto"
                             className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
                         >
                             VERIFICA LA TUA DATA DI ACCESSO
@@ -177,7 +177,7 @@ const Neoassunti: React.FC = () => {
                 items={[
                     {
                         question: <span className="font-bold">Posso fare la Cessione del Quinto con un contratto di apprendistato?</span>,
-                        answer: <><span className="font-bold"></span> <span className="font-bold">NON E’ FATTIBILE</span>.</>
+                        answer: <><span className="font-bold"></span> Sì, ma solo in alcuni casi. La Cessione del Quinto con contratto di apprendistato può essere concessa solo se la durata del prestito non supera la scadenza del contratto di lavoro.</>
                     },
                     {
                         question: <span className="font-bold">Ho un garante, serve a qualcosa?</span>,

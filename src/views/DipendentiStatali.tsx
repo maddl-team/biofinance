@@ -180,7 +180,7 @@ const DipendentiStatali: React.FC = () => {
                                 <Calculator className="w-16 h-16 text-secondary mx-auto mb-6" />
                                 <h3 className="text-3xl font-bold mb-8 text-white leading-tight">Ottieni subito la tua quotazione NoiPA</h3>
                                 <Link
-                                    href="/contatti"
+                                    href="/calcolo-cessione-del-quinto"
                                     className="w-full bg-secondary hover:bg-teal-600 text-white font-black py-6 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center justify-center group"
                                 >
                                     CALCOLA RATA STATALI (CONVENZIONE)

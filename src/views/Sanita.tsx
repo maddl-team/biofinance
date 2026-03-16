@@ -166,7 +166,7 @@ const Sanita: React.FC = () => {
                                 Noi proteggiamo i tuoi progetti con le migliori soluzioni di credito.
                             </p>
                             <Link
-                                href="/contatti"
+                                href="/enti-locali-sanita"
                                 className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
                             >
                                 PREVENTIVO DEDICATO SANITÀ

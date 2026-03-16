@@ -28,7 +28,7 @@ const ChiSiamo: React.FC = () => {
                                 Biofinance: Persone, prima che Numeri.
                             </h1>
                             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                In un mondo di algoritmi e call center anonimi, Biofinance ci mette la faccia. Siamo un'Agenzia in Attività Finanziaria regolarmente iscritta all'<span className="font-bold">OAM (Organismo Agenti e Mediatori) al n. XXXXX</span>. Operiamo nel rispetto rigoroso delle normative Banca d'Italia e IVASS, con un approccio etico al credito.
+                                In un mondo di algoritmi e call center anonimi, Biofinance ci mette la faccia. Siamo un'Agenzia in Attività Finanziaria regolarmente iscritta all'<span className="font-bold">OAM (Organismo Agenti e Mediatori) al n. A15318</span>. Operiamo nel rispetto rigoroso delle normative Banca d'Italia e IVASS, con un approccio etico al credito.
                             </p>
                         </div>
                         <div className="relative">
@@ -86,58 +86,28 @@ const ChiSiamo: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Marco R. */}
-                        <div className="bg-white rounded-[3rem] p-10 shadow-sm border border-gray-100 group hover:shadow-xl transition-all text-center">
-                            <div className="w-24 h-24 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
-                                <Users2 className="w-12 h-12" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-primary mb-2">Marco R.</h3>
-                            <p className="text-secondary font-bold mb-4 uppercase text-sm tracking-widest">Specialist Pensionati</p>
-                            <p className="text-gray-600 mb-8 italic">(15 anni di esperienza)</p>
-                            <div className="flex justify-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <Phone className="w-5 h-5" />
-                                </div>
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <MessageCircle className="w-5 h-5" />
-                                </div>
-                            </div>
+                    <div className="relative max-w-5xl mx-auto mt-12 group">
+                        <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white group-hover:shadow-secondary/20 transition-all duration-500">
+                            <img
+                                src="/img/team_biofinance.jpg"
+                                alt="Il Team Biofinance"
+                                className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
                         </div>
 
-                        {/* Laura B. */}
-                        <div className="bg-white rounded-[3rem] p-10 shadow-sm border border-gray-100 group hover:shadow-xl transition-all text-center">
-                            <div className="w-24 h-24 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
-                                <Users2 className="w-12 h-12" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-primary mb-2">Laura B.</h3>
-                            <p className="text-secondary font-bold mb-4 uppercase text-sm tracking-widest">Responsabile Convenzioni Statali</p>
-                            <p className="text-gray-600 mb-8 italic">Consulente Senior</p>
-                            <div className="flex justify-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <Phone className="w-5 h-5" />
-                                </div>
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <MessageCircle className="w-5 h-5" />
-                                </div>
-                            </div>
-                        </div>
+                        {/* Decorative elements */}
+                        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                        <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl -z-10"></div>
 
-                        {/* Giovanni L. */}
-                        <div className="bg-white rounded-[3rem] p-10 shadow-sm border border-gray-100 group hover:shadow-xl transition-all text-center">
-                            <div className="w-24 h-24 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
-                                <Users2 className="w-12 h-12" />
+                        {/* Caption overlay or floating badge */}
+                        <div className="absolute -bottom-6 -left-6 lg:left-12 bg-white px-8 py-6 rounded-3xl shadow-2xl border border-gray-100 flex items-center gap-4">
+                            <div className="p-3 bg-secondary rounded-xl text-white">
+                                <Users2 className="w-6 h-6" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary mb-2">Giovanni L.</h3>
-                            <p className="text-secondary font-bold mb-4 uppercase text-sm tracking-widest">Esperto Contenziosi e Pignoramenti</p>
-                            <p className="text-gray-600 mb-8 italic">Specialista Soluzioni Complesse</p>
-                            <div className="flex justify-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <Phone className="w-5 h-5" />
-                                </div>
-                                <div className="w-10 h-10 rounded-full bg-neutral-bg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <MessageCircle className="w-5 h-5" />
-                                </div>
+                            <div>
+                                <p className="text-primary font-black uppercase tracking-widest text-xs">Unito per te</p>
+                                <p className="text-gray-500 text-xs font-medium">Oltre 30 professionisti pronti ad aiutarti</p>
                             </div>
                         </div>
                     </div>
@@ -151,16 +121,16 @@ const ChiSiamo: React.FC = () => {
                         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full -mt-48 -mr-48 blur-3xl"></div>
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-white">I Nostri Partner</h2>
-                                <p className="text-xl text-white/80 leading-relaxed mb-10">
-                                    Lavoriamo con i primari istituti bancari italiani specializzati nella Cessione del Quinto. Questo ci permette di comparare diverse offerte e proporti sempre quella con il TAEG più basso per il tuo profilo specifico (Brokerage model).
+                                <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-white">Partnership Strategica</h2>
+                                <p className="text-xl text-white/80 leading-relaxed mb-6">
+                                    Operiamo come agenti monomandatari di Fidès S.p.A., società appartenente al Gruppo Banco Desio, intermediario finanziario specializzato nella Cessione del Quinto dello stipendio e della pensione.
                                 </p>
-                                <div className="grid grid-cols-2 gap-8 lg:gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                                    <div className="h-12 bg-white/20 rounded-xl"></div>
-                                    <div className="h-12 bg-white/20 rounded-xl"></div>
-                                    <div className="h-12 bg-white/20 rounded-xl"></div>
-                                    <div className="h-12 bg-white/20 rounded-xl"></div>
-                                </div>
+                                <p className="text-xl text-white/80 leading-relaxed mb-6">
+                                    Questa collaborazione ci consente di offrire soluzioni di finanziamento affidabili e trasparenti, con condizioni studiate in base al profilo reddituale del cliente e nel rispetto della normativa vigente.
+                                </p>
+                                <p className="text-xl text-white/80 leading-relaxed mb-10">
+                                    Grazie all’esperienza di un primario gruppo bancario italiano e alla nostra consulenza dedicata, accompagniamo il cliente in ogni fase del processo: dalla valutazione della richiesta fino all’erogazione del finanziamento.
+                                </p>
                             </div>
                             <div className="bg-white/5 backdrop-blur-sm p-10 rounded-[3rem] border border-white/10">
                                 <Star className="w-12 h-12 text-secondary mb-6" />
@@ -183,7 +153,7 @@ const ChiSiamo: React.FC = () => {
                         Scegli la trasparenza e l'etica di una consulenza reale. Nessun algoritmo può sostituire il valore di una persona al tuo fianco.
                     </p>
                     <Link
-                        href="/contatti"
+                        href="/calcolo-cessione-del-quinto"
                         className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
                     >
                         PARLA CON UN CONSULENTE

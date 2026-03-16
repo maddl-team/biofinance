@@ -152,7 +152,7 @@ const ScuolaMiur: React.FC = () => {
                             Inserisci l'importo netto del tuo cedolino NoiPA (escluse voci variabili come FIS o attività aggiuntive).
                         </p>
                         <Link
-                            href="/contatti"
+                            href="/calcolo-cessione-del-quinto"
                             className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
                         >
                             PREVENTIVO RAPIDO DOCENTI & ATA

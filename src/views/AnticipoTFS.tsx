@@ -70,21 +70,114 @@ const AnticipoTFS: React.FC = () => {
                                 Hai dedicato una vita intera al servizio dello Stato o della Pubblica Amministrazione. Ora che sei in pensione, il tuo Trattamento di Fine Servizio (TFS) è un diritto acquisito. Purtroppo, i tempi di erogazione dell'INPS possono richiedere anni. In Biofinance, offriamo un prodotto specifico per statali in pensione o cessati dal servizio: l'Anticipo TFS. Ti permettiamo di ottenere subito la tua liquidità, senza dover rimandare i tuoi progetti. Scopri anche la <Link href="/cessione-del-quinto" className="underline">Cessione del Quinto</Link> e la pagina dedicata ai <Link href="/dipendenti-statali" className="underline">dipendenti statali</Link>.
                             </p>
                         </div>
-                        <div className="relative">
+                        <div className="relative" id="anticipo-tfs-form">
                             <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100">
                                 <div className="text-center mb-8">
                                     <h3 className="text-2xl font-bold text-primary mb-2">Calcola il tuo Anticipo TFS</h3>
                                     <p className="text-gray-500 text-sm">Inserisci i dati per un preventivo gratuito</p>
                                 </div>
                                 <form className="space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <input type="text" placeholder="Nome" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                        <input type="text" placeholder="Cognome" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Importo</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            placeholder="Importo"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        />
                                     </div>
-                                    <input type="tel" placeholder="Telefono" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <input type="email" placeholder="Email" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <input type="text" placeholder="Importo TFS (opzionale)" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                            <input
+                                                type="text"
+                                                required
+                                                placeholder="Nome"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                            <input
+                                                type="text"
+                                                required
+                                                placeholder="Cognome"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                            <input
+                                                type="date"
+                                                required
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                            <input
+                                                type="email"
+                                                required
+                                                placeholder="Email"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                            <input
+                                                type="tel"
+                                                required
+                                                placeholder="Telefono"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Qual è la tua professione?</label>
+                                            <select
+                                                required
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                                defaultValue=""
+                                            >
+                                                <option value="" disabled>Seleziona professione</option>
+                                                <option value="Pensionato INPS">Pensionato INPS</option>
+                                                <option value="Pensionato INPDAP">Pensionato INPDAP</option>
+                                                <option value="Pensionato Altro Ente">Pensionato Altro Ente</option>
+                                                <option value="Militare">Militare</option>
+                                                <option value="Medico Convenzionato">Medico Convenzionato</option>
+                                                <option value="Libero Professionista">Libero Professionista</option>
+                                                <option value="Dipendente Trenitalia">Dipendente Trenitalia</option>
+                                                <option value="Dipendente Statale">Dipendente Statale</option>
+                                                <option value="Dipendente Pubblico">Dipendente Pubblico</option>
+                                                <option value="Dipendente Poste It">Dipendente Poste It</option>
+                                                <option value="Dipendente Municipalizzata">Dipendente Municipalizzata</option>
+                                                <option value="Dipendente Azienda Privata">Dipendente Azienda Privata</option>
+                                                <option value="Casalinga">Casalinga</option>
+                                                <option value="Autonomo">Autonomo</option>
+                                                <option value="Altro">Altro</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cap</label>
+                                            <input
+                                                type="text"
+                                                required
+                                                placeholder="Cap"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="privacy-tfs"
+                                            required
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                        />
+                                        <label htmlFor="privacy-tfs" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                        </label>
+                                    </div>
+                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
                                         CALCOLA IL TUO ANTICIPO ORA
                                     </button>
                                     <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
@@ -192,10 +285,13 @@ const AnticipoTFS: React.FC = () => {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-5 rounded-full -mr-32 -mt-32"></div>
                         <Calculator className="w-16 h-16 text-secondary mx-auto mb-6" />
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8">Richiedi subito il tuo Anticipo TFS</h2>
-                        <button className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group">
+                        <a
+                            href="#anticipo-tfs-form"
+                            className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
+                        >
                             CALCOLA IL TUO ANTICIPO ORA
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>

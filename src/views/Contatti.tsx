@@ -22,29 +22,29 @@ const Contatti: React.FC = () => {
         {
             icon: <MessageCircle className="w-10 h-10" />,
             title: "WhatsApp",
-            value: "[Numero WhatsApp]",
-            link: "https://wa.me/yournumber",
+            value: "+39 348 467 0090",
+            link: "https://wa.me/393484670090",
             desc: "Risposte rapide e invio documenti facile."
         },
         {
             icon: <Phone className="w-10 h-10" />,
-            title: "Telefono",
-            value: "[Numero Verde/Fisso]",
-            link: "tel:yournumber",
+            title: "Numero Verde",
+            value: "800161266",
+            link: "tel:800161266",
             desc: "Parla con un consulente esperto (Nessun call center estero)."
         },
         {
             icon: <Mail className="w-10 h-10" />,
             title: "Email",
-            value: "info@biofinance.it",
-            link: "mailto:info@biofinance.it",
+            value: "direzione@biofinance.it",
+            link: "mailto:direzione@biofinance.it",
             desc: "Per richieste di informazioni generali."
         },
         {
             icon: <ShieldCheck className="w-10 h-10" />,
             title: "PEC",
-            value: "biofinance@pec.it",
-            link: "mailto:biofinance@pec.it",
+            value: "direzione@pec.biofinance.it",
+            link: "mailto:direzione@pec.biofinance.it",
             desc: "Per comunicazioni legali ufficiali."
         }
     ];
@@ -169,11 +169,8 @@ const Contatti: React.FC = () => {
                             </div>
                             <h2 className="text-3xl font-bold text-primary mb-6 tracking-tight">Dove Siamo</h2>
                             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                                Biofinance opera su tutto il territorio nazionale grazie a procedure completamente digitalizzate (firma con SPID o OTP). Tuttavia, se preferisci un incontro di persona, possiamo organizzare appuntamenti presso le nostre sedi principali o inviare un consulente fiduciario direttamente da te.
+                                Biofinance opera su tutto il territorio nazionale grazie a procedure completamente digitalizzate (firma con SPID o OTP). Tuttavia, se preferisci un incontro di persona, possiamo organizzare un appuntamentoi presso la nostra sede principale di Montecatini-Terme o inviare un consulente fiduciario direttamente da te.
                             </p>
-                            <div className="flex items-center gap-3 text-secondary font-bold group hover:underline cursor-pointer">
-                                Scopri la filiale più vicina <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </div>
                         </div>
 
                         {/* Lavora con Noi */}
@@ -189,6 +186,17 @@ const Contatti: React.FC = () => {
                                 Candidati ora <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </div>
+                    </div>
+                    <div className="mt-10">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2876.142455793409!2d10.769751076368438!3d43.87359997109245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a7d77fbc94291%3A0x9538d53c1a3cbb5d!2sBIOFINANCE%20SRL!5e0!3m2!1sit!2sit!4v1773406453843!5m2!1sit!2sit"
+                            width="100%"
+                            height="450"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
             </section>

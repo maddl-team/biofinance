@@ -8,6 +8,7 @@ import {
     Bus,
     Trash2,
     Droplets,
+    Mail,
     FileText,
     Zap,
     HelpCircle,
@@ -84,28 +85,61 @@ const Municipalizzate: React.FC = () => {
                                     <Droplets className="w-5 h-5 text-secondary" />
                                     <span className="text-sm font-bold text-primary">Idrico</span>
                                 </div>
+                                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                                    <Mail className="w-5 h-5 text-secondary" />
+                                    <span className="text-sm font-bold text-primary">Postale</span>
+                                </div>
                             </div>
                         </div>
-                        <div className="relative" ref={formRef}>
+                        <div className="relative" ref={formRef} id="form-preventivo">
                             <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100">
                                 <div className="text-center mb-8">
                                     <h3 className="text-2xl font-bold text-primary mb-2">Lavori in una Municipalizzata? Ottieni il tuo preventivo</h3>
                                     <p className="text-gray-500 text-sm">Richiesta gratuita e veloce</p>
                                 </div>
                                 <form className="space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <input type="text" placeholder="Nome" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                        <input type="tel" placeholder="Telefono" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                            <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                            <input type="text" placeholder="Cognome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
                                     </div>
-                                    <input type="email" placeholder="Email" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <input type="text" placeholder="Nome Azienda (es. Alia, Autolinee Toscane)" className="bg-neutral-bg border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                            <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                            <input type="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                        <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Nome Azienda</label>
+                                        <input type="text" placeholder="Nome Azienda (es. Alia, Autolinee Toscane)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="privacy-municipalizzate"
+                                            required
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                        />
+                                        <label htmlFor="privacy-municipalizzate" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                        </label>
+                                    </div>
+                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
                                         RICHIEDI PREVENTIVO ORA
                                     </button>
-                                    <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
-                                        <Shield className="w-3 h-3" />
-                                        I tuoi dati sono protetti e trattati secondo GDPR.
-                                    </p>
                                 </form>
                             </div>
                         </div>
@@ -208,16 +242,16 @@ const Municipalizzate: React.FC = () => {
             <section className="section-padding bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <div className="bg-neutral-bg p-12 lg:p-16 rounded-[3rem] border border-gray-100 shadow-2xl relative overflow-hidden group">
-                        <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                        <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
                         <Calculator className="w-16 h-16 text-secondary mx-auto mb-6" />
                         <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-8 tracking-tight">Vuoi una consulenza personalizzata?</h2>
-                        <button
-                            onClick={scrollToForm}
+                        <a
+                            href="#form-preventivo"
                             className="bg-secondary hover:bg-emerald-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn"
                         >
                             CALCOLA LA TUA RATA
                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:-translate-y-1" />
-                        </button>
+                        </a>
                     </div>
                 </div>
             </section>

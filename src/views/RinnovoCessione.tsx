@@ -163,7 +163,7 @@ const RinnovoCessione: React.FC = () => {
                                 <HandCoins className="w-16 h-16 text-secondary mx-auto mb-6" />
                                 <h3 className="text-3xl font-bold mb-6 text-white">Verifica subito la tua fattibilità</h3>
                                 <Link
-                                    href="/contatti"
+                                    href="/calcolo-cessione-del-quinto"
                                     className="w-full bg-secondary hover:bg-teal-600 text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-block"
                                 >
                                     VERIFICA SE PUOI RINNOVARE ORA

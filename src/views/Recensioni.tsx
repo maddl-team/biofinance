@@ -170,8 +170,9 @@ const Recensioni: React.FC = () => {
                                 La tua esperienza può aiutare altre persone a scegliere con maggiore serenità. Raccontaci la tua storia.
                             </p>
                             <Link
-                                href="https://www.google.com"
+                                href="https://g.page/r/CV27PBo81TiVEBM/review"
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
                             >
                                 SCRIVI SU GOOGLE

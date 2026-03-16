@@ -112,13 +112,56 @@ const SegnalatiCrif: React.FC = () => {
                             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
                                 Richiedi un preventivo anonimo e discreto oggi stesso. Valutiamo ogni situazione con cura e competenza.
                             </p>
-                            <Link
-                                href="/contatti"
-                                className="bg-primary hover:bg-primary-light text-white font-black py-6 px-12 rounded-2xl transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm inline-flex items-center group/btn border-2 border-primary-light"
-                            >
-                                PREVENTIVO ANONIMO
-                                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
-                            </Link>
+                            <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100 text-left max-w-2xl mx-auto text-gray-900">
+                                <form className="space-y-4">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                            <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                            <input type="text" placeholder="Cognome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                        <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                            <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                            <input type="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 mb-2">Di quante rate sei in ritardo?</label>
+                                        <textarea
+                                            rows={3}
+                                            placeholder="Usa questo campo per descrivere la tua situazione. Più informazioni ci darai e più saremo in grado di aiutarti"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        />
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <input
+                                            type="checkbox"
+                                            id="privacy-crif"
+                                            required
+                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                        />
+                                        <label htmlFor="privacy-crif" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                        </label>
+                                    </div>
+                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
+                                        PREVENTIVO ANONIMO
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

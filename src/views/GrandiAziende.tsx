@@ -158,7 +158,7 @@ const GrandiAziende: React.FC = () => {
                                 Sei un dipendente di una grande azienda? Non accontentarti di un preventivo standard. Specifica il nome della tua azienda nel modulo per sbloccare le condizioni riservate.
                             </p>
                             <Link
-                                href="/contatti"
+                                href="/calcolo-cessione-del-quinto"
                                 className="bg-secondary hover:bg-teal-600 text-white font-black py-6 px-10 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center group"
                             >
                                 CALCOLA PREVENTIVO GRANDI AZIENDE

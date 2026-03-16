@@ -80,11 +80,11 @@ const Navbar: React.FC = () => {
             name: 'L\'Agenzia',
             href: '/chi-siamo',
             subMenu: [
-                { name: 'Chi Siamo & Consulenti', href: '/chi-siamo' },
+                { name: 'Chi Siamo', href: '/chi-siamo' },
                 { name: 'Recensioni e Opinioni', href: '/recensioni' },
                 { name: 'Blog & Educazione Finanziaria', href: '#' },
                 { name: 'Contatti e Sedi', href: '/contatti' },
-                { name: 'Lavora con noi', href: '#' }
+                { name: 'Lavora con noi', href: '/lavora-con-noi' }
             ]
         }
     ];

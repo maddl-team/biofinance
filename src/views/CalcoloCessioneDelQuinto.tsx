@@ -30,7 +30,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                                 Il nostro algoritmo incrocia i tassi delle migliori convenzioni (INPS, NoiPA, Grandi Aziende) per mostrarti la soluzione più conveniente.
                             </p>
                         </div>
-                        <div className="relative">
+                        <div className="relative" id="calcolo-form">
                             <AdvancedLoanCalculator />
                             <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
                         </div>
@@ -44,7 +44,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
             <section className="section-padding bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4"><span className="font-bold">Come si calcola la Cessione del Quinto? (La Matematica Semplice)</span></h2>
+                        <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4"><span className="font-bold">Come si calcola la Cessione del Quinto?</span></h2>
                         <p className="text-gray-600 max-w-3xl mx-auto text-lg">
                             Molti siti ti danno un numero e basta. Noi vogliamo che tu capisca <span className="font-bold">perché</span> ottieni quel risultato. Il calcolo si basa su 3 fattori chiave che determinano il tuo "Montante" (totale da rimborsare) e il "Netto Ricavo" (soldi in tasca):
                         </p>
@@ -55,7 +55,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <Calculator className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">La Regola del 20%:</span></h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">La Regola del 20%</span></h3>
                             <p className="text-gray-600 leading-relaxed">
                                 Prendi il tuo stipendio netto (o pensione) e dividilo per 5. Quella è la tua <span className="font-bold">Rata Massima Sostenibile.</span>
                             </p>
@@ -68,7 +68,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <ShieldCheck className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">Il Coefficiente Assicurativo (Età):</span></h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">Il Coefficiente Assicurativo (Età)</span></h3>
                             <p className="text-gray-600 leading-relaxed">
                                 Più sei giovane, meno incide il costo dell'assicurazione rischio vita (obbligatoria).
                             </p>
@@ -78,7 +78,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                             <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-secondary/20">
                                 <Layers className="w-8 h-8" />
                             </div>
-                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">L'Azienda (TFR):</span></h3>
+                            <h3 className="text-2xl font-bold text-primary"><span className="font-bold">L'Azienda (TFR)</span></h3>
                             <p className="text-gray-600 leading-relaxed">
                                 Se sei un dipendente privato, il TFR accantonato in azienda funge da garanzia, permettendoci di offrirti tassi più aggressivi rispetto alla media di mercato.
                             </p>
@@ -174,7 +174,7 @@ const CalcoloCessioneDelQuinto: React.FC = () => {
                         I tassi finanziari fluttuano. Richiedendo un contatto oggi, "congeli" le condizioni attuali per la tua istruttoria gratuita.
                     </p>
                     <Link
-                        href="/chi-siamo"
+                        href="#calcolo-form"
                         className="bg-accent hover:bg-teal-700 text-white text-xl font-bold px-12 py-6 rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1 inline-block"
                     >
                         INVIA LA RICHIESTA SENZA IMPEGNO
