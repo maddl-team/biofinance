@@ -61,14 +61,15 @@ const LoanCalculator: React.FC = () => {
                     {/* Step 1: Sliders */}
                     <div>
                         <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-xl text-neutral-dark">
+                            <label htmlFor="amount-slider" className="text-xl text-neutral-dark">
                                 Di quale <span className="font-bold">importo</span> hai bisogno?
-                            </h3>
-                            <span className="text-3xl font-bold text-primary">
+                            </label>
+                            <span className="text-3xl font-bold text-primary" aria-live="polite">
                                 {amount.toLocaleString('it-IT')} €
                             </span>
                         </div>
                         <input
+                            id="amount-slider"
                             type="range"
                             min={minAmount}
                             max={maxAmount}
@@ -76,6 +77,7 @@ const LoanCalculator: React.FC = () => {
                             value={amount}
                             onChange={(e) => setAmount(Number(e.target.value))}
                             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
+                            aria-valuetext={`${amount.toLocaleString('it-IT')} Euro`}
                             style={{
                                 background: `linear-gradient(to right, #10B981 0%, #10B981 ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #f3f4f6 ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #f3f4f6 100%)`
                             }}
@@ -88,14 +90,15 @@ const LoanCalculator: React.FC = () => {
 
                     <div>
                         <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-xl text-neutral-dark">
+                            <label htmlFor="installments-slider" className="text-xl text-neutral-dark">
                                 In quante <span className="font-bold">rate</span> vuoi pagare?
-                            </h3>
-                            <span className="text-3xl font-bold text-primary">
+                            </label>
+                            <span className="text-3xl font-bold text-primary" aria-live="polite">
                                 {installments} rate
                             </span>
                         </div>
                         <input
+                            id="installments-slider"
                             type="range"
                             min={minInstallments}
                             max={maxInstallments}
@@ -103,6 +106,7 @@ const LoanCalculator: React.FC = () => {
                             value={installments}
                             onChange={(e) => setInstallments(Number(e.target.value))}
                             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
+                            aria-valuetext={`${installments} rate mensili`}
                             style={{
                                 background: `linear-gradient(to right, #10B981 0%, #10B981 ${(installments - minInstallments) / (maxInstallments - minInstallments) * 100}%, #f3f4f6 ${(installments - minInstallments) / (maxInstallments - minInstallments) * 100}%, #f3f4f6 100%)`
                             }}

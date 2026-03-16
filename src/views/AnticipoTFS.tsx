@@ -74,7 +74,7 @@ const AnticipoTFS: React.FC = () => {
                         <div className="relative" id="anticipo-tfs-form">
                             <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100">
                                 <div className="text-center mb-8">
-                                    <h3 className="text-2xl font-bold text-primary mb-2">Calcola il tuo Anticipo TFS</h3>
+                                    <h2 className="text-2xl font-bold text-primary mb-2">Calcola il tuo Anticipo TFS</h2>
                                     <p className="text-gray-500 text-sm">Inserisci i dati per un preventivo gratuito</p>
                                 </div>
                                 <form className="space-y-4">
@@ -208,7 +208,7 @@ const AnticipoTFS: React.FC = () => {
                                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-secondary mx-auto mb-6 shadow-sm group-hover:bg-secondary group-hover:text-white transition-colors">
                                     {benefit.icon}
                                 </div>
-                                <h4 className="text-xl font-bold text-primary mb-3">{benefit.title}</h4>
+                                <h3 className="text-xl font-bold text-primary mb-3">{benefit.title}</h3>
                                 <p className="text-gray-600 leading-relaxed text-center">{benefit.desc}</p>
                             </div>
                         ))}

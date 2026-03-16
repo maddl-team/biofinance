@@ -85,7 +85,7 @@ const Contatti: React.FC = () => {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-white rounded-[2.5rem] p-8 lg:p-12 shadow-2xl border border-gray-100">
                         <div className="text-center mb-10">
-                            <h3 className="text-2xl font-bold text-primary mb-2">Scrivici. Ti risponderemo in meno di 24 ore.</h3>
+                            <h2 className="text-2xl font-bold text-primary mb-2">Scrivici. Ti risponderemo in meno di 24 ore.</h2>
                             <p className="text-gray-500 text-sm italic">Analisi gratuita e senza impegno</p>
                         </div>
                         <form className="space-y-6">
@@ -150,7 +150,7 @@ const Contatti: React.FC = () => {
                             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-secondary mb-6 shadow-sm group-hover:bg-secondary group-hover:text-white transition-colors">
                                 {method.icon}
                             </div>
-                            <h4 className="text-xl font-bold text-primary mb-2 uppercase tracking-wide">{method.title}</h4>
+                            <h3 className="text-xl font-bold text-primary mb-2 uppercase tracking-wide">{method.title}</h3>
                             <p className="text-secondary font-black mb-4 truncate w-full">{method.value}</p>
                             <p className="text-gray-500 text-sm leading-relaxed">{method.desc}</p>
                         </a>

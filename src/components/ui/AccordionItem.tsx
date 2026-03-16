@@ -10,11 +10,14 @@ interface AccordionItemProps {
 }
 
 const AccordionItem: React.FC<AccordionItemProps> = ({ title, children, isOpen, onClick }) => {
+    const id = React.useId();
     return (
         <div className="bg-neutral-bg p-8 rounded-3xl border border-gray-100">
             <button
                 className="w-full flex items-start justify-between gap-4 text-left focus:outline-none"
                 onClick={onClick}
+                aria-expanded={isOpen}
+                aria-controls={`accordion-content-${id}`}
             >
                 <span className={clsx("text-lg font-bold", "text-primary")}>
                     {title}
@@ -26,6 +29,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children, isOpen, 
                 )}
             </button>
             <div
+                id={`accordion-content-${id}`}
+                role="region"
                 className={clsx(
                     "transition-all duration-300 ease-in-out text-gray-600 leading-relaxed",
                     isOpen ? "max-h-96 pt-4 opacity-100" : "max-h-0 pt-0 opacity-0 overflow-hidden"

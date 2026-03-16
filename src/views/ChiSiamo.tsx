@@ -57,12 +57,12 @@ const ChiSiamo: React.FC = () => {
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="p-8 bg-neutral-bg rounded-[2.5rem] border border-gray-100 shadow-sm transform hover:-translate-y-2 transition-transform">
                                     <Award className="w-10 h-10 text-secondary mb-4" />
-                                    <h4 className="text-xl font-bold text-primary mb-2">20+ Anni</h4>
+                                    <h3 className="text-xl font-bold text-primary mb-2">20+ Anni</h3>
                                     <p className="text-gray-600">Di esperienza nel settore.</p>
                                 </div>
                                 <div className="p-8 bg-primary rounded-[2.5rem] text-white shadow-xl transform translate-y-8 hover:translate-y-6 transition-transform">
                                     <UserCheck className="w-10 h-10 text-secondary mb-4" />
-                                    <h4 className="text-xl font-bold mb-2 text-white">Etica</h4>
+                                    <h3 className="text-xl font-bold mb-2 text-white">Etica</h3>
                                     <p className="text-white/80">Credito responsabile.</p>
                                 </div>
                             </div>
@@ -140,7 +140,7 @@ const ChiSiamo: React.FC = () => {
                             </div>
                             <div className="bg-white/5 backdrop-blur-sm p-10 rounded-[3rem] border border-white/10">
                                 <Star className="w-12 h-12 text-secondary mb-6" />
-                                <h4 className="text-2xl font-bold mb-4 text-white">Il Miglior TAEG Garantito</h4>
+                                <h3 className="text-2xl font-bold mb-4 text-white">Il Miglior TAEG Garantito</h3>
                                 <p className="text-white/70 text-lg leading-relaxed">
                                     Analizziamo per te il mercato per fornirti la soluzione più vantaggiosa ed economica, senza costi occulti.
                                 </p>

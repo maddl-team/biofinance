@@ -126,7 +126,11 @@ const Navbar: React.FC = () => {
                                             {link.name}
                                         </Link>
                                     ) : (
-                                        <button className="px-3 py-2 font-bold text-sm text-neutral-dark hover:text-primary transition-all whitespace-nowrap">
+                                        <button
+                                            className="px-3 py-2 font-bold text-sm text-neutral-dark hover:text-primary transition-all whitespace-nowrap"
+                                            aria-expanded={activeDropdown === link.name}
+                                            aria-haspopup="true"
+                                        >
                                             {link.name}
                                         </button>
                                     )}
@@ -167,6 +171,9 @@ const Navbar: React.FC = () => {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="text-neutral-dark hover:text-primary p-2 focus:outline-none"
+                            aria-label={isOpen ? "Chiudi menu" : "Apri menu"}
+                            aria-expanded={isOpen}
+                            aria-controls="mobile-menu"
                         >
                             {isOpen ? <X size={28} /> : <Menu size={28} />}
                         </button>
@@ -176,7 +183,10 @@ const Navbar: React.FC = () => {
 
             {/* Mobile Menu */}
             {isOpen && (
-                <div className="xl:hidden bg-white border-b border-secondary pb-6 shadow-2xl absolute w-full left-0 top-20 max-h-[calc(100vh-5rem)] overflow-y-auto">
+                <div
+                    id="mobile-menu"
+                    className="xl:hidden bg-white border-b border-secondary pb-6 shadow-2xl absolute w-full left-0 top-20 max-h-[calc(100vh-5rem)] overflow-y-auto"
+                >
                     <div className="px-4 pt-2 space-y-1">
                         {navLinks.map((link) => (
                             <div key={link.name} className="border-b border-gray-50 last:border-0">
@@ -193,6 +203,8 @@ const Navbar: React.FC = () => {
                                         <button
                                             onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
                                             className="flex-1 text-left px-3 py-4 text-base font-bold text-neutral-dark hover:bg-gray-50 rounded-lg transition-colors"
+                                            aria-expanded={activeDropdown === link.name}
+                                            aria-label={`Espandi sottomenu ${link.name}`}
                                         >
                                             {link.name}
                                         </button>

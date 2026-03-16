@@ -49,7 +49,7 @@ const AdvancedLoanCalculator: React.FC = () => {
                 <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary">
                     <Calculator className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary">Simulatore Biofinance</h3>
+                <h2 className="text-2xl font-bold text-primary">Simulatore Biofinance</h2>
             </div>
 
             <div className="flex items-center justify-center mb-8 gap-2">
@@ -123,8 +123,11 @@ const AdvancedLoanCalculator: React.FC = () => {
                     {/* Duration */}
                     <div className="mt-10 pt-10 border-t border-gray-100">
                         <div className="w-full space-y-4">
-                            <label className="block text-sm font-semibold text-gray-700 text-center md:text-left">Durata del prestito: <span className="text-secondary font-bold">{installments} mesi</span></label>
+                            <label htmlFor="duration-slider" className="block text-sm font-semibold text-gray-700 text-center md:text-left">
+                                Durata del prestito: <span className="text-secondary font-bold" aria-live="polite">{installments} mesi</span>
+                            </label>
                             <input
+                                id="duration-slider"
                                 type="range"
                                 min="24"
                                 max="120"
@@ -132,6 +135,7 @@ const AdvancedLoanCalculator: React.FC = () => {
                                 value={installments}
                                 onChange={(e) => setInstallments(Number(e.target.value))}
                                 className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
+                                aria-valuetext={`${installments} mesi`}
                             />
                             <div className="flex justify-between text-[10px] text-gray-400 font-medium">
                                 <span>24 mesi</span>
