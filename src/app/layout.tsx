@@ -58,6 +58,34 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.trustindex.io" />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-57VPQZDD"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
+        {/* Google Consent Mode Default State */}
+        <Script id="google-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'analytics_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'functionality_storage': 'denied',
+              'security_storage': 'granted',
+              'wait_for_update': 500
+            });
+            window.dataLayer.push({
+              'event': 'default_consent'
+            });
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -94,6 +122,7 @@ export default function RootLayout({
               "whitelabel":false,
               "cookiePolicyId":12345678, // Placeholder - customer should check this
               "lang":"it",
+              "googleConsentMode": true,
               "banner": {
                 "acceptButtonDisplay":true,
                 "customizeButtonDisplay":true,
@@ -112,14 +141,26 @@ export default function RootLayout({
           `}
         </Script>
         <Script
+          id="iubenda-sync"
           src="https://cs.iubenda.com/sync/2812706.js"
           strategy="beforeInteractive"
         />
         <Script
+          id="iubenda-main"
           src="https://cdn.iubenda.com/cs/iubenda_cs.js"
           strategy="beforeInteractive"
           async
         />
+        {/* Google Tag Manager */}
+        <Script id="gtm-script" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-57VPQZDD');
+          `}
+        </Script>
         <AppShell>
           <ScrollToTop />
           <Navbar />
