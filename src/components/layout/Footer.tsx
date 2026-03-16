@@ -42,13 +42,20 @@ const Footer: React.FC = () => {
 
                         {/* OAM Section inside Column 1 */}
                         <div className="flex flex-col items-start pt-4 border-t border-gray-800">
-                            <Image
-                                src="/img/logo-OAM.png"
-                                alt="Logo OAM"
-                                width={120}
-                                height={48}
-                                className="h-12 w-auto mb-2"
-                            />
+                            <a
+                                href="https://www.organismo-am.it/b/0/02048040477/7ec73192-b16c-426e-aa46-c2a8dee475d8/g.html"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="block hover:opacity-80 transition-opacity"
+                            >
+                                <Image
+                                    src="/img/logo-OAM.png"
+                                    alt="Logo OAM"
+                                    width={200}
+                                    height={80}
+                                    className="h-20 w-auto mb-2"
+                                />
+                            </a>
                             <p className="text-gray-400 text-xs text-left">
                                 Agente in attività finanziaria iscritto all’OAM.
                             </p>

@@ -11,11 +11,7 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const isHomePage = pathname === "/";
 
   return (
-    <div
-      className={`min-h-screen flex flex-col font-sans text-neutral-dark ${
-        isHomePage ? "bg-white" : "bg-neutral-bg"
-      }`}
-    >
+    <div className="min-h-screen flex flex-col font-sans text-neutral-dark bg-neutral-bg">
       {children}
     </div>
   );
