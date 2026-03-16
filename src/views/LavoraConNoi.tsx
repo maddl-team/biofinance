@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import {
     Target,
@@ -16,14 +16,69 @@ import {
     Shield,
     FileText,
     MessageSquare,
-    CheckCircle2
+    CheckCircle2,
+    Loader2
 } from 'lucide-react';
 
 const LavoraConNoi: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
+    const [formData, setFormData] = useState({
+        nomeCognome: '',
+        email: '',
+        telefono: '',
+        areaInteresse: '',
+        linkedin: '',
+        motivazione: '',
+        privacy: false,
+        website: '' // Honeypot
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target as any;
+        const checked = (e.target as HTMLInputElement).checked;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
 
     const scrollToForm = () => {
         formRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    formType: 'Candidatura Lavora Con Noi',
+                    formData: formData,
+                    website: formData.website,
+                    sourceUrl: window.location.href
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.ok) {
+                setIsSuccess(true);
+            } else {
+                setError(result.error || 'Errore durante l\'invio');
+            }
+        } catch (err) {
+            setError('Errore di connessione');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const vantagePoints = [
@@ -194,119 +249,194 @@ const LavoraConNoi: React.FC = () => {
                                     <p className="text-gray-500 font-medium italic">Invia il tuo Curriculum Vitae</p>
                                 </div>
 
-                                <form className="space-y-6">
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Nome e Cognome</label>
-                                        <div className="relative">
-                                            <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                            <input
-                                                type="text"
-                                                placeholder="Mario Rossi"
-                                                className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {!isSuccess ? (
+                                    <form className="space-y-6" onSubmit={handleSubmit}>
                                         <div className="space-y-2">
-                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Email</label>
+                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Nome e Cognome</label>
                                             <div className="relative">
-                                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                                 <input
-                                                    type="email"
-                                                    placeholder="mario@esempio.it"
+                                                    type="text"
+                                                    name="nomeCognome"
+                                                    required
+                                                    value={formData.nomeCognome}
+                                                    onChange={handleInputChange}
+                                                    placeholder="Mario Rossi"
                                                     className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
                                                 />
                                             </div>
                                         </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                            <div className="space-y-2">
+                                                <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Email</label>
+                                                <div className="relative">
+                                                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        required
+                                                        value={formData.email}
+                                                        onChange={handleInputChange}
+                                                        placeholder="mario@esempio.it"
+                                                        className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Telefono</label>
+                                                <div className="relative">
+                                                    <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                                    <input
+                                                        type="tel"
+                                                        name="telefono"
+                                                        required
+                                                        value={formData.telefono}
+                                                        onChange={handleInputChange}
+                                                        placeholder="+39 333 ..."
+                                                        className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <div className="space-y-2">
-                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Telefono</label>
+                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Area di interesse</label>
+                                            <select
+                                                name="areaInteresse"
+                                                required
+                                                value={formData.areaInteresse}
+                                                onChange={handleInputChange}
+                                                className="w-full bg-neutral-bg border-none rounded-2xl py-4 px-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all appearance-none cursor-pointer"
+                                            >
+                                                <option value="">Seleziona area...</option>
+                                                <option value="commerciale">Consulenza Commerciale</option>
+                                                <option value="backoffice">Back-Office</option>
+                                                <option value="altro">Altro</option>
+                                            </select>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">LinkedIn (Opzionale)</label>
                                             <div className="relative">
-                                                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                                <Linkedin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                                                 <input
-                                                    type="tel"
-                                                    placeholder="+39 333 ..."
+                                                    type="text"
+                                                    name="linkedin"
+                                                    value={formData.linkedin}
+                                                    onChange={handleInputChange}
+                                                    placeholder="https://linkedin.com/in/tuoprofilo"
                                                     className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
                                                 />
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Area di interesse</label>
-                                        <select className="w-full bg-neutral-bg border-none rounded-2xl py-4 px-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all appearance-none cursor-pointer">
-                                            <option value="">Seleziona area...</option>
-                                            <option value="commerciale">Consulenza Commerciale</option>
-                                            <option value="backoffice">Back-Office</option>
-                                            <option value="altro">Altro</option>
-                                        </select>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">LinkedIn (Opzionale)</label>
-                                        <div className="relative">
-                                            <Linkedin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                                            <input
-                                                type="text"
-                                                placeholder="https://linkedin.com/in/tuoprofilo"
-                                                className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all"
-                                            />
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Carica il tuo CV (PDF)</label>
+                                            <div className="relative group">
+                                                <input
+                                                    type="file"
+                                                    accept=".pdf"
+                                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                                                />
+                                                <div className="w-full bg-neutral-bg border-2 border-dashed border-gray-200 rounded-2xl py-4 px-4 text-sm text-gray-500 flex items-center justify-center gap-3 group-hover:border-secondary transition-all">
+                                                    <Upload className="w-5 h-5 text-secondary" />
+                                                    <span>Clicca per selezionare il file</span>
+                                                </div>
+                                            </div>
+                                            <p className="text-[9px] text-gray-400 italic mt-1">* Nota: L'invio dei file sarà attivo dopo la verifica del dominio.</p>
                                         </div>
-                                    </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Carica il tuo CV (PDF)</label>
-                                        <div className="relative group">
-                                            <input
-                                                type="file"
-                                                accept=".pdf"
-                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                                            />
-                                            <div className="w-full bg-neutral-bg border-2 border-dashed border-gray-200 rounded-2xl py-4 px-4 text-sm text-gray-500 flex items-center justify-center gap-3 group-hover:border-secondary transition-all">
-                                                <Upload className="w-5 h-5 text-secondary" />
-                                                <span>Clicca per selezionare il file</span>
+                                        <div className="space-y-2">
+                                            <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Raccontaci brevemente perché vorresti unirti a Biofinance</label>
+                                            <div className="relative">
+                                                <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
+                                                <textarea
+                                                    name="motivazione"
+                                                    value={formData.motivazione}
+                                                    onChange={handleInputChange}
+                                                    placeholder="La tua motivazione..."
+                                                    rows={4}
+                                                    className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all resize-none"
+                                                ></textarea>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="space-y-2">
-                                        <label className="text-xs font-black text-primary uppercase tracking-widest ml-1">Raccontaci brevemente perché vorresti unirti a Biofinance</label>
-                                        <div className="relative">
-                                            <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                                            <textarea
-                                                placeholder="La tua motivazione..."
-                                                rows={4}
-                                                className="w-full bg-neutral-bg border-none rounded-2xl py-4 pl-12 pr-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none transition-all resize-none"
-                                            ></textarea>
+                                        <div className="flex items-start gap-3 py-2 px-1">
+                                            <div className="relative flex items-center h-5">
+                                                <input
+                                                    id="privacy"
+                                                    name="privacy"
+                                                    type="checkbox"
+                                                    required
+                                                    checked={formData.privacy}
+                                                    onChange={handleInputChange}
+                                                    className="w-5 h-5 rounded border-gray-300 text-secondary focus:ring-secondary cursor-pointer"
+                                                />
+                                            </div>
+                                            <label htmlFor="privacy" className="text-[10px] lg:text-xs text-gray-500 leading-tight cursor-pointer">
+                                                Ho letto e accetto l'informativa sulla privacy per il trattamento dei dati personali dei candidati (Privacy Policy HR).
+                                            </label>
                                         </div>
-                                    </div>
 
-                                    <div className="flex items-start gap-3 py-2 px-1">
-                                        <div className="relative flex items-center h-5">
-                                            <input
-                                                id="privacy"
-                                                type="checkbox"
-                                                className="w-5 h-5 rounded border-gray-300 text-secondary focus:ring-secondary cursor-pointer"
-                                            />
+                                        {error && (
+                                            <div className="p-4 bg-red-50 text-red-600 rounded-2xl text-sm italic">
+                                                {error}
+                                            </div>
+                                        )}
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-primary hover:bg-neutral-dark text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm flex items-center justify-center gap-3 group disabled:opacity-70"
+                                        >
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-5 h-5 animate-spin" />
+                                                    Invio in corso...
+                                                </>
+                                            ) : (
+                                                <>
+                                                    Invia la tua Candidatura
+                                                    <Zap className="w-5 h-5 text-secondary fill-secondary group-hover:scale-125 transition-transform" />
+                                                </>
+                                            )}
+                                        </button>
+
+                                        {/* Honeypot */}
+                                        <input
+                                            type="text"
+                                            name="website"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            className="hidden"
+                                            aria-hidden="true"
+                                        />
+
+                                        <div className="mt-6 flex items-center justify-center gap-1.5 text-[10px] text-gray-400 uppercase tracking-widest font-bold">
+                                            <Shield className="w-3 h-3" />
+                                            Protocollo di sicurezza OAM attivo
                                         </div>
-                                        <label htmlFor="privacy" className="text-[10px] lg:text-xs text-gray-500 leading-tight cursor-pointer">
-                                            Ho letto e accetto l'informativa sulla privacy per il trattamento dei dati personali dei candidati (Privacy Policy HR).
-                                        </label>
+                                    </form>
+                                ) : (
+                                    <div className="text-center py-20 space-y-8 animate-in fade-in zoom-in duration-500">
+                                        <div className="w-24 h-24 bg-secondary/10 text-secondary rounded-[2rem] flex items-center justify-center mx-auto transform rotate-12">
+                                            <CheckCircle2 className="w-12 h-12" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-4xl font-black text-primary mb-4 italic">Candidatura Ricevuta!</h3>
+                                            <p className="text-gray-600 leading-relaxed italic">
+                                                Grazie per il tuo interesse. Il nostro dipartimento HR valuterà il tuo profilo e ti contatterà se in linea con le nostre ricerche.
+                                            </p>
+                                        </div>
+                                        <button
+                                            onClick={() => setIsSuccess(false)}
+                                            className="text-secondary font-black hover:underline uppercase tracking-widest text-xs"
+                                        >
+                                            Invia un'altra candidatura
+                                        </button>
                                     </div>
-
-                                    <button
-                                        type="button"
-                                        className="w-full bg-primary hover:bg-neutral-dark text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-primary/20 uppercase tracking-widest text-sm flex items-center justify-center gap-3 group"
-                                    >
-                                        Invia la tua Candidatura
-                                        <Zap className="w-5 h-5 text-secondary fill-secondary group-hover:scale-125 transition-transform" />
-                                    </button>
-
-                                    <div className="mt-6 flex items-center justify-center gap-1.5 text-[10px] text-gray-400 uppercase tracking-widest font-bold">
-                                        <Shield className="w-3 h-3" />
-                                        Protocollo di sicurezza OAM attivo
-                                    </div>
-                                </form>
+                                )}
                             </div>
                         </div>
                     </div>

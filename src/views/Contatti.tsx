@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MessageCircle,
     Phone,
@@ -13,11 +13,74 @@ import {
     Star,
     Shield,
     CheckCircle2,
-    Send
+    Send,
+    Loader2
 } from 'lucide-react';
 import FAQ from '../components/sections/FAQ';
 
 const Contatti: React.FC = () => {
+    const [formData, setFormData] = useState({
+        nome: '',
+        cognome: '',
+        telefono: '',
+        email: '',
+        messaggio: '',
+        privacy: false,
+        website: '' // Honeypot
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value, type } = e.target as any;
+        const checked = (e.target as HTMLInputElement).checked;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    formType: 'Pagina Contatti',
+                    formData: formData,
+                    website: formData.website,
+                    sourceUrl: window.location.href
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.ok) {
+                setIsSuccess(true);
+                setFormData({
+                    nome: '',
+                    cognome: '',
+                    telefono: '',
+                    email: '',
+                    messaggio: '',
+                    privacy: false,
+                    website: ''
+                });
+            } else {
+                setError(result.error || 'Errore durante l\'invio');
+            }
+        } catch (err) {
+            setError('Errore di connessione');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     const contactMethods = [
         {
             icon: <MessageCircle className="w-10 h-10" />,
@@ -88,46 +151,137 @@ const Contatti: React.FC = () => {
                             <h2 className="text-2xl font-bold text-primary mb-2">Scrivici. Ti risponderemo in meno di 24 ore.</h2>
                             <p className="text-gray-500 text-sm italic">Analisi gratuita e senza impegno</p>
                         </div>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-primary ml-1">Nome</label>
-                                    <input type="text" placeholder="Es. Mario" className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                        {!isSuccess ? (
+                            <form className="space-y-6" onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-primary ml-1">Nome</label>
+                                        <input
+                                            name="nome"
+                                            required
+                                            value={formData.nome}
+                                            onChange={handleInputChange}
+                                            type="text"
+                                            placeholder="Es. Mario"
+                                            className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-primary ml-1">Cognome</label>
+                                        <input
+                                            name="cognome"
+                                            required
+                                            value={formData.cognome}
+                                            onChange={handleInputChange}
+                                            type="text"
+                                            placeholder="Es. Rossi"
+                                            className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-primary ml-1">Telefono</label>
+                                        <input
+                                            name="telefono"
+                                            required
+                                            value={formData.telefono}
+                                            onChange={handleInputChange}
+                                            type="tel"
+                                            placeholder="Es. 333 1234567"
+                                            className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-primary ml-1">Email</label>
+                                        <input
+                                            name="email"
+                                            required
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            type="email"
+                                            placeholder="Es. mario.rossi@email.it"
+                                            className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-bold text-primary ml-1">Cognome</label>
-                                    <input type="text" placeholder="Es. Rossi" className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                                    <label className="text-sm font-bold text-primary ml-1">Messaggio</label>
+                                    <textarea
+                                        name="messaggio"
+                                        value={formData.messaggio}
+                                        onChange={handleInputChange}
+                                        placeholder="Come possiamo aiutarti?"
+                                        rows={5}
+                                        className="bg-neutral-bg border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full resize-none"
+                                    ></textarea>
                                 </div>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-primary ml-1">Telefono</label>
-                                    <input type="tel" placeholder="Es. 333 1234567" className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+                                <div className="flex items-start gap-3 px-1">
+                                    <input
+                                        name="privacy"
+                                        required
+                                        checked={formData.privacy}
+                                        onChange={handleInputChange}
+                                        type="checkbox"
+                                        id="privacy"
+                                        className="mt-1 rounded text-secondary focus:ring-secondary cursor-pointer"
+                                    />
+                                    <label htmlFor="privacy" className="text-xs text-gray-500 leading-tight cursor-pointer">
+                                        Consenso Privacy GDPR. Autorizzo il trattamento dei miei dati personali ai sensi dell'informativa sulla privacy.
+                                    </label>
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-primary ml-1">Email</label>
-                                    <input type="email" placeholder="Es. mario.rossi@email.it" className="bg-neutral-bg border-none rounded-xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full" />
+
+                                {error && (
+                                    <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm border border-red-100 italic">
+                                        {error}
+                                    </div>
+                                )}
+
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center justify-center gap-2 group disabled:opacity-70"
+                                >
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="w-5 h-5 animate-spin" />
+                                            INVIO IN CORSO...
+                                        </>
+                                    ) : (
+                                        <>
+                                            INVIA RICHIESTA
+                                            <Send className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                        </>
+                                    )}
+                                </button>
+
+                                {/* Honeypot */}
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={formData.website}
+                                    onChange={handleInputChange}
+                                    className="hidden"
+                                    aria-hidden="true"
+                                />
+                            </form>
+                        ) : (
+                            <div className="text-center py-10 space-y-6">
+                                <div className="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto">
+                                    <CheckCircle2 className="w-10 h-10" />
                                 </div>
+                                <div>
+                                    <h3 className="text-2xl font-bold text-primary mb-2">Messaggio Inviato!</h3>
+                                    <p className="text-gray-600 italic">Abbiamo ricevuto la tua richiesta. Ti risponderemo entro 24 ore lavorative.</p>
+                                </div>
+                                <button
+                                    onClick={() => setIsSuccess(false)}
+                                    className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
+                                >
+                                    Invia un altro messaggio
+                                </button>
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-bold text-primary ml-1">Messaggio</label>
-                                <textarea
-                                    placeholder="Come possiamo aiutarti?"
-                                    rows={5}
-                                    className="bg-neutral-bg border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-secondary/50 outline-none w-full resize-none"
-                                ></textarea>
-                            </div>
-                            <div className="flex items-start gap-3 px-1">
-                                <input type="checkbox" id="privacy" className="mt-1 rounded text-secondary focus:ring-secondary cursor-pointer" />
-                                <label htmlFor="privacy" className="text-xs text-gray-500 leading-tight cursor-pointer">
-                                    Consenso Privacy GDPR. Autorizzo il trattamento dei miei dati personali ai sensi dell'informativa sulla privacy.
-                                </label>
-                            </div>
-                            <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-5 rounded-2xl transition-all shadow-xl shadow-secondary/20 uppercase tracking-widest text-sm inline-flex items-center justify-center gap-2 group">
-                                INVIA RICHIESTA
-                                <Send className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                            </button>
-                        </form>
+                        )}
                     </div>
                 </div>
             </section>

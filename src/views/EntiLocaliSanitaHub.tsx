@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
     ShieldCheck,
     Clock,
@@ -13,13 +13,69 @@ import {
     Star,
     MessageCircle,
     Building,
-    Activity
+    Activity,
+    CheckCircle2,
+    Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
 
 const EntiLocaliSanitaHub: React.FC = () => {
+    const [formData, setFormData] = useState({
+        nome: '',
+        telefono: '',
+        email: '',
+        dataNascita: '',
+        comparto: '',
+        privacy: false,
+        website: '' // Honeypot
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target as any;
+        const checked = (e.target as HTMLInputElement).checked;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    formType: 'Enti Locali e Sanità Hub',
+                    formData: formData,
+                    website: formData.website,
+                    sourceUrl: window.location.href
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.ok) {
+                setIsSuccess(true);
+            } else {
+                setError(result.error || 'Errore durante l\'invio');
+            }
+        } catch (err) {
+            setError('Errore di connessione');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     const targetCategories = [
         {
             icon: <Building className="w-10 h-10" />,
@@ -86,32 +142,117 @@ const EntiLocaliSanitaHub: React.FC = () => {
                                     <h3 className="text-2xl font-bold text-primary mb-2">Richiedi un preventivo per il tuo Ente</h3>
                                     <p className="text-gray-500 text-sm italic">Preventivo rapido e gratuito</p>
                                 </div>
-                                <form className="space-y-4">
-                                    <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                                    <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                                    <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                                    <input type="date" placeholder="Data di nascita" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                                    <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-500">
-                                        <option value="">Seleziona il tuo comparto</option>
-                                        <option value="sanita">Sanità/Ospedali</option>
-                                        <option value="comune">Comune/Provincia</option>
-                                        <option value="regione">Regione</option>
-                                    </select>
-                                    <div className="flex items-start gap-3">
+                                {!isSuccess ? (
+                                    <form className="space-y-4" onSubmit={handleSubmit}>
                                         <input
-                                            type="checkbox"
-                                            id="privacy-enti-locali"
+                                            name="nome"
                                             required
-                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                            value={formData.nome}
+                                            onChange={handleInputChange}
+                                            type="text"
+                                            placeholder="Nome"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                         />
-                                        <label htmlFor="privacy-enti-locali" className="text-xs text-gray-500 leading-snug cursor-pointer">
-                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
-                                        </label>
+                                        <input
+                                            name="telefono"
+                                            required
+                                            value={formData.telefono}
+                                            onChange={handleInputChange}
+                                            type="tel"
+                                            placeholder="Telefono"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        />
+                                        <input
+                                            name="email"
+                                            required
+                                            value={formData.email}
+                                            onChange={handleInputChange}
+                                            type="email"
+                                            placeholder="Email"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        />
+                                        <input
+                                            name="dataNascita"
+                                            required
+                                            value={formData.dataNascita}
+                                            onChange={handleInputChange}
+                                            type="date"
+                                            placeholder="Data di nascita"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                        />
+                                        <select
+                                            name="comparto"
+                                            required
+                                            value={formData.comparto}
+                                            onChange={handleInputChange}
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-700"
+                                        >
+                                            <option value="" disabled>Seleziona il tuo comparto</option>
+                                            <option value="sanita">Sanità/Ospedali</option>
+                                            <option value="comune">Comune/Provincia</option>
+                                            <option value="regione">Regione</option>
+                                        </select>
+                                        <div className="flex items-start gap-3">
+                                            <input
+                                                name="privacy"
+                                                type="checkbox"
+                                                id="privacy-enti-locali"
+                                                required
+                                                checked={formData.privacy}
+                                                onChange={handleInputChange}
+                                                className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                            />
+                                            <label htmlFor="privacy-enti-locali" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                                Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                            </label>
+                                        </div>
+
+                                        {error && (
+                                            <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm border border-red-100 italic">
+                                                {error}
+                                            </div>
+                                        )}
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs flex items-center justify-center gap-2 disabled:opacity-70"
+                                        >
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                    PREVENTIVO IN CORSO...
+                                                </>
+                                            ) : 'SCOPRI LA RATA PER IL TUO ENTE'}
+                                        </button>
+
+                                        {/* Honeypot */}
+                                        <input
+                                            type="text"
+                                            name="website"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            className="hidden"
+                                            aria-hidden="true"
+                                        />
+                                    </form>
+                                ) : (
+                                    <div className="text-center py-10 space-y-6">
+                                        <div className="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto">
+                                            <CheckCircle2 className="w-10 h-10" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-primary mb-2">Richiesta Ricevuta!</h3>
+                                            <p className="text-gray-600 italic px-4">Riceverai il tuo preventivo personalizzato a breve sulla tua email.</p>
+                                        </div>
+                                        <button
+                                            onClick={() => setIsSuccess(false)}
+                                            className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
+                                        >
+                                            Invia un'altra richiesta
+                                        </button>
                                     </div>
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
-                                        SCOPRI LA RATA PER IL TUO ENTE
-                                    </button>
-                                </form>
+                                )}
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
     ShieldCheck,
     Clock,
@@ -11,13 +11,71 @@ import {
     Wallet,
     HelpCircle,
     Star,
-    Calculator
+    Calculator,
+    CheckCircle2,
+    Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
 
 const AnticipoTFS: React.FC = () => {
+    const [formData, setFormData] = useState({
+        importo: '',
+        nome: '',
+        cognome: '',
+        dataNascita: '',
+        email: '',
+        telefono: '',
+        professione: '',
+        cap: '',
+        privacy: false,
+        website: '' // Honeypot
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target as any;
+        const checked = (e.target as HTMLInputElement).checked;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    formType: 'Anticipo TFS',
+                    formData: formData,
+                    website: formData.website,
+                    sourceUrl: window.location.href
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.ok) {
+                setIsSuccess(true);
+            } else {
+                setError(result.error || 'Errore durante l\'invio');
+            }
+        } catch (err) {
+            setError('Errore di connessione');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     const benefits = [
         {
             icon: <Clock className="w-8 h-8" />,
@@ -77,115 +135,185 @@ const AnticipoTFS: React.FC = () => {
                                     <h2 className="text-2xl font-bold text-primary mb-2">Calcola il tuo Anticipo TFS</h2>
                                     <p className="text-gray-500 text-sm">Inserisci i dati per un preventivo gratuito</p>
                                 </div>
-                                <form className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 mb-2">Importo</label>
+                                {!isSuccess ? (
+                                    <form className="space-y-4" onSubmit={handleSubmit}>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Importo</label>
+                                            <input
+                                                name="importo"
+                                                required
+                                                value={formData.importo}
+                                                onChange={handleInputChange}
+                                                type="text"
+                                                placeholder="Importo desiderato"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
+                                        </div>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                                <input
+                                                    name="nome"
+                                                    required
+                                                    value={formData.nome}
+                                                    onChange={handleInputChange}
+                                                    type="text"
+                                                    placeholder="Nome"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                                <input
+                                                    name="cognome"
+                                                    required
+                                                    value={formData.cognome}
+                                                    onChange={handleInputChange}
+                                                    type="text"
+                                                    placeholder="Cognome"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                                <input
+                                                    name="dataNascita"
+                                                    required
+                                                    value={formData.dataNascita}
+                                                    onChange={handleInputChange}
+                                                    type="date"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                                <input
+                                                    name="email"
+                                                    required
+                                                    value={formData.email}
+                                                    onChange={handleInputChange}
+                                                    type="email"
+                                                    placeholder="Email"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                                <input
+                                                    name="telefono"
+                                                    required
+                                                    value={formData.telefono}
+                                                    onChange={handleInputChange}
+                                                    type="tel"
+                                                    placeholder="Telefono"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Qual è la tua professione?</label>
+                                                <select
+                                                    name="professione"
+                                                    required
+                                                    value={formData.professione}
+                                                    onChange={handleInputChange}
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                                >
+                                                    <option value="" disabled>Seleziona professione</option>
+                                                    <option value="Pensionato INPS">Pensionato INPS</option>
+                                                    <option value="Pensionato INPDAP">Pensionato INPDAP</option>
+                                                    <option value="Pensionato Altro Ente">Pensionato Altro Ente</option>
+                                                    <option value="Militare">Militare</option>
+                                                    <option value="Medico Convenzionato">Medico Convenzionato</option>
+                                                    <option value="Libero Professionista">Libero Professionista</option>
+                                                    <option value="Dipendente Trenitalia">Dipendente Trenitalia</option>
+                                                    <option value="Dipendente Statale">Dipendente Statale</option>
+                                                    <option value="Dipendente Pubblico">Dipendente Pubblico</option>
+                                                    <option value="Dipendente Poste It">Dipendente Poste It</option>
+                                                    <option value="Dipendente Municipalizzata">Dipendente Municipalizzata</option>
+                                                    <option value="Dipendente Azienda Privata">Dipendente Azienda Privata</option>
+                                                    <option value="Casalinga">Casalinga</option>
+                                                    <option value="Autonomo">Autonomo</option>
+                                                    <option value="Altro">Altro</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Cap</label>
+                                                <input
+                                                    name="cap"
+                                                    required
+                                                    value={formData.cap}
+                                                    onChange={handleInputChange}
+                                                    type="text"
+                                                    placeholder="Cap"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="flex items-start gap-3">
+                                            <input
+                                                name="privacy"
+                                                type="checkbox"
+                                                id="privacy-tfs"
+                                                required
+                                                checked={formData.privacy}
+                                                onChange={handleInputChange}
+                                                className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                            />
+                                            <label htmlFor="privacy-tfs" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                                Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                            </label>
+                                        </div>
+
+                                        {error && (
+                                            <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm border border-red-100 italic">
+                                                {error}
+                                            </div>
+                                        )}
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs flex items-center justify-center gap-2 disabled:opacity-70"
+                                        >
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                    CALCOLO IN CORSO...
+                                                </>
+                                            ) : 'CALCOLA IL TUO ANTICIPO ORA'}
+                                        </button>
+                                        <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+                                            <Shield className="w-3 h-3" />
+                                            Preventivo 100% gratuito. I tuoi dati sono al sicuro.
+                                        </p>
+
+                                        {/* Honeypot */}
                                         <input
                                             type="text"
-                                            required
-                                            placeholder="Importo"
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            name="website"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            className="hidden"
+                                            aria-hidden="true"
                                         />
+                                    </form>
+                                ) : (
+                                    <div className="text-center py-10 space-y-6">
+                                        <div className="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto">
+                                            <CheckCircle2 className="w-10 h-10" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-primary mb-2">Richiesta Ricevuta!</h3>
+                                            <p className="text-gray-600 italic px-4">Riceverai il preventivo per il tuo Anticipo TFS a breve sulla tua email.</p>
+                                        </div>
+                                        <button
+                                            onClick={() => setIsSuccess(false)}
+                                            className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
+                                        >
+                                            Fai un'altra simulazione
+                                        </button>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
-                                            <input
-                                                type="text"
-                                                required
-                                                placeholder="Nome"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
-                                            <input
-                                                type="text"
-                                                required
-                                                placeholder="Cognome"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
-                                            <input
-                                                type="date"
-                                                required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                            <input
-                                                type="email"
-                                                required
-                                                placeholder="Email"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
-                                            <input
-                                                type="tel"
-                                                required
-                                                placeholder="Telefono"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Qual è la tua professione?</label>
-                                            <select
-                                                required
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
-                                                defaultValue=""
-                                            >
-                                                <option value="" disabled>Seleziona professione</option>
-                                                <option value="Pensionato INPS">Pensionato INPS</option>
-                                                <option value="Pensionato INPDAP">Pensionato INPDAP</option>
-                                                <option value="Pensionato Altro Ente">Pensionato Altro Ente</option>
-                                                <option value="Militare">Militare</option>
-                                                <option value="Medico Convenzionato">Medico Convenzionato</option>
-                                                <option value="Libero Professionista">Libero Professionista</option>
-                                                <option value="Dipendente Trenitalia">Dipendente Trenitalia</option>
-                                                <option value="Dipendente Statale">Dipendente Statale</option>
-                                                <option value="Dipendente Pubblico">Dipendente Pubblico</option>
-                                                <option value="Dipendente Poste It">Dipendente Poste It</option>
-                                                <option value="Dipendente Municipalizzata">Dipendente Municipalizzata</option>
-                                                <option value="Dipendente Azienda Privata">Dipendente Azienda Privata</option>
-                                                <option value="Casalinga">Casalinga</option>
-                                                <option value="Autonomo">Autonomo</option>
-                                                <option value="Altro">Altro</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cap</label>
-                                            <input
-                                                type="text"
-                                                required
-                                                placeholder="Cap"
-                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <input
-                                            type="checkbox"
-                                            id="privacy-tfs"
-                                            required
-                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
-                                        />
-                                        <label htmlFor="privacy-tfs" className="text-xs text-gray-500 leading-snug cursor-pointer">
-                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
-                                        </label>
-                                    </div>
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
-                                        CALCOLA IL TUO ANTICIPO ORA
-                                    </button>
-                                    <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
-                                        <Shield className="w-3 h-3" />
-                                        Preventivo 100% gratuito. I tuoi dati sono al sicuro.
-                                    </p>
-                                </form>
+                                )}
                             </div>
                         </div>
                     </div>

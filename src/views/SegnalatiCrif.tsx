@@ -1,15 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import {
     ArrowRight,
     ShieldCheck,
     Scale,
     Activity,
-    ClipboardCheck
+    ClipboardCheck,
+    CheckCircle2,
+    Loader2
 } from 'lucide-react';
 import Link from 'next/link';
 
 const SegnalatiCrif: React.FC = () => {
+    const [formData, setFormData] = useState({
+        nome: '',
+        cognome: '',
+        telefono: '',
+        dataNascita: '',
+        email: '',
+        tipoSoggettivita: '',
+        privacy: false,
+        website: '' // Honeypot
+    });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value, type } = e.target as any;
+        const checked = (e.target as HTMLInputElement).checked;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setError(null);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    formType: 'Segnalati CRIF',
+                    formData: formData,
+                    website: formData.website,
+                    sourceUrl: window.location.href
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.ok) {
+                setIsSuccess(true);
+            } else {
+                setError(result.error || 'Errore durante l\'invio');
+            }
+        } catch (err) {
+            setError('Errore di connessione');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="bg-white">
             {/* Hero Section */}
@@ -113,54 +170,143 @@ const SegnalatiCrif: React.FC = () => {
                                 Richiedi un preventivo anonimo e discreto oggi stesso. Valutiamo ogni situazione con cura e competenza.
                             </p>
                             <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100 text-left max-w-2xl mx-auto text-gray-900">
-                                <form className="space-y-4">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
-                                            <input type="text" placeholder="Nome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                {!isSuccess ? (
+                                    <form className="space-y-4" onSubmit={handleSubmit}>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Nome</label>
+                                                <input
+                                                    name="nome"
+                                                    required
+                                                    value={formData.nome}
+                                                    onChange={handleInputChange}
+                                                    type="text"
+                                                    placeholder="Nome"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
+                                                <input
+                                                    name="cognome"
+                                                    required
+                                                    value={formData.cognome}
+                                                    onChange={handleInputChange}
+                                                    type="text"
+                                                    placeholder="Cognome"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
                                         </div>
                                         <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Cognome</label>
-                                            <input type="text" placeholder="Cognome" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                            <input
+                                                name="email"
+                                                required
+                                                value={formData.email}
+                                                onChange={handleInputChange}
+                                                type="email"
+                                                placeholder="Email"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
                                         </div>
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
-                                        <input type="email" placeholder="Email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                                    </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
+                                                <input
+                                                    name="telefono"
+                                                    required
+                                                    value={formData.telefono}
+                                                    onChange={handleInputChange}
+                                                    type="tel"
+                                                    placeholder="Telefono"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
+                                                <input
+                                                    name="dataNascita"
+                                                    required
+                                                    value={formData.dataNascita}
+                                                    onChange={handleInputChange}
+                                                    type="date"
+                                                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                                />
+                                            </div>
+                                        </div>
                                         <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Telefono</label>
-                                            <input type="tel" placeholder="Telefono" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Di quante rate sei in ritardo?</label>
+                                            <textarea
+                                                name="tipoSoggettivita" // Reusing this field for the info
+                                                rows={3}
+                                                value={formData.tipoSoggettivita}
+                                                onChange={handleInputChange}
+                                                placeholder="Usa questo campo per descrivere la tua situazione. Più informazioni ci darai e più saremo in grado di aiutarti"
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                            />
                                         </div>
-                                        <div>
-                                            <label className="block text-sm font-bold text-gray-700 mb-2">Data di nascita</label>
-                                            <input type="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
+                                        <div className="flex items-start gap-3">
+                                            <input
+                                                name="privacy"
+                                                type="checkbox"
+                                                id="privacy-crif"
+                                                required
+                                                checked={formData.privacy}
+                                                onChange={handleInputChange}
+                                                className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                            />
+                                            <label htmlFor="privacy-crif" className="text-xs text-gray-500 leading-snug cursor-pointer">
+                                                Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                            </label>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 mb-2">Di quante rate sei in ritardo?</label>
-                                        <textarea
-                                            rows={3}
-                                            placeholder="Usa questo campo per descrivere la tua situazione. Più informazioni ci darai e più saremo in grado di aiutarti"
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                                        />
-                                    </div>
-                                    <div className="flex items-start gap-3">
+
+                                        {error && (
+                                            <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm border border-red-100 italic">
+                                                {error}
+                                            </div>
+                                        )}
+
+                                        <button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs flex items-center justify-center gap-2 disabled:opacity-70"
+                                        >
+                                            {isSubmitting ? (
+                                                <>
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                    RICHIESTA IN CORSO...
+                                                </>
+                                            ) : 'PREVENTIVO ANONIMO'}
+                                        </button>
+
+                                        {/* Honeypot */}
                                         <input
-                                            type="checkbox"
-                                            id="privacy-crif"
-                                            required
-                                            className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                                            type="text"
+                                            name="website"
+                                            value={formData.website}
+                                            onChange={handleInputChange}
+                                            className="hidden"
+                                            aria-hidden="true"
                                         />
-                                        <label htmlFor="privacy-crif" className="text-xs text-gray-500 leading-snug cursor-pointer">
-                                            Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
-                                        </label>
+                                    </form>
+                                ) : (
+                                    <div className="text-center py-10 space-y-6">
+                                        <div className="w-20 h-20 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto">
+                                            <CheckCircle2 className="w-10 h-10" />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-bold text-primary mb-2">Richiesta Ricevuta!</h3>
+                                            <p className="text-gray-600 italic px-4">Ti ricontatteremo a breve per un preventivo discreto.</p>
+                                        </div>
+                                        <button
+                                            onClick={() => setIsSuccess(false)}
+                                            className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
+                                        >
+                                            Invia un'altra richiesta
+                                        </button>
                                     </div>
-                                    <button className="w-full bg-secondary hover:bg-emerald-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-secondary/20 uppercase tracking-widest text-xs">
-                                        PREVENTIVO ANONIMO
-                                    </button>
-                                </form>
+                                )}
                             </div>
                         </div>
                     </div>
