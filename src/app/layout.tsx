@@ -7,6 +7,7 @@ import TransparentInformation from "../components/layout/TransparentInformation"
 import TransparencyLinks from "../components/layout/TransparencyLinks";
 import ScrollToTop from "../components/ui/ScrollToTop";
 import FinancialServiceJsonLd from "../components/seo/FinancialServiceJsonLd";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://biofinance.it"),
@@ -81,6 +82,44 @@ export default function RootLayout({
           }}
         />
         <FinancialServiceJsonLd />
+        {/* Iubenda Cookie Solution Configuration */}
+        <Script id="iubenda-config" strategy="beforeInteractive">
+          {`
+            var _iub = _iub || [];
+            _iub.csConfiguration = {
+              "askConsentAtCookiePolicy":true,
+              "floatingPullLeft":true,
+              "perPurposeConsent":true,
+              "siteId":2812706,
+              "whitelabel":false,
+              "cookiePolicyId":12345678, // Placeholder - customer should check this
+              "lang":"it",
+              "banner": {
+                "acceptButtonDisplay":true,
+                "customizeButtonDisplay":true,
+                "position":"float-top-center",
+                "acceptButtonColor":"#10B981",
+                "acceptButtonCaptionColor":"white",
+                "customizeButtonColor":"#DADADA",
+                "customizeButtonCaptionColor":"#4D4D4D",
+                "rejectButtonDisplay":true,
+                "rejectButtonColor":"#DADADA",
+                "rejectButtonCaptionColor":"#4D4D4D",
+                "textColor":"black",
+                "backgroundColor":"white"
+              }
+            };
+          `}
+        </Script>
+        <Script
+          src="https://cs.iubenda.com/sync/2812706.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://cdn.iubenda.com/cs/iubenda_cs.js"
+          strategy="beforeInteractive"
+          async
+        />
         <AppShell>
           <ScrollToTop />
           <Navbar />

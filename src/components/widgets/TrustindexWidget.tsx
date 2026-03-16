@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Script from "next/script";
 
 interface TrustindexWidgetProps {
   scriptSrc: string;
@@ -36,12 +35,38 @@ const TrustindexWidget: React.FC<TrustindexWidgetProps> = ({
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (isInView && containerRef.current && !isLoaded) {
+      // Trustindex loader strategy:
+      // The widget script will render inside its parent node or target the containerId.
+      // We inject it as a sibling to the target container to keep them separate but localized.
+
+      const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src = scriptSrc;
+        script.async = true;
+        script.defer = true;
+        script.id = `ti-script-${containerId}`;
+
+        // Append to the wrapper div (not the widget target div) to maintain separation
+        containerRef.current.appendChild(script);
+      }
+
+      setIsLoaded(true);
+    }
+  }, [isInView, scriptSrc, containerId, isLoaded]);
+
   return (
     <div
       ref={containerRef}
       className={`relative ${className}`}
       style={{ minHeight: "80px" }} // Reserved space to prevent CLS
     >
+      {/* Target container for Trustindex to inject the iframe/content */}
+      <div id={containerId} className="trustindex-container" />
+
       {!isLoaded && (
         <div className="absolute inset-0 bg-gray-50 animate-pulse rounded-lg flex items-center justify-center">
           <div className="flex gap-1">
@@ -50,18 +75,6 @@ const TrustindexWidget: React.FC<TrustindexWidgetProps> = ({
             ))}
           </div>
         </div>
-      )}
-
-      {isInView && (
-        <>
-          <div id={containerId} />
-          <Script
-            id={`trustindex-script-${containerId}`}
-            src={scriptSrc}
-            strategy="lazyOnload"
-            onLoad={() => setIsLoaded(true)}
-          />
-        </>
       )}
     </div>
   );
