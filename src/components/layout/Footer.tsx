@@ -95,8 +95,26 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
                     <p>&copy; {new Date().getFullYear()} Biofinance S.r.l. - P.IVA 12345678901</p>
+                    <div className="flex gap-6">
+                        <a
+                            href="https://www.iubenda.com/privacy-policy/77015066/full-legal"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white transition-colors"
+                        >
+                            Privacy Policy
+                        </a>
+                        <a
+                            href="https://www.iubenda.com/privacy-policy/77015066/cookie-policy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-white transition-colors"
+                        >
+                            Cookie Policy
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>
