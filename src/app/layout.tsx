@@ -115,27 +115,34 @@ export default function RootLayout({
           {`
             var _iub = _iub || [];
             _iub.csConfiguration = {
-              "askConsentAtCookiePolicy":true,
-              "floatingPullLeft":true,
+              "cookiePolicyInOtherWindow":true,
+              "floatingPreferencesButtonDisplay":"bottom-left",
+              "floatingPreferencesButtonIcon":false,
               "perPurposeConsent":true,
               "siteId":2812706,
-              "whitelabel":false,
-              "cookiePolicyId":12345678, // Placeholder - customer should check this
-              "lang":"it",
+              "whitelabel":true,
+              "cookiePolicyId":77015066,
+              "floatingPreferencesButtonCaption":true,
               "googleConsentMode": true,
-              "banner": {
-                "acceptButtonDisplay":true,
-                "customizeButtonDisplay":true,
-                "position":"float-top-center",
+              "banner":{
                 "acceptButtonColor":"#10B981",
-                "acceptButtonCaptionColor":"white",
-                "customizeButtonColor":"#DADADA",
-                "customizeButtonCaptionColor":"#4D4D4D",
+                "acceptButtonDisplay":true,
+                "backgroundColor":"#E5E7EB",
+                "closeButtonRejects":true,
+                "customizeButtonColor":"#10B981",
+                "customizeButtonDisplay":true,
+                "explicitWithdrawal":true,
+                "linksColor":"#10B981",
+                "listPurposes":true,
+                "position":"float-bottom-center",
                 "rejectButtonDisplay":true,
-                "rejectButtonColor":"#DADADA",
-                "rejectButtonCaptionColor":"#4D4D4D",
-                "textColor":"black",
-                "backgroundColor":"white"
+                "textColor":"#000000"
+              }
+            };
+            _iub.csLangConfiguration = {
+              "it": {
+                "cookiePolicyId":77015066,
+                "floatingPreferencesButtonCaption":true
               }
             };
           `}
@@ -151,6 +158,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
           async
         />
+
         {/* Google Tag Manager */}
         <Script id="gtm-script" strategy="afterInteractive">
           {`
