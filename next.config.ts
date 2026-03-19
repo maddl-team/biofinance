@@ -2,7 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cms.biofinance.it",
+      },
+      {
+        protocol: "https",
+        hostname: "secure.gravatar.com",
+      },
+    ],
   },
   async redirects() {
     return [
