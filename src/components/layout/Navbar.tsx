@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
             subMenu: [
                 { name: 'Chi Siamo', href: '/chi-siamo' },
                 { name: 'Recensioni e Opinioni', href: '/recensioni' },
-                { name: 'Blog & Educazione Finanziaria', href: '#' },
+                { name: 'Blog & Educazione Finanziaria', href: '/blog' },
                 { name: 'Contatti e Sedi', href: '/contatti' },
                 { name: 'Lavora con noi', href: '/lavora-con-noi' }
             ]
