@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { sendToWebhook } from '../../lib/webhook';
 
 const ContactSection: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -45,8 +46,10 @@ const ContactSection: React.FC = () => {
             });
 
             const result = await response.json();
-
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Sezione Contatti Home', formData);
+
                 setIsSuccess(true);
                 setFormData({
                     nome: '',

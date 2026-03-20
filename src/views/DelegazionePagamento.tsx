@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { sendToWebhook } from '../lib/webhook';
 
 const DelegazionePagamento: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -60,6 +61,8 @@ const DelegazionePagamento: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Delegazione di Pagamento', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

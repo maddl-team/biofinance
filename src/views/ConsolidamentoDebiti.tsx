@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { sendToWebhook } from '../lib/webhook';
 
 const ConsolidamentoDebiti: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -59,6 +60,8 @@ const ConsolidamentoDebiti: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Consolidamento Debiti', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

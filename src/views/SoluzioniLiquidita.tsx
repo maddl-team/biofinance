@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import FAQ from '../components/sections/FAQ';
+import { sendToWebhook } from '../lib/webhook';
 
 const SoluzioniLiquidita: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
@@ -63,6 +64,8 @@ const SoluzioniLiquidita: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Soluzioni Liquidità', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

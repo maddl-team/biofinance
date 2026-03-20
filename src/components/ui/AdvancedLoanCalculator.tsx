@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Calculator } from 'lucide-react';
 import Link from 'next/link';
+import { sendToWebhook } from '../../lib/webhook';
 
 const AdvancedLoanCalculator: React.FC = () => {
     const [step, setStep] = useState(1);
@@ -62,8 +63,16 @@ const AdvancedLoanCalculator: React.FC = () => {
             });
 
             const result = await response.json();
-
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Simulatore Avanzato', {
+                    ...formData,
+                    stipendioNetto: `${salary} €`,
+                    eta: age,
+                    tipoImpiego: employmentType,
+                    importoDesiderato: `${desiredAmount} €`,
+                    durataMesi: installments
+                });
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

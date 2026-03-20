@@ -20,6 +20,7 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
+import { sendToWebhook } from '../lib/webhook';
 
 const EntiLocaliSanitaHub: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -65,6 +66,8 @@ const EntiLocaliSanitaHub: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Enti Locali e Sanità Hub', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

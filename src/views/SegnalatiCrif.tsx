@@ -12,6 +12,7 @@ import {
     Loader2
 } from 'lucide-react';
 import Link from 'next/link';
+import { sendToWebhook } from '../lib/webhook';
 
 const SegnalatiCrif: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -58,6 +59,8 @@ const SegnalatiCrif: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Segnalati CRIF', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

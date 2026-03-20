@@ -21,6 +21,7 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import FAQ from '../components/sections/FAQ';
+import { sendToWebhook } from '../lib/webhook';
 
 const Municipalizzate: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
@@ -67,6 +68,8 @@ const Municipalizzate: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Municipalizzate', formData);
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { sendToWebhook } from '../../lib/webhook';
 
 const LoanCalculator: React.FC = () => {
     const [step, setStep] = useState(1);
@@ -57,8 +58,13 @@ const LoanCalculator: React.FC = () => {
             });
 
             const result = await response.json();
-
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Calcolatore Rata Semplice', {
+                    ...formData,
+                    importoRichiesto: `${amount} €`,
+                    numeroRate: installments
+                });
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');

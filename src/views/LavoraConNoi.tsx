@@ -19,6 +19,7 @@ import {
     CheckCircle2,
     Loader2
 } from 'lucide-react';
+import { sendToWebhook } from '../lib/webhook';
 
 const LavoraConNoi: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
@@ -36,6 +37,8 @@ const LavoraConNoi: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [cvFilename, setCvFilename] = useState<string | null>(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target as any;
@@ -44,6 +47,14 @@ const LavoraConNoi: React.FC = () => {
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setCvFilename(e.target.files[0].name);
+        } else {
+            setCvFilename(null);
+        }
     };
 
     const scrollToForm = () => {
@@ -61,7 +72,10 @@ const LavoraConNoi: React.FC = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     formType: 'Candidatura Lavora Con Noi',
-                    formData: formData,
+                    formData: {
+                        ...formData,
+                        cv_filename: cvFilename || 'Nessun file'
+                    },
                     website: formData.website,
                     sourceUrl: window.location.href
                 }),
@@ -70,6 +84,11 @@ const LavoraConNoi: React.FC = () => {
             const result = await response.json();
 
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Candidatura Lavora Con Noi', {
+                    ...formData,
+                    cv_filename: cvFilename || 'Nessun file'
+                });
                 setIsSuccess(true);
             } else {
                 setError(result.error || 'Errore durante l\'invio');
@@ -337,14 +356,16 @@ const LavoraConNoi: React.FC = () => {
                                                 <input
                                                     type="file"
                                                     accept=".pdf"
+                                                    ref={fileInputRef}
+                                                    onChange={handleFileChange}
                                                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                                 />
-                                                <div className="w-full bg-neutral-bg border-2 border-dashed border-gray-200 rounded-2xl py-4 px-4 text-sm text-gray-500 flex items-center justify-center gap-3 group-hover:border-secondary transition-all">
-                                                    <Upload className="w-5 h-5 text-secondary" />
-                                                    <span>Clicca per selezionare il file</span>
+                                                <div className={`w-full bg-neutral-bg border-2 border-dashed ${cvFilename ? 'border-secondary' : 'border-gray-200'} rounded-2xl py-4 px-4 text-sm text-gray-500 flex items-center justify-center gap-3 group-hover:border-secondary transition-all`}>
+                                                    <Upload className={`w-5 h-5 ${cvFilename ? 'text-secondary' : 'text-gray-400'}`} />
+                                                    <span>{cvFilename || 'Clicca per selezionare il file'}</span>
                                                 </div>
                                             </div>
-                                            <p className="text-[9px] text-gray-400 italic mt-1">* Nota: L'invio dei file sarà attivo dopo la verifica del dominio.</p>
+                                            <p className="text-[9px] text-gray-400 italic mt-1">* Nota: L'invio dei file fisici sarà attivo dopo la verifica del dominio. Attualmente catturiamo solo il nome del file.</p>
                                         </div>
 
                                         <div className="space-y-2">

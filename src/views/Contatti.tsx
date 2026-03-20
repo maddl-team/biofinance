@@ -17,6 +17,7 @@ import {
     Loader2
 } from 'lucide-react';
 import FAQ from '../components/sections/FAQ';
+import { sendToWebhook } from '../lib/webhook';
 
 const Contatti: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -60,8 +61,10 @@ const Contatti: React.FC = () => {
             });
 
             const result = await response.json();
-
             if (result.ok) {
+                // Parallel non-blocking webhook submission only on success
+                sendToWebhook('Pagina Contatti', formData);
+
                 setIsSuccess(true);
                 setFormData({
                     nome: '',
