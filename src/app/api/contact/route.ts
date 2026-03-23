@@ -32,8 +32,48 @@ export async function POST(req: Request) {
         }
 
         // 3. Construct email content
+        const excludeFields = ['website', 'privacy', 'cv_base64'];
+        const labelMapping: Record<string, string> = {
+            nome: 'Nome',
+            cognome: 'Cognome',
+            firstName: 'Nome',
+            lastName: 'Cognome',
+            email: 'Email',
+            telefono: 'Telefono',
+            phone: 'Telefono',
+            messaggio: 'Messaggio',
+            importo: 'Importo richiesto',
+            importoRichiesto: 'Importo richiesto',
+            numeroRate: 'Numero rate',
+            dataNascita: 'Data di nascita',
+            birthDate: 'Data di nascita',
+            areaInteresse: 'Area di interesse',
+            linkedin: 'Profilo LinkedIn',
+            motivazione: 'Motivazione/Note',
+            cv_filename: 'Nome file CV',
+            comparto: 'Comparto/Settore',
+            nomeAzienda: 'Nome Azienda',
+            bisogno: 'Bisogno/Esigenza',
+            tipoSoggettivita: 'Messaggio/Note',
+            stipendioNetto: 'Stipendio netto',
+            eta: 'Età',
+            tipoImpiego: 'Tipo impiego',
+            importoDesiderato: 'Importo desiderato',
+            durataMesi: 'Durata (mesi)',
+            professione: 'Professione',
+            cap: 'CAP',
+            nomeCognome: 'Nome e Cognome',
+            quantitaPrestiti: 'Numero prestiti in corso',
+            azienda: 'Azienda'
+        };
+
         const fieldsHtml = Object.entries(formData)
-            .map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`)
+            .filter(([key]) => !excludeFields.includes(key))
+            .map(([key, value]) => {
+                const label = labelMapping[key] || key;
+                const displayValue = value === true ? 'Sì' : value === false ? 'No' : value;
+                return `<li><strong>${label}:</strong> ${displayValue}</li>`;
+            })
             .join('');
 
         const emailHtml = `
@@ -51,7 +91,16 @@ export async function POST(req: Request) {
       </div>
     `;
 
-        // 4. Send email via Resend (Runtime initialization)
+        // 4. Handle Attachments
+        const attachments = [];
+        if (formData.cv_base64 && formData.cv_filename) {
+            attachments.push({
+                filename: formData.cv_filename,
+                content: Buffer.from(formData.cv_base64, 'base64'),
+            });
+        }
+
+        // 5. Send email via Resend (Runtime initialization)
         const { Resend } = await import('resend');
         const resend = new Resend(apiKey);
 
@@ -59,8 +108,9 @@ export async function POST(req: Request) {
             from: process.env.EMAIL_FROM || 'Biofinance <onboarding@resend.dev>',
             to: [process.env.CONTACT_EMAIL || 'info@biofinance.it'],
             replyTo: formData.email,
-            subject: `Nuovo Lead: ${formType || 'Contatto'} - ${formData.firstName || formData.nome || ''} ${formData.lastName || formData.cognome || ''}`,
+            subject: `Nuovo Lead: ${formType || 'Contatto'} - ${formData.firstName || formData.nome || formData.nomeCognome || ''} ${formData.lastName || formData.cognome || ''}`,
             html: emailHtml,
+            attachments: attachments.length > 0 ? attachments : undefined,
         });
 
         if (error) {

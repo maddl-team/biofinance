@@ -38,6 +38,7 @@ const LavoraConNoi: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [cvFilename, setCvFilename] = useState<string | null>(null);
+    const [cvBase64, setCvBase64] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -50,10 +51,32 @@ const LavoraConNoi: React.FC = () => {
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setCvFilename(e.target.files[0].name);
+        const file = e.target.files?.[0];
+        if (file) {
+            // 5MB limit
+            if (file.size > 5 * 1024 * 1024) {
+                setError('Il file è troppo grande. Il limite massimo è 5MB.');
+                setCvFilename(null);
+                setCvBase64(null);
+                if (fileInputRef.current) fileInputRef.current.value = '';
+                return;
+            }
+
+            setCvFilename(file.name);
+            const reader = new FileReader();
+            reader.onload = () => {
+                const base64String = (reader.result as string).split(',')[1];
+                setCvBase64(base64String);
+            };
+            reader.onerror = () => {
+                setError('Errore durante la lettura del file. Riprova.');
+                setCvFilename(null);
+                setCvBase64(null);
+            };
+            reader.readAsDataURL(file);
         } else {
             setCvFilename(null);
+            setCvBase64(null);
         }
     };
 
@@ -74,7 +97,8 @@ const LavoraConNoi: React.FC = () => {
                     formType: 'Candidatura Lavora Con Noi',
                     formData: {
                         ...formData,
-                        cv_filename: cvFilename || 'Nessun file'
+                        cv_filename: cvFilename || 'Nessun file',
+                        cv_base64: cvBase64 // Sent only to API for attachment
                     },
                     website: formData.website,
                     sourceUrl: window.location.href
@@ -396,7 +420,7 @@ const LavoraConNoi: React.FC = () => {
                                                 />
                                             </div>
                                             <label htmlFor="privacy" className="text-[10px] lg:text-xs text-gray-500 leading-tight cursor-pointer">
-                                                Ho letto e accetto l'informativa sulla privacy per il trattamento dei dati personali dei candidati (Privacy Policy HR).
+                                                Ho letto e accetto l'informativa sulla <a href="https://www.iubenda.com/privacy-policy/77015066/full-legal" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">privacy</a> per il trattamento dei dati personali dei candidati (Privacy Policy HR).
                                             </label>
                                         </div>
 

@@ -206,7 +206,7 @@ const EntiLocaliSanitaHub: React.FC = () => {
                                                 className="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                                             />
                                             <label htmlFor="privacy-enti-locali" className="text-xs text-gray-500 leading-snug cursor-pointer">
-                                                Ho letto l'informativa sulla <Link href="/privacy" className="text-primary font-bold hover:underline">Privacy Policy</Link> e acconsento al trattamento dei miei dati personali.
+                                                Ho letto l'informativa sulla <a href="https://www.iubenda.com/privacy-policy/77015066/full-legal" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">Privacy Policy</a> e acconsento al trattamento dei miei dati personali.
                                             </label>
                                         </div>
 

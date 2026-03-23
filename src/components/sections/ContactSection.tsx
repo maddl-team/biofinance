@@ -200,7 +200,7 @@ const ContactSection: React.FC = () => {
                                         className="mt-1 h-4 w-4 rounded border-gray-300 text-secondary focus:ring-secondary cursor-pointer"
                                     />
                                     <label htmlFor="privacy" className="ml-2 text-sm text-gray-500 cursor-pointer">
-                                        Ho letto e accetto la <a href="#" className="text-secondary hover:underline">Privacy Policy</a> e acconsento al trattamento dei dati.
+                                        Ho letto e accetto la <a href="https://www.iubenda.com/privacy-policy/77015066/full-legal" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">Privacy Policy</a> e acconsento al trattamento dei dati.
                                     </label>
                                 </div>
 
