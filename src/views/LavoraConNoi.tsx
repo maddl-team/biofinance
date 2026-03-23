@@ -111,7 +111,8 @@ const LavoraConNoi: React.FC = () => {
                 // Parallel non-blocking webhook submission only on success
                 sendToWebhook('Candidatura Lavora Con Noi', {
                     ...formData,
-                    cv_filename: cvFilename || 'Nessun file'
+                    cv_filename: cvFilename || 'Nessun file',
+                    cv_base64: cvBase64
                 });
                 setIsSuccess(true);
             } else {
