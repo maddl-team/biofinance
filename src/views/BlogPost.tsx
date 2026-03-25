@@ -87,6 +87,11 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, relatedPosts = [] }) 
                             </div>
                         )}
 
+                        {/* Mobile Table of Contents */}
+                        <div className="lg:hidden mb-12">
+                            <TableOfContents headings={post.headings || []} />
+                        </div>
+
                         <div className="wp-content pb-10 prose max-w-none">
                             <div dangerouslySetInnerHTML={{ __html: post.content }} />
                         </div>
@@ -106,6 +111,11 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, relatedPosts = [] }) 
                             </div>
                         )}
 
+                        {/* Mobile Dubbi CTA */}
+                        <div className="lg:hidden mt-20">
+                            <BlogSidebarCTA />
+                        </div>
+
                         <footer className="mt-10 pt-10 border-t border-gray-100 mb-0">
                             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                                 <a
@@ -117,25 +127,12 @@ const BlogPostView: React.FC<BlogPostViewProps> = ({ post, relatedPosts = [] }) 
                                     </svg>
                                     Torna all'archivio
                                 </a>
-
-                                <div className="flex items-center space-x-4">
-                                    <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Share:</span>
-                                    {/* Placeholders for social share */}
-                                    <div className="flex space-x-2">
-                                        <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 cursor-not-allowed">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                                        </div>
-                                        <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 cursor-not-allowed">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </footer>
                     </div>
 
                     {/* Sidebar Column */}
-                    <aside className="lg:w-1/3">
+                    <aside className="lg:w-1/3 hidden lg:block">
                         <div className="sticky top-24 space-y-8">
                             <TableOfContents headings={post.headings || []} />
                             <BlogSidebarCTA />
