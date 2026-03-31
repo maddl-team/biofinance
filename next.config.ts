@@ -59,6 +59,11 @@ const nextConfig: NextConfig = {
         destination: '/soluzioni-liquidita',
         permanent: true,
       },
+      {
+        source: '/consolidamento-del-debito-con-cessione-del-quinto',
+        destination: '/consolidamento-debiti',
+        permanent: true,
+      },
     ];
   },
 };
