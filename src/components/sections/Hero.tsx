@@ -28,8 +28,8 @@ const Hero: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
-                    <div className="max-w-2xl text-center lg:text-left flex flex-col items-center lg:items-start">
-                        <h1 className="text-[3.25rem] font-extrabold tracking-tight text-primary sm:text-5xl md:text-[3.25rem] mb-8 leading-tight">
+                    <div className="max-w-2xl text-left flex flex-col items-start">
+                        <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-primary mb-8 leading-tight">
                             Il Tuo Prestito su Misura: <br />
                             <span className="text-[#10B981]">Cessione del Quinto</span> Semplice, Trasparente, Garantita.
                         </h1>
