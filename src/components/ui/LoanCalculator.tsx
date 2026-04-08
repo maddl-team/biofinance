@@ -99,7 +99,7 @@ const LoanCalculator: React.FC = () => {
                 <div className="space-y-10">
                     {/* Step 1: Sliders */}
                     <div>
-                        <div className="flex justify-between items-center mb-6">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
                             <label htmlFor="amount-slider" className="text-xl text-neutral-dark">
                                 Di quale <span className="font-bold">importo</span> hai bisogno?
                             </label>
@@ -128,7 +128,7 @@ const LoanCalculator: React.FC = () => {
                     </div>
 
                     <div>
-                        <div className="flex justify-between items-center mb-6">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
                             <label htmlFor="installments-slider" className="text-xl text-neutral-dark">
                                 In quante <span className="font-bold">rate</span> vuoi pagare?
                             </label>
