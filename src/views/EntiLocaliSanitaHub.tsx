@@ -181,7 +181,7 @@ const EntiLocaliSanitaHub: React.FC = () => {
                                             onChange={handleInputChange}
                                             type="date"
                                             placeholder="Data di nascita"
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white appearance-none"
+                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white appearance-none min-h-[50px]"
                                         />
                                         <select
                                             name="comparto"
