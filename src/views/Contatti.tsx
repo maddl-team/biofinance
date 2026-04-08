@@ -133,7 +133,7 @@ const Contatti: React.FC = () => {
     return (
         <div className="bg-white">
             {/* Header Section */}
-            <section className="pt-24 pb-14 lg:pt-32 lg:pb-20 bg-neutral-bg overflow-hidden isolate relative">
+            <section className="pt-12 pb-14 lg:pt-32 lg:pb-20 bg-neutral-bg overflow-hidden isolate relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center max-w-4xl mx-auto">
                         <h1 className="text-4xl lg:text-5xl font-extrabold text-primary mb-6 leading-tight">

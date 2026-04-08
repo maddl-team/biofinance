@@ -9,7 +9,7 @@ import TrustindexWidget from '../widgets/TrustindexWidget';
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative pt-24 pb-14 lg:pt-32 lg:pb-20 overflow-hidden isolate">
+        <section className="relative pt-12 pb-14 lg:pt-32 lg:pb-20 overflow-hidden isolate">
             {/* ... SVG content ... */}
             <div className="absolute inset-0 -z-10 bg-white">
                 <svg
