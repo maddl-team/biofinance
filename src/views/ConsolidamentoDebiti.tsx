@@ -196,15 +196,17 @@ const ConsolidamentoDebiti: React.FC = () => {
             {/* CTA Section */}
             <section className="section-padding bg-neutral-bg">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="bg-primary p-12 lg:p-20 rounded-[4rem] shadow-2xl relative overflow-hidden group">
+                    <div className="bg-primary px-0 py-12 md:p-20 rounded-[4rem] shadow-2xl relative overflow-hidden group">
                         <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         <div className="relative z-10">
-                            <HeartPulse className="w-16 h-16 text-secondary mx-auto mb-8" />
-                            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">Libera il tuo stipendio oggi stesso.</h2>
-                            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-                                Analizziamo gratuitamente la tua situazione debitoria e troviamo la soluzione di consolidamento più vantaggiosa.
-                            </p>
-                            <div className="bg-white rounded-[2.5rem] p-8 lg:p-10 shadow-2xl border border-gray-100 text-left max-w-2xl mx-auto">
+                            <div className="px-8 md:px-0">
+                                <HeartPulse className="w-16 h-16 text-secondary mx-auto mb-8" />
+                                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">Libera il tuo stipendio oggi stesso.</h2>
+                                <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
+                                    Analizziamo gratuitamente la tua situazione debitoria e troviamo la soluzione di consolidamento più vantaggiosa.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-none md:rounded-[2.5rem] p-6 md:p-10 shadow-2xl border-y md:border border-gray-100 text-left max-w-2xl mx-auto">
                                 {!isSuccess ? (
                                     <form className="space-y-4" onSubmit={handleSubmit}>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
