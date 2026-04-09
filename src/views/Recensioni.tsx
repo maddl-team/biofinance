@@ -42,8 +42,8 @@ const Recensioni: React.FC = () => {
                                         {[1, 2, 3, 4].map((i) => (
                                             <div key={i} className="w-12 h-12 rounded-full border-2 border-white bg-gray-200 overflow-hidden relative">
                                                 <Image
-                                                    src={`https://i.pravatar.cc/150?u=${i + 10}`}
-                                                    alt="avatar"
+                                                    src={`/img/avatars/avatar-${i}.png`}
+                                                    alt={`avatar ${i}`}
                                                     fill
                                                     className="object-cover"
                                                     sizes="48px"
