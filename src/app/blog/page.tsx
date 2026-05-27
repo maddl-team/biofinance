@@ -9,6 +9,9 @@ export const revalidate = 3600; // 1 hour ISR
 export const metadata: Metadata = {
     title: "Blog Biofinance | Guide su Cessione del Quinto e Prestiti",
     description: "Esplora il blog di Biofinance. Guide aggiornate e consigli pratici su cessione del quinto, delega di pagamento, tassi e soluzioni per cattivi pagatori.",
+    alternates: {
+        canonical: "/blog",
+    },
     openGraph: {
         title: "Blog Biofinance | Guide su Cessione del Quinto e Prestiti",
         description: "Esplora il blog di Biofinance. Guide aggiornate e consigli pratici su cessione del quinto, delega di pagamento, tassi e soluzioni per cattivi pagatori.",
