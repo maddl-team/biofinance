@@ -26,7 +26,9 @@ function normalizeBlogPostUrlFromYoast(sourceUrl: string | undefined, slug: stri
 
     try {
         const parsed = new URL(sourceUrl);
-        return toAbsoluteFrontendUrl(`/blog${parsed.pathname.replace(/\/$/, "")}`);
+        const cleanPath = parsed.pathname.replace(/\/$/, "");
+        const normalizedPath = cleanPath.startsWith("/blog/") ? cleanPath : `/blog${cleanPath}`;
+        return toAbsoluteFrontendUrl(normalizedPath);
     } catch {
         return toAbsoluteFrontendUrl(`/blog/${slug}`);
     }
@@ -37,7 +39,15 @@ function normalizeBlogCategoryUrlFromYoast(sourceUrl: string | undefined, slug: 
 
     try {
         const parsed = new URL(sourceUrl);
-        const normalizedPath = parsed.pathname.replace(/^\/category\//, "/blog/categoria/").replace(/\/$/, "");
+        const cleanPath = parsed.pathname.replace(/\/$/, "");
+        let normalizedPath = cleanPath;
+
+        if (cleanPath.startsWith("/category/")) {
+            normalizedPath = cleanPath.replace(/^\/category\//, "/blog/categoria/");
+        } else if (!cleanPath.startsWith("/blog/categoria/")) {
+            normalizedPath = `/blog/categoria/${slug}`;
+        }
+
         return toAbsoluteFrontendUrl(normalizedPath || `/blog/categoria/${slug}`);
     } catch {
         return toAbsoluteFrontendUrl(`/blog/categoria/${slug}`);
@@ -51,6 +61,7 @@ function mapCmsToFrontendBlogUrls(input: string): string {
     return input
         .replace(/https?:\/\/[^"\\\s]+\/category\/([^/"\\\s]+)\/?/g, `${FRONTEND_URL}/blog/categoria/$1/`)
         .replace(wpRootRegex, `${FRONTEND_URL}/blog/`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/blog/`, "g"), `${FRONTEND_URL}/blog/`)
         .replace(new RegExp(`${FRONTEND_URL}/blog/wp-content/`, "g"), `${WORDPRESS_URL}/wp-content/`)
         .replace(new RegExp(`${FRONTEND_URL}/blog/wp-json/`, "g"), `${WORDPRESS_URL}/wp-json/`)
         .replace(new RegExp(`${FRONTEND_URL}/blog/wp-admin/`, "g"), `${WORDPRESS_URL}/wp-admin/`)
