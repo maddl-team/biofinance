@@ -17,6 +17,47 @@ export function stripHtml(html: string = "", limit: number = 160): string {
         .substring(0, limit);
 }
 
+function toAbsoluteFrontendUrl(path: string): string {
+    return `${FRONTEND_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+function normalizeBlogPostUrlFromYoast(sourceUrl: string | undefined, slug: string): string {
+    if (!sourceUrl) return toAbsoluteFrontendUrl(`/blog/${slug}`);
+
+    try {
+        const parsed = new URL(sourceUrl);
+        return toAbsoluteFrontendUrl(`/blog${parsed.pathname.replace(/\/$/, "")}`);
+    } catch {
+        return toAbsoluteFrontendUrl(`/blog/${slug}`);
+    }
+}
+
+function normalizeBlogCategoryUrlFromYoast(sourceUrl: string | undefined, slug: string): string {
+    if (!sourceUrl) return toAbsoluteFrontendUrl(`/blog/categoria/${slug}`);
+
+    try {
+        const parsed = new URL(sourceUrl);
+        const normalizedPath = parsed.pathname.replace(/^\/category\//, "/blog/categoria/").replace(/\/$/, "");
+        return toAbsoluteFrontendUrl(normalizedPath || `/blog/categoria/${slug}`);
+    } catch {
+        return toAbsoluteFrontendUrl(`/blog/categoria/${slug}`);
+    }
+}
+
+function mapCmsToFrontendBlogUrls(input: string): string {
+    const escapedWpUrl = WORDPRESS_URL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const wpRootRegex = new RegExp(`${escapedWpUrl}/?`, "g");
+
+    return input
+        .replace(/https?:\/\/[^"\\\s]+\/category\/([^/"\\\s]+)\/?/g, `${FRONTEND_URL}/blog/categoria/$1/`)
+        .replace(wpRootRegex, `${FRONTEND_URL}/blog/`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/wp-content/`, "g"), `${WORDPRESS_URL}/wp-content/`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/wp-json/`, "g"), `${WORDPRESS_URL}/wp-json/`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/wp-admin/`, "g"), `${WORDPRESS_URL}/wp-admin/`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/wp-login\\.php`, "g"), `${WORDPRESS_URL}/wp-login.php`)
+        .replace(new RegExp(`${FRONTEND_URL}/blog/#`, "g"), `${FRONTEND_URL}/#`);
+}
+
 /**
  * Generates robust Metadata for a Blog Post with fallback logic
  */
@@ -24,9 +65,8 @@ export function getPostMetadata(post: BlogPost): Metadata {
     const yoast = post.yoast;
 
     // 1. Canonical & OG URL
-    // Standardize URLs to prevent CMS domain leakage in social shares
-    const canonical = normalizeUrl(yoast.canonical) || `${FRONTEND_URL}/blog/${post.slug}`;
-    const ogUrl = `${FRONTEND_URL}/blog/${post.slug}`;
+    const canonical = normalizeBlogPostUrlFromYoast(yoast.canonical, post.slug);
+    const ogUrl = normalizeBlogPostUrlFromYoast(yoast.og_url || yoast.canonical, post.slug);
 
     // 2. Title & Description (Yoast > Excerpt > Content)
     const title = yoast.title || `${post.title} | Biofinance`;
@@ -77,8 +117,8 @@ export function getCategoryMetadata(category: BlogCategory): Metadata {
     const yoast = category.yoast;
 
     // 1. Canonical & OG URL
-    const canonical = (yoast && normalizeUrl(yoast.canonical)) || `${FRONTEND_URL}/blog/categoria/${category.slug}`;
-    const ogUrl = `${FRONTEND_URL}/blog/categoria/${category.slug}`;
+    const canonical = normalizeBlogCategoryUrlFromYoast(yoast?.canonical, category.slug);
+    const ogUrl = normalizeBlogCategoryUrlFromYoast(yoast?.og_url || yoast?.canonical, category.slug);
 
     // 2. Title & Description
     const title = (yoast && yoast.title) || `${category.name} | Blog Biofinance`;
@@ -179,16 +219,12 @@ export function getNormalizedSchema(yoast: YoastHeadJson | undefined): string | 
             };
 
             const schemaStr = JSON.stringify(filteredSchema);
-            const escapedWpUrl = WORDPRESS_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const wpRegex = new RegExp(escapedWpUrl, 'g');
-            return schemaStr.replace(wpRegex, FRONTEND_URL);
+            return mapCmsToFrontendBlogUrls(schemaStr);
         }
 
         // Fallback for non-graph schema (less common in Yoast)
         const schemaStr = JSON.stringify(schema);
-        const escapedWpUrl = WORDPRESS_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const wpRegex = new RegExp(escapedWpUrl, 'g');
-        return schemaStr.replace(wpRegex, FRONTEND_URL);
+        return mapCmsToFrontendBlogUrls(schemaStr);
     } catch (e) {
         console.error("Error normalizing WP schema:", e);
         return null;
