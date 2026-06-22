@@ -94,26 +94,47 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-                    <p>&copy; {new Date().getFullYear()} Biofinance S.r.l. - P.IVA 02048040477</p>
-                    <div className="flex gap-6">
-                        <a
-                            href="https://www.iubenda.com/privacy-policy/77015066/full-legal"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-white transition-colors"
-                        >
-                            Privacy Policy
-                        </a>
-                        <a
-                            href="https://www.iubenda.com/privacy-policy/77015066/cookie-policy"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-white transition-colors"
-                        >
-                            Cookie Policy
-                        </a>
+                <div className="border-t border-gray-800 pt-8 space-y-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                        <p>&copy; {new Date().getFullYear()} Biofinance S.r.l. - P.IVA 02048040477</p>
+                        <div className="flex gap-6">
+                            <a
+                                href="https://www.iubenda.com/privacy-policy/77015066/full-legal"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-white transition-colors"
+                            >
+                                Privacy Policy
+                            </a>
+                            <a
+                                href="https://www.iubenda.com/privacy-policy/77015066/cookie-policy"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-white transition-colors"
+                            >
+                                Cookie Policy
+                            </a>
+                        </div>
                     </div>
+
+                    <p className="text-xs text-gray-500 text-center">
+                        Web Marketing Agency:{" "}
+                        <a
+                            href="https://maddl.agency/"
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            className="inline-flex items-center gap-2 hover:text-gray-300 transition-colors"
+                        >
+                            MADDL Agency
+                            <Image
+                                src="https://maddl.agency/app/uploads/2019/10/logo-maddl-footer.png"
+                                alt="Logo MADDL Agency"
+                                width={80}
+                                height={30}
+                                className="h-[30px] w-auto"
+                            />
+                        </a>
+                    </p>
                 </div>
             </div>
         </footer>

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { sendToWebhook } from '../../lib/webhook';
+import { formatItalianNumber } from '../../lib/format';
 
 const LoanCalculator: React.FC = () => {
     const [step, setStep] = useState(1);
@@ -104,7 +105,7 @@ const LoanCalculator: React.FC = () => {
                                 Di quale <span className="font-bold">importo</span> hai bisogno?
                             </label>
                             <span className="text-3xl font-bold text-primary" aria-live="polite">
-                                {amount.toLocaleString('it-IT')} €
+                                {formatItalianNumber(amount)} €
                             </span>
                         </div>
                         <input
@@ -116,14 +117,14 @@ const LoanCalculator: React.FC = () => {
                             value={amount}
                             onChange={(e) => setAmount(Number(e.target.value))}
                             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-secondary"
-                            aria-valuetext={`${amount.toLocaleString('it-IT')} Euro`}
+                            aria-valuetext={`${formatItalianNumber(amount)} Euro`}
                             style={{
                                 background: `linear-gradient(to right, #10B981 0%, #10B981 ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #f3f4f6 ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #f3f4f6 100%)`
                             }}
                         />
                         <div className="flex justify-between text-sm text-gray-400 mt-3 font-medium">
-                            <span>{minAmount.toLocaleString('it-IT')} €</span>
-                            <span>{maxAmount.toLocaleString('it-IT')} €</span>
+                            <span>{formatItalianNumber(minAmount)} €</span>
+                            <span>{formatItalianNumber(maxAmount)} €</span>
                         </div>
                     </div>
 
