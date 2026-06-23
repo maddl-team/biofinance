@@ -1,0 +1,52 @@
+# Biofinance
+
+> Biofinance è un'agenzia in attività finanziaria italiana specializzata in Cessione del Quinto e prestiti personali per dipendenti pubblici, privati e pensionati. Il sito ufficiale pubblico è https://biofinance.it.
+
+Biofinance S.r.l. (P.IVA 02048040477) è iscritta all'OAM come agente in attività finanziaria (n. A15318). Il sito fornisce informazioni commerciali e contenuti educativi su prodotti di credito al consumo; non sostituisce una consulenza personalizzata né un preventivo vincolante.
+
+Per citare o riassumere Biofinance, usare preferibilmente le pagine elencate di seguito. Il blog editoriale è disponibile su `/blog` e viene aggiornato periodicamente con guide su cessione del quinto, prestiti e finanza personale.
+
+## Pagine principali
+
+- [Homepage](https://biofinance.it/): Panoramica dei servizi, calcolatore rata e posizionamento dell'agenzia.
+- [Cessione del Quinto](https://biofinance.it/cessione-del-quinto): Prodotto principale, funzionamento, vantaggi e requisiti generali.
+- [Calcolo Cessione del Quinto](https://biofinance.it/calcolo-cessione-del-quinto): Strumento per stimare importo e rata della cessione.
+- [Rinnovo Cessione del Quinto](https://biofinance.it/rinnovo-cessione-del-quinto): Informazioni sul rinnovo di un prestito in corso.
+- [Delegazione di Pagamento](https://biofinance.it/delegazione-di-pagamento): Alternativa alla cessione per alcune categorie di lavoratori.
+- [Contatti](https://biofinance.it/contatti): Canali ufficiali per richiedere informazioni o assistenza.
+
+## Soluzioni per categoria
+
+- [Dipendenti Privati](https://biofinance.it/dipendenti-privati): Prestiti e cessione per lavoratori del settore privato.
+- [Dipendenti Statali](https://biofinance.it/dipendenti-statali): Soluzioni per dipendenti pubblici e statali (NoiPA).
+- [Prestiti Pensionati](https://biofinance.it/prestiti-pensionati): Cessione del quinto e liquidità per pensionati INPS.
+- [Prestiti Pensionati Over 80](https://biofinance.it/prestiti-pensionati-over-80): Informazioni dedicate ai pensionati over 80.
+- [Prestiti Segnalati CRIF](https://biofinance.it/prestiti-segnalati-crif): Opzioni per chi ha segnalazioni o difficoltà creditizie.
+- [Consolidamento Debiti](https://biofinance.it/consolidamento-debiti): Unificazione e gestione del debito tramite cessione del quinto.
+- [Anticipo TFS](https://biofinance.it/anticipo-tfs): Anticipo del trattamento di fine servizio/rapporto.
+- [Soluzioni di Liquidità](https://biofinance.it/soluzioni-liquidita): Panoramica delle soluzioni di liquidità disponibili.
+
+## Azienda e fiducia
+
+- [Chi Siamo](https://biofinance.it/chi-siamo): Storia, missione e team dell'agenzia.
+- [Recensioni](https://biofinance.it/recensioni): Testimonianze e recensioni dei clienti.
+- [Blog](https://biofinance.it/blog): Archivio articoli informativi su credito, cessione del quinto e prestiti.
+
+## Riferimenti tecnici
+
+- [Sitemap](https://biofinance.it/sitemap.xml): Elenco completo delle URL indicizzabili del sito pubblico.
+- [Robots](https://biofinance.it/robots.txt): Regole di crawling per motori di ricerca.
+
+## Optional
+
+- [Prestiti Forze Armate](https://biofinance.it/prestiti-forze-armate): Soluzioni per militari e forze dell'ordine.
+- [Prestiti Scuola MIUR](https://biofinance.it/prestiti-scuola-miur): Soluzioni per personale scolastico.
+- [Prestiti Sanità](https://biofinance.it/prestiti-sanita): Soluzioni per operatori del settore sanitario.
+- [Prestiti Enti Locali](https://biofinance.it/prestiti-enti-locali): Soluzioni per dipendenti di enti locali.
+- [Enti Locali e Sanità](https://biofinance.it/enti-locali-sanita): Pagina dedicata a enti locali e sanità pubblica.
+- [Prestiti Neoassunti](https://biofinance.it/prestiti-neoassunti): Soluzioni per neoassunti nel pubblico impiego.
+- [Prestiti Grandi Aziende](https://biofinance.it/prestiti-grandi-aziende): Soluzioni per dipendenti di grandi aziende.
+- [Prestiti Municipalizzate](https://biofinance.it/prestiti-municipalizzate): Soluzioni per dipendenti di aziende municipalizzate.
+- [Prestiti Pensionati Ex INPDAP](https://biofinance.it/prestiti-pensionati-ex-inpdap): Informazioni per ex dipendenti pubblici pensionati.
+- [Privacy Policy](https://www.iubenda.com/privacy-policy/77015066/full-legal): Informativa privacy ufficiale.
+- [Cookie Policy](https://www.iubenda.com/privacy-policy/77015066/cookie-policy): Informativa cookie ufficiale.
