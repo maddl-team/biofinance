@@ -18,7 +18,7 @@ const TransparencyLinks: React.FC = () => {
         {
             title: "Report Reclami",
             subtitle: "Modalità di inoltro a Fides Spa",
-            url: "https://www.fidesspa.com/it/content/reclami",
+            url: "https://www.fidesspa.com/it/reclami",
             icon: MessageCircleWarning,
         }
     ];
