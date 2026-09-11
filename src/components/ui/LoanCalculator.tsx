@@ -6,6 +6,24 @@ import { ArrowRight } from 'lucide-react';
 import { sendToWebhook } from '../../lib/webhook';
 import { formatItalianNumber } from '../../lib/format';
 
+const PROFESSIONI = [
+    'Altro',
+    'Autonomo',
+    'Casalinga',
+    'Dipendente Azienda Privata',
+    'Dipendente Municipalizzata',
+    'Dipendente Poste',
+    'Dipendente Pubblico',
+    'Dipendente Statale',
+    'Dipendente Trenitalia',
+    'Libero Professionista',
+    'Medico Convenzionato',
+    'Militare',
+    'Pensionato Altro Ente',
+    'Pensionato INPDAP',
+    'Pensionato',
+] as const;
+
 const LoanCalculator: React.FC = () => {
     const [step, setStep] = useState(1);
     const [amount, setAmount] = useState(15000);
@@ -15,6 +33,7 @@ const LoanCalculator: React.FC = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
+        professione: '',
         email: '',
         phone: '',
         birthDate: '',
@@ -26,8 +45,9 @@ const LoanCalculator: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const checked = (e.target as HTMLInputElement).checked;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
@@ -196,6 +216,25 @@ const LoanCalculator: React.FC = () => {
                     </div>
 
                     <div>
+                        <label htmlFor="professione" className="block text-sm font-bold text-gray-700 mb-2">La tua professione</label>
+                        <select
+                            id="professione"
+                            name="professione"
+                            required
+                            value={formData.professione}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                        >
+                            <option value="" disabled>Seleziona professione</option>
+                            {PROFESSIONI.map((professione) => (
+                                <option key={professione} value={professione}>
+                                    {professione}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
                         <input
                             type="email"
@@ -303,7 +342,7 @@ const LoanCalculator: React.FC = () => {
                         onClick={() => {
                             setStep(1);
                             setIsSuccess(false);
-                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', email: '', phone: '', birthDate: '', privacy: false }));
+                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', professione: '', email: '', phone: '', birthDate: '', privacy: false }));
                         }}
                         className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
                     >
