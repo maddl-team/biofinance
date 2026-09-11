@@ -32,6 +32,7 @@ const Municipalizzate: React.FC = () => {
         dataNascita: '',
         email: '',
         nomeAzienda: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -40,8 +41,9 @@ const Municipalizzate: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const checked = (e.target as HTMLInputElement).checked;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
@@ -232,6 +234,20 @@ const Municipalizzate: React.FC = () => {
                                                 placeholder="Nome Azienda (es. Alia, Autolinee Toscane)"
                                                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                             />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                                            <select
+                                                name="bustaPaga"
+                                                required
+                                                value={formData.bustaPaga}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                            >
+                                                <option value="" disabled>Seleziona</option>
+                                                <option value="Sì">Sì</option>
+                                                <option value="No">No</option>
+                                            </select>
                                         </div>
                                         <div className="flex items-start gap-3">
                                             <input

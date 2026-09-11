@@ -19,6 +19,7 @@ const AdvancedLoanCalculator: React.FC = () => {
         lastName: '',
         email: '',
         phone: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -27,8 +28,9 @@ const AdvancedLoanCalculator: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const checked = (e.target as HTMLInputElement).checked;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
@@ -147,6 +149,7 @@ const AdvancedLoanCalculator: React.FC = () => {
                                 <option value="statale">Statale / Pubblico (NoiPA)</option>
                                 <option value="privato">Dipendente Azienda Privata</option>
                                 <option value="pensionato">Pensionato (INPS/EX-INPDAP)</option>
+                                <option value="altro">Altro</option>
                             </select>
                         </div>
 
@@ -258,6 +261,22 @@ const AdvancedLoanCalculator: React.FC = () => {
                         />
                     </div>
 
+                    <div>
+                        <label htmlFor="bustaPaga-advanced" className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                        <select
+                            id="bustaPaga-advanced"
+                            name="bustaPaga"
+                            required
+                            value={formData.bustaPaga}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                        >
+                            <option value="" disabled>Seleziona</option>
+                            <option value="Sì">Sì</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
                     <div className="flex items-start gap-3">
                         <input
                             type="checkbox"
@@ -327,7 +346,7 @@ const AdvancedLoanCalculator: React.FC = () => {
                         onClick={() => {
                             setStep(1);
                             setIsSuccess(false);
-                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', email: '', phone: '', privacy: false }));
+                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', email: '', phone: '', bustaPaga: '', privacy: false }));
                         }}
                         className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
                     >

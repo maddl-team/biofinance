@@ -30,6 +30,7 @@ const AnticipoTFS: React.FC = () => {
         telefono: '',
         professione: '',
         cap: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -251,6 +252,20 @@ const AnticipoTFS: React.FC = () => {
                                                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                                 />
                                             </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                                            <select
+                                                name="bustaPaga"
+                                                required
+                                                value={formData.bustaPaga}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                            >
+                                                <option value="" disabled>Seleziona</option>
+                                                <option value="Sì">Sì</option>
+                                                <option value="No">No</option>
+                                            </select>
                                         </div>
                                         <div className="flex items-start gap-3">
                                             <input

@@ -17,6 +17,7 @@ import {
 import Link from 'next/link';
 import FAQ from '../components/sections/FAQ';
 import { sendToWebhook } from '../lib/webhook';
+import { PROFESSIONI } from '../lib/professioni';
 
 const SoluzioniLiquidita: React.FC = () => {
     const formRef = useRef<HTMLDivElement>(null);
@@ -25,8 +26,10 @@ const SoluzioniLiquidita: React.FC = () => {
         cognome: '',
         telefono: '',
         dataNascita: '',
+        professione: '',
         email: '',
         bisogno: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -205,6 +208,23 @@ const SoluzioniLiquidita: React.FC = () => {
                                             </div>
                                         </div>
                                         <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">La tua professione</label>
+                                            <select
+                                                name="professione"
+                                                required
+                                                value={formData.professione}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-700"
+                                            >
+                                                <option value="" disabled>Seleziona professione</option>
+                                                {PROFESSIONI.map((professione) => (
+                                                    <option key={professione} value={professione}>
+                                                        {professione}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div>
                                             <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
                                             <input
                                                 name="email"
@@ -229,6 +249,20 @@ const SoluzioniLiquidita: React.FC = () => {
                                                 <option value="liquidita">Ho bisogno di più liquidità</option>
                                                 <option value="consolidamento">Voglio unire le mie rate</option>
                                                 <option value="crif">Ho segnalazioni CRIF</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                                            <select
+                                                name="bustaPaga"
+                                                required
+                                                value={formData.bustaPaga}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white text-gray-700"
+                                            >
+                                                <option value="" disabled>Seleziona</option>
+                                                <option value="Sì">Sì</option>
+                                                <option value="No">No</option>
                                             </select>
                                         </div>
                                         <div className="flex items-start gap-3">

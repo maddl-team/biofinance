@@ -1,0 +1,17 @@
+export const PROFESSIONI = [
+    'Altro',
+    'Autonomo',
+    'Casalinga',
+    'Dipendente Azienda Privata',
+    'Dipendente Municipalizzata',
+    'Dipendente Poste',
+    'Dipendente Pubblico',
+    'Dipendente Statale',
+    'Dipendente Trenitalia',
+    'Libero Professionista',
+    'Medico Convenzionato',
+    'Militare',
+    'Pensionato Altro Ente',
+    'Pensionato INPDAP',
+    'Pensionato',
+] as const;

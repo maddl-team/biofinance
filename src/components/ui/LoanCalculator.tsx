@@ -5,24 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { sendToWebhook } from '../../lib/webhook';
 import { formatItalianNumber } from '../../lib/format';
-
-const PROFESSIONI = [
-    'Altro',
-    'Autonomo',
-    'Casalinga',
-    'Dipendente Azienda Privata',
-    'Dipendente Municipalizzata',
-    'Dipendente Poste',
-    'Dipendente Pubblico',
-    'Dipendente Statale',
-    'Dipendente Trenitalia',
-    'Libero Professionista',
-    'Medico Convenzionato',
-    'Militare',
-    'Pensionato Altro Ente',
-    'Pensionato INPDAP',
-    'Pensionato',
-] as const;
+import { PROFESSIONI } from '../../lib/professioni';
 
 const LoanCalculator: React.FC = () => {
     const [step, setStep] = useState(1);
@@ -37,6 +20,7 @@ const LoanCalculator: React.FC = () => {
         email: '',
         phone: '',
         birthDate: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -273,6 +257,22 @@ const LoanCalculator: React.FC = () => {
                         </div>
                     </div>
 
+                    <div>
+                        <label htmlFor="bustaPaga" className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                        <select
+                            id="bustaPaga"
+                            name="bustaPaga"
+                            required
+                            value={formData.bustaPaga}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                        >
+                            <option value="" disabled>Seleziona</option>
+                            <option value="Sì">Sì</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
                     <div className="flex items-start gap-3">
                         <input
                             type="checkbox"
@@ -342,7 +342,7 @@ const LoanCalculator: React.FC = () => {
                         onClick={() => {
                             setStep(1);
                             setIsSuccess(false);
-                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', professione: '', email: '', phone: '', birthDate: '', privacy: false }));
+                            setFormData(prev => ({ ...prev, firstName: '', lastName: '', professione: '', email: '', phone: '', birthDate: '', bustaPaga: '', privacy: false }));
                         }}
                         className="text-secondary font-bold hover:underline uppercase tracking-widest text-xs"
                     >

@@ -11,6 +11,7 @@ const ContactSection: React.FC = () => {
         email: '',
         telefono: '',
         messaggio: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -19,7 +20,7 @@ const ContactSection: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { id, value, type } = e.target as any;
         const checked = (e.target as HTMLInputElement).checked;
         setFormData(prev => ({
@@ -57,6 +58,7 @@ const ContactSection: React.FC = () => {
                     email: '',
                     telefono: '',
                     messaggio: '',
+                    bustaPaga: '',
                     privacy: false,
                     website: ''
                 });
@@ -188,6 +190,21 @@ const ContactSection: React.FC = () => {
                                         className="w-full rounded-lg border-gray-300 border p-3 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
                                         placeholder="Come possiamo aiutarti?"
                                     ></textarea>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="bustaPaga" className="block text-sm font-medium text-gray-700 mb-1">Hai una busta paga o un cedolino?</label>
+                                    <select
+                                        id="bustaPaga"
+                                        required
+                                        value={formData.bustaPaga}
+                                        onChange={handleInputChange}
+                                        className="w-full rounded-lg border-gray-300 border p-3 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all appearance-none bg-white"
+                                    >
+                                        <option value="" disabled>Seleziona</option>
+                                        <option value="Sì">Sì</option>
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
 
                                 <div className="flex items-start">

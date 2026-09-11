@@ -16,15 +16,18 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import { sendToWebhook } from '../lib/webhook';
+import { PROFESSIONI } from '../lib/professioni';
 
 const DelegazionePagamento: React.FC = () => {
     const [formData, setFormData] = useState({
         nome: '',
         cognome: '',
+        professione: '',
         telefono: '',
         dataNascita: '',
         email: '',
         azienda: '',
+        bustaPaga: '',
         privacy: false,
         website: '' // Honeypot
     });
@@ -33,8 +36,9 @@ const DelegazionePagamento: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value, type } = e.target;
+        const checked = (e.target as HTMLInputElement).checked;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
@@ -232,6 +236,23 @@ const DelegazionePagamento: React.FC = () => {
                                                 />
                                             </div>
                                         </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">La tua professione</label>
+                                            <select
+                                                name="professione"
+                                                required
+                                                value={formData.professione}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                            >
+                                                <option value="" disabled>Seleziona professione</option>
+                                                {PROFESSIONI.map((professione) => (
+                                                    <option key={professione} value={professione}>
+                                                        {professione}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div>
                                                 <label className="block text-sm font-bold text-gray-700 mb-2">Email</label>
@@ -282,6 +303,20 @@ const DelegazionePagamento: React.FC = () => {
                                                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white appearance-none min-h-[50px]"
                                                 />
                                             </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 mb-2">Hai una busta paga o un cedolino?</label>
+                                            <select
+                                                name="bustaPaga"
+                                                required
+                                                value={formData.bustaPaga}
+                                                onChange={handleInputChange}
+                                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none bg-white"
+                                            >
+                                                <option value="" disabled>Seleziona</option>
+                                                <option value="Sì">Sì</option>
+                                                <option value="No">No</option>
+                                            </select>
                                         </div>
                                         <div className="flex items-start gap-3">
                                             <input

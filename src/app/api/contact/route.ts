@@ -61,6 +61,7 @@ export async function POST(req: Request) {
             importoDesiderato: 'Importo desiderato',
             durataMesi: 'Durata (mesi)',
             professione: 'Professione',
+            bustaPaga: 'Hai una busta paga o un cedolino?',
             cap: 'CAP',
             nomeCognome: 'Nome e Cognome',
             quantitaPrestiti: 'Numero prestiti in corso',
