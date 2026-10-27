@@ -92,21 +92,28 @@ function slugify(text: string): string {
 }
 
 /**
- * Helper to decode common HTML entities from WordPress
+ * Decode HTML entities from WordPress plain-text fields (titles, names, etc.).
+ * Handles numeric (&#8217;), hex (&#x27;) and common named entities.
  */
-function decodeHtmlEntities(text: string): string {
+export function decodeHtmlEntities(text: string = ""): string {
+    if (!text) return "";
+
     return text
-        .replace(/&#8217;/g, "'")
-        .replace(/&#8211;/g, "–")
-        .replace(/&#8220;/g, "“")
-        .replace(/&#8221;/g, "”")
-        .replace(/&#038;/g, "&")
-        .replace(/&amp;/g, "&")
+        .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+        .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+        .replace(/&nbsp;/g, " ")
+        .replace(/&rsquo;/g, "’")
+        .replace(/&lsquo;/g, "‘")
+        .replace(/&rdquo;/g, "”")
+        .replace(/&ldquo;/g, "“")
+        .replace(/&ndash;/g, "–")
+        .replace(/&mdash;/g, "—")
+        .replace(/&hellip;/g, "…")
         .replace(/&quot;/g, '"')
         .replace(/&apos;/g, "'")
         .replace(/&lt;/g, "<")
         .replace(/&gt;/g, ">")
-        .replace(/&hellip;/g, "…");
+        .replace(/&amp;/g, "&");
 }
 
 /**
@@ -137,6 +144,7 @@ export function normalizePost(post: WPPost): BlogPost {
     const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0];
     const categories = post._embedded?.["wp:term"]?.[0] || [];
     const author = post._embedded?.author?.[0];
+    const title = decodeHtmlEntities(post.title.rendered);
 
     // 1. Initial normalization of links and images
     const baseContent = normalizeHtmlContent(post.content.rendered);
@@ -147,30 +155,30 @@ export function normalizePost(post: WPPost): BlogPost {
     return {
         id: post.id,
         slug: post.slug,
-        title: post.title.rendered,
+        title,
         content: content,
         excerpt: normalizeHtmlContent(post.excerpt.rendered),
         date: post.date,
         featuredImage: featuredImage
             ? {
                 url: featuredImage.source_url,
-                alt: featuredImage.alt_text || post.title.rendered,
+                alt: decodeHtmlEntities(featuredImage.alt_text) || title,
                 width: featuredImage.media_details.width,
                 height: featuredImage.media_details.height,
             }
             : undefined,
         categories: categories.map((cat) => ({
             id: cat.id,
-            name: cat.name,
+            name: decodeHtmlEntities(cat.name),
             slug: cat.slug,
         })),
         headings,
         author: author ? {
-            name: author.name,
-            description: author.description || "",
+            name: decodeHtmlEntities(author.name),
+            description: decodeHtmlEntities(author.description || ""),
             avatarUrl: author.avatar_urls?.["96"] || author.avatar_urls?.["48"] || author.avatar_urls?.["24"]
         } : undefined,
-        yoast: post.yoast_head_json || { title: post.title.rendered },
+        yoast: post.yoast_head_json || { title },
     };
 }
 
@@ -180,9 +188,9 @@ export function normalizePost(post: WPPost): BlogPost {
 export function normalizeCategory(category: WPCategory): BlogCategory {
     return {
         id: category.id,
-        name: category.name,
+        name: decodeHtmlEntities(category.name),
         slug: category.slug,
-        description: category.description,
+        description: decodeHtmlEntities(category.description),
         count: category.count,
         yoast: category.yoast_head_json,
     };
